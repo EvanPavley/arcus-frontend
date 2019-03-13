@@ -1,3 +1,25 @@
 .App {
   text-align: left;
+  display: flex;
+  margin-left: 9rem;
+  margin-top: 2rem;
+}
+.pallet{
+  display: flex;
+  margin-right: 5rem;
+  margin-top: .5rem;
+  margin-bottom: .5rem;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  padding-right: .3rem;
+  padding-left: .3rem;
+  border: 2px dotted gray;
+}
+
+p{
+  margin: 0rem;
+  font-size: .8rem;
+}
+.color-picker{
+  margin-right: 5rem
 }
