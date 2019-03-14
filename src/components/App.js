@@ -42,8 +42,8 @@ class App extends Component {
   getTriadicRight = hue => hue + 120
 
   state = {
-    selectedColor: '#00deff',
-    h: 188,
+    selectedColor: '#00bcff',
+    h: 196,
     s: 100,
     l: 50,
     complementaryH: this.getComplement(188),
@@ -59,8 +59,9 @@ class App extends Component {
     desaturateTwo: 30,
   };
 
-  handleColorChange = (color) => {
+  handleHueChange = (color) => {
     let hslArray = hexToHsl(color)
+    console.log(color);
     let hsl = {
       h: hslArray[0],
       s: hslArray[1],
@@ -85,19 +86,17 @@ class App extends Component {
   }
 
   render() {
-    // console.log(this.state);
     return (
       <div className="App">
         <div className="color-picker">
           <CircularColor
             size={200}
             color={ this.state.selectedColor }
-            onChange={this.handleColorChange}
+            onChange={this.handleHueChange}
             centerRect={true}
           />
         </div>
         <div>
-          <p>MonoChromeLight</p>
           <div className="pallet">
             <StyledSwatch
               h={ this.state.h }
@@ -105,63 +104,26 @@ class App extends Component {
               l={ this.state.l }
             ></StyledSwatch>
             <StyledSwatch
-              h={ this.state.h }
+              h={ this.state.splitComplementaryRightH}
+              s={ this.state.s }
+              l={ this.state.lightenOne }
+            ></StyledSwatch>
+            <StyledSwatch
+              h={ this.state.splitComplementaryLeftH }
+              s={ this.state.s }
+              l={ this.state.lightenOne }
+            ></StyledSwatch>
+            <StyledSwatch
+              h={ this.state.analogusLeftH }
               s={ this.state.s }
               l={ this.state.lightenOne }
             ></StyledSwatch>
             <StyledSwatch
               h={ this.state.h }
               s={ this.state.s }
-              l={ this.state.darkenOne }
-            ></StyledSwatch>
-          </div>
-          <p>MonoChromeSaturation</p>
-          <div className="pallet">
-            <StyledSwatch
-              h={ this.state.h }
-              s={ this.state.s }
-              l={ this.state.l }
-            ></StyledSwatch>
-            <StyledSwatch
-              h={ this.state.h }
-              s={ this.state.desaturateOne }
-              l={ this.state.l }
-            ></StyledSwatch>
-            <StyledSwatch
-              h={ this.state.h }
-              s={ this.state.desaturateTwo }
-              l={ this.state.l }
-            ></StyledSwatch>
-          </div>
-          <p>MonoChromeLightSaturation</p>
-          <div className="pallet">
-            <StyledSwatch
-              h={ this.state.h }
-              s={ this.state.desaturateOne }
-              l={ this.state.lightenOne }
-            ></StyledSwatch>
-            <StyledSwatch
-              h={ this.state.h }
-              s={ this.state.desaturateTwo }
               l={ this.state.lightenOne }
             ></StyledSwatch>
           </div>
-          <p>MonoChromeDarkSaturation</p>
-          <div className="pallet">
-            <StyledSwatch
-              h={ this.state.h }
-              s={ this.state.desaturateOne }
-              l={ this.state.darkenOne }
-            ></StyledSwatch>
-            <StyledSwatch
-              h={ this.state.h }
-              s={ this.state.desaturateTwo }
-              l={ this.state.darkenOne }
-            ></StyledSwatch>
-          </div>
-        </div>
-        <div>
-          <p>Analogus1</p>
           <div className="pallet">
             <StyledSwatch
               h={ this.state.h }
@@ -171,212 +133,24 @@ class App extends Component {
             <StyledSwatch
               h={ this.state.analogusRightH }
               s={ this.state.s }
-              l={ this.state.l }
-            ></StyledSwatch>
-          </div>
-          <div className="pallet">
-            <StyledSwatch
-              h={ this.state.analogusRightH }
-              s={ this.state.s }
               l={ this.state.lightenOne }
             ></StyledSwatch>
-            <StyledSwatch
-              h={ this.state.analogusRightH }
-              s={ this.state.s }
-              l={ this.state.l }
-            ></StyledSwatch>
-            <StyledSwatch
-              h={ this.state.analogusRightH }
-              s={ this.state.s }
-              l={ this.state.darkenOne }
-            ></StyledSwatch>
-          </div>
-          <div className="pallet">
-            <StyledSwatch
-              h={ this.state.analogusRightH }
-              s={ this.state.s }
-              l={ this.state.l }
-            ></StyledSwatch>
-            <StyledSwatch
-              h={ this.state.analogusRightH }
-              s={ this.state.desaturateOne }
-              l={ this.state.l }
-            ></StyledSwatch>
-            <StyledSwatch
-              h={ this.state.analogusRightH }
-              s={ this.state.desaturateTwo }
-              l={ this.state.l }
-            ></StyledSwatch>
-          </div>
-          <div className="pallet">
             <StyledSwatch
               h={ this.state.analogusRightH }
               s={ this.state.desaturateOne }
               l={ this.state.lightenOne }
             ></StyledSwatch>
-            <StyledSwatch
-              h={ this.state.analogusRightH }
-              s={ this.state.desaturateTwo }
-              l={ this.state.lightenOne }
-            ></StyledSwatch>
-          </div>
-          <div className="pallet">
-            <StyledSwatch
-              h={ this.state.analogusRightH }
-              s={ this.state.desaturateOne }
-              l={ this.state.darkenOne }
-            ></StyledSwatch>
-            <StyledSwatch
-              h={ this.state.analogusRightH }
-              s={ this.state.desaturateTwo }
-              l={ this.state.darkenOne }
-            ></StyledSwatch>
-          </div>
-          <p>Analogus2</p>
-          <div className="pallet">
             <StyledSwatch
               h={ this.state.h }
               s={ this.state.s }
-              l={ this.state.l }
-            ></StyledSwatch>
-            <StyledSwatch
-              h={ this.state.analogusLeftH }
-              s={ this.state.s }
-              l={ this.state.l }
-            ></StyledSwatch>
-          </div>
-          <div className="pallet">
-            <StyledSwatch
-              h={ this.state.analogusLeftH }
-              s={ this.state.s }
-              l={ this.state.lightenOne }
-            ></StyledSwatch>
-            <StyledSwatch
-              h={ this.state.analogusLeftH }
-              s={ this.state.s }
-              l={ this.state.l }
-            ></StyledSwatch>
-            <StyledSwatch
-              h={ this.state.analogusLeftH }
-              s={ this.state.s }
               l={ this.state.darkenOne }
             ></StyledSwatch>
-          </div>
-          <div className="pallet">
-            <StyledSwatch
-              h={ this.state.analogusLeftH }
-              s={ this.state.s }
-              l={ this.state.l }
-            ></StyledSwatch>
-            <StyledSwatch
-              h={ this.state.analogusLeftH }
-              s={ this.state.desaturateOne }
-              l={ this.state.l }
-            ></StyledSwatch>
-            <StyledSwatch
-              h={ this.state.analogusLeftH }
-              s={ this.state.desaturateTwo }
-              l={ this.state.l }
-            ></StyledSwatch>
-          </div>
-          <div className="pallet">
-            <StyledSwatch
-              h={ this.state.analogusLeftH }
-              s={ this.state.desaturateOne }
-              l={ this.state.lightenOne }
-            ></StyledSwatch>
-            <StyledSwatch
-              h={ this.state.analogusLeftH }
-              s={ this.state.desaturateTwo }
-              l={ this.state.lightenOne }
-            ></StyledSwatch>
-          </div>
-          <div className="pallet">
-            <StyledSwatch
-              h={ this.state.analogusLeftH }
-              s={ this.state.desaturateOne }
-              l={ this.state.darkenOne }
-            ></StyledSwatch>
-            <StyledSwatch
-              h={ this.state.analogusLeftH }
-              s={ this.state.desaturateTwo }
-              l={ this.state.darkenOne }
-            ></StyledSwatch>
-          </div>
-        </div>
-        <div>
-          <p>SplitComplement1</p>
-          <div className="pallet">
             <StyledSwatch
               h={ this.state.h }
-              s={ this.state.s }
-              l={ this.state.l }
-            ></StyledSwatch>
-            <StyledSwatch
-              h={ this.state.splitComplementaryLeftH }
-              s={ this.state.s }
-              l={ this.state.l }
-            ></StyledSwatch>
-          </div>
-          <div className="pallet">
-            <StyledSwatch
-              h={ this.state.splitComplementaryLeftH }
-              s={ this.state.s }
-              l={ this.state.lightenOne }
-            ></StyledSwatch>
-            <StyledSwatch
-              h={ this.state.splitComplementaryLeftH }
-              s={ this.state.s }
-              l={ this.state.l }
-            ></StyledSwatch>
-            <StyledSwatch
-              h={ this.state.splitComplementaryLeftH }
-              s={ this.state.s }
-              l={ this.state.darkenOne }
-            ></StyledSwatch>
-          </div>
-          <div className="pallet">
-            <StyledSwatch
-              h={ this.state.splitComplementaryLeftH }
-              s={ this.state.s }
-              l={ this.state.l }
-            ></StyledSwatch>
-            <StyledSwatch
-              h={ this.state.splitComplementaryLeftH }
-              s={ this.state.desaturateOne }
-              l={ this.state.l }
-            ></StyledSwatch>
-            <StyledSwatch
-              h={ this.state.splitComplementaryLeftH }
-              s={ this.state.desaturateTwo }
-              l={ this.state.l }
-            ></StyledSwatch>
-          </div>
-          <div className="pallet">
-            <StyledSwatch
-              h={ this.state.splitComplementaryLeftH }
-              s={ this.state.desaturateOne }
-              l={ this.state.lightenOne }
-            ></StyledSwatch>
-            <StyledSwatch
-              h={ this.state.splitComplementaryLeftH }
-              s={ this.state.desaturateTwo }
-              l={ this.state.lightenOne }
-            ></StyledSwatch>
-          </div>
-          <div className="pallet">
-            <StyledSwatch
-              h={ this.state.splitComplementaryLeftH }
               s={ this.state.desaturateOne }
               l={ this.state.darkenOne }
             ></StyledSwatch>
-            <StyledSwatch
-              h={ this.state.splitComplementaryLeftH }
-              s={ this.state.desaturateTwo }
-              l={ this.state.darkenOne }
-            ></StyledSwatch>
           </div>
-          <p>Complementary</p>
           <div className="pallet">
             <StyledSwatch
               h={ this.state.h }
@@ -386,285 +160,24 @@ class App extends Component {
             <StyledSwatch
               h={ this.state.complementaryH }
               s={ this.state.s }
-              l={ this.state.l }
+              l={ this.state.lightenOne }
             ></StyledSwatch>
-          </div>
-          <div className="pallet">
             <StyledSwatch
-              h={ this.state.complementaryH }
+              h={ this.state.analogusRightH}
               s={ this.state.s }
               l={ this.state.lightenOne }
             ></StyledSwatch>
             <StyledSwatch
-              h={ this.state.complementaryH }
+              h={ this.state.analogusRightH }
               s={ this.state.s }
               l={ this.state.l }
             ></StyledSwatch>
-            <StyledSwatch
-              h={ this.state.complementaryH }
-              s={ this.state.s }
-              l={ this.state.darkenOne }
-            ></StyledSwatch>
-          </div>
-          <div className="pallet">
-            <StyledSwatch
-              h={ this.state.complementaryH }
-              s={ this.state.s }
-              l={ this.state.l }
-            ></StyledSwatch>
-            <StyledSwatch
-              h={ this.state.complementaryH }
-              s={ this.state.desaturateOne }
-              l={ this.state.l }
-            ></StyledSwatch>
-            <StyledSwatch
-              h={ this.state.complementaryH }
-              s={ this.state.desaturateTwo }
-              l={ this.state.l }
-            ></StyledSwatch>
-          </div>
-          <div className="pallet">
-            <StyledSwatch
-              h={ this.state.complementaryH }
-              s={ this.state.desaturateOne }
-              l={ this.state.lightenOne }
-            ></StyledSwatch>
-            <StyledSwatch
-              h={ this.state.complementaryH }
-              s={ this.state.desaturateTwo }
-              l={ this.state.lightenOne }
-            ></StyledSwatch>
-          </div>
-          <div className="pallet">
-            <StyledSwatch
-              h={ this.state.complementaryH }
-              s={ this.state.desaturateOne }
-              l={ this.state.darkenOne }
-            ></StyledSwatch>
-            <StyledSwatch
-              h={ this.state.complementaryH }
-              s={ this.state.desaturateTwo }
-              l={ this.state.darkenOne }
-            ></StyledSwatch>
-          </div>
-          <p>SplitComplement2</p>
-          <div className="pallet">
             <StyledSwatch
               h={ this.state.h }
               s={ this.state.s }
-              l={ this.state.l }
-            ></StyledSwatch>
-            <StyledSwatch
-              h={ this.state.splitComplementaryRightH }
-              s={ this.state.s }
-              l={ this.state.l }
-            ></StyledSwatch>
-          </div>
-          <div className="pallet">
-            <StyledSwatch
-              h={ this.state.splitComplementaryRightH }
-              s={ this.state.s }
-              l={ this.state.lightenOne }
-            ></StyledSwatch>
-            <StyledSwatch
-              h={ this.state.splitComplementaryRightH }
-              s={ this.state.s }
-              l={ this.state.l }
-            ></StyledSwatch>
-            <StyledSwatch
-              h={ this.state.splitComplementaryRightH }
-              s={ this.state.s }
               l={ this.state.darkenOne }
             ></StyledSwatch>
           </div>
-          <div className="pallet">
-            <StyledSwatch
-              h={ this.state.splitComplementaryRightH }
-              s={ this.state.s }
-              l={ this.state.l }
-            ></StyledSwatch>
-            <StyledSwatch
-              h={ this.state.splitComplementaryRightH }
-              s={ this.state.desaturateOne }
-              l={ this.state.l }
-            ></StyledSwatch>
-            <StyledSwatch
-              h={ this.state.splitComplementaryRightH }
-              s={ this.state.desaturateTwo }
-              l={ this.state.l }
-            ></StyledSwatch>
-          </div>
-          <div className="pallet">
-            <StyledSwatch
-              h={ this.state.splitComplementaryRightH }
-              s={ this.state.desaturateOne }
-              l={ this.state.lightenOne }
-            ></StyledSwatch>
-            <StyledSwatch
-              h={ this.state.splitComplementaryRightH }
-              s={ this.state.desaturateTwo }
-              l={ this.state.lightenOne }
-            ></StyledSwatch>
-          </div>
-          <div className="pallet">
-            <StyledSwatch
-              h={ this.state.splitComplementaryRightH }
-              s={ this.state.desaturateOne }
-              l={ this.state.darkenOne }
-            ></StyledSwatch>
-            <StyledSwatch
-              h={ this.state.splitComplementaryRightH }
-              s={ this.state.desaturateTwo }
-              l={ this.state.darkenOne }
-            ></StyledSwatch>
-          </div>
-        </div>
-        <div>
-          <p>Triadic1</p>
-          <div className="pallet">
-            <StyledSwatch
-              h={ this.state.h }
-              s={ this.state.s }
-              l={ this.state.l }
-            ></StyledSwatch>
-            <StyledSwatch
-              h={ this.state.triadicLeft }
-              s={ this.state.s }
-              l={ this.state.l }
-            ></StyledSwatch>
-          </div>
-          <div className="pallet">
-            <StyledSwatch
-              h={ this.state.triadicLeft }
-              s={ this.state.s }
-              l={ this.state.lightenOne }
-            ></StyledSwatch>
-            <StyledSwatch
-              h={ this.state.triadicLeft }
-              s={ this.state.s }
-              l={ this.state.l }
-            ></StyledSwatch>
-            <StyledSwatch
-              h={ this.state.triadicLeft }
-              s={ this.state.s }
-              l={ this.state.darkenOne }
-            ></StyledSwatch>
-          </div>
-          <div className="pallet">
-            <StyledSwatch
-              h={ this.state.triadicLeft }
-              s={ this.state.s }
-              l={ this.state.l }
-            ></StyledSwatch>
-            <StyledSwatch
-              h={ this.state.triadicLeft }
-              s={ this.state.desaturateOne }
-              l={ this.state.l }
-            ></StyledSwatch>
-            <StyledSwatch
-              h={ this.state.triadicLeft }
-              s={ this.state.desaturateTwo }
-              l={ this.state.l }
-            ></StyledSwatch>
-          </div>
-          <div className="pallet">
-            <StyledSwatch
-              h={ this.state.triadicLeft }
-              s={ this.state.desaturateOne }
-              l={ this.state.lightenOne }
-            ></StyledSwatch>
-            <StyledSwatch
-              h={ this.state.triadicLeft }
-              s={ this.state.desaturateTwo }
-              l={ this.state.lightenOne }
-            ></StyledSwatch>
-          </div>
-          <div className="pallet">
-            <StyledSwatch
-              h={ this.state.triadicLeft }
-              s={ this.state.desaturateOne }
-              l={ this.state.darkenOne }
-            ></StyledSwatch>
-            <StyledSwatch
-              h={ this.state.triadicLeft }
-              s={ this.state.desaturateTwo }
-              l={ this.state.darkenOne }
-            ></StyledSwatch>
-          </div>
-          <p>Triadic2</p>
-          <div className="pallet">
-            <StyledSwatch
-              h={ this.state.h }
-              s={ this.state.s }
-              l={ this.state.l }
-            ></StyledSwatch>
-            <StyledSwatch
-              h={ this.state.triadicRight }
-              s={ this.state.s }
-              l={ this.state.l }
-            ></StyledSwatch>
-          </div>
-          <div className="pallet">
-            <StyledSwatch
-              h={ this.state.triadicRight }
-              s={ this.state.s }
-              l={ this.state.lightenOne }
-            ></StyledSwatch>
-            <StyledSwatch
-              h={ this.state.triadicRight }
-              s={ this.state.s }
-              l={ this.state.l }
-            ></StyledSwatch>
-            <StyledSwatch
-              h={ this.state.triadicRight }
-              s={ this.state.s }
-              l={ this.state.darkenOne }
-            ></StyledSwatch>
-          </div>
-          <div className="pallet">
-            <StyledSwatch
-              h={ this.state.triadicRight }
-              s={ this.state.s }
-              l={ this.state.l }
-            ></StyledSwatch>
-            <StyledSwatch
-              h={ this.state.triadicRight }
-              s={ this.state.desaturateOne }
-              l={ this.state.l }
-            ></StyledSwatch>
-            <StyledSwatch
-              h={ this.state.triadicRight }
-              s={ this.state.desaturateTwo }
-              l={ this.state.l }
-            ></StyledSwatch>
-          </div>
-          <div className="pallet">
-            <StyledSwatch
-              h={ this.state.triadicRight }
-              s={ this.state.desaturateOne }
-              l={ this.state.lightenOne }
-            ></StyledSwatch>
-            <StyledSwatch
-              h={ this.state.triadicRight }
-              s={ this.state.desaturateTwo }
-              l={ this.state.lightenOne }
-            ></StyledSwatch>
-          </div>
-          <div className="pallet">
-            <StyledSwatch
-              h={ this.state.triadicRight }
-              s={ this.state.desaturateOne }
-              l={ this.state.darkenOne }
-            ></StyledSwatch>
-            <StyledSwatch
-              h={ this.state.triadicRight }
-              s={ this.state.desaturateTwo }
-              l={ this.state.darkenOne }
-            ></StyledSwatch>
-          </div>
-        </div>
-        <div>
-          <p>ALl1 | ALl1 des1 | M dar1 | M des1 dar1</p>
           <div className="pallet">
             <StyledSwatch
               h={ this.state.h }
@@ -692,35 +205,6 @@ class App extends Component {
               l={ this.state.darkenOne }
             ></StyledSwatch>
           </div>
-          <p>ARl1 | ARl1 des1 | M dar1 | M des1 dar1</p>
-          <div className="pallet">
-            <StyledSwatch
-              h={ this.state.h }
-              s={ this.state.s }
-              l={ this.state.l }
-            ></StyledSwatch>
-            <StyledSwatch
-              h={ this.state.analogusRightH }
-              s={ this.state.s }
-              l={ this.state.lightenOne }
-            ></StyledSwatch>
-            <StyledSwatch
-              h={ this.state.analogusRightH }
-              s={ this.state.desaturateOne }
-              l={ this.state.lightenOne }
-            ></StyledSwatch>
-            <StyledSwatch
-              h={ this.state.h }
-              s={ this.state.s }
-              l={ this.state.darkenOne }
-            ></StyledSwatch>
-            <StyledSwatch
-              h={ this.state.h }
-              s={ this.state.desaturateOne }
-              l={ this.state.darkenOne }
-            ></StyledSwatch>
-          </div>
-          <p>ARl1 | AL | AL dar1 | M dar1</p>
           <div className="pallet">
             <StyledSwatch
               h={ this.state.h }
@@ -748,7 +232,6 @@ class App extends Component {
               l={ this.state.darkenOne }
             ></StyledSwatch>
           </div>
-          <p>SCLl1 | SCLl1 des1 | M dar1 | M des1 dar1</p>
           <div className="pallet">
             <StyledSwatch
               h={ this.state.h }
@@ -776,7 +259,6 @@ class App extends Component {
               l={ this.state.darkenOne }
             ></StyledSwatch>
           </div>
-          <p>SCRl1 | SCRl1 des1 | M dar1 | M des1 dar1</p>
           <div className="pallet">
             <StyledSwatch
               h={ this.state.h }
@@ -804,7 +286,6 @@ class App extends Component {
               l={ this.state.darkenOne }
             ></StyledSwatch>
           </div>
-          <p>SCRl1 | SCL | SCL dar1 | M dar1</p>
           <div className="pallet">
             <StyledSwatch
               h={ this.state.h }
@@ -832,7 +313,6 @@ class App extends Component {
               l={ this.state.darkenOne }
             ></StyledSwatch>
           </div>
-          <p>Cl1 | Cl1 des1 | M dar1 | M des1 dar1</p>
           <div className="pallet">
             <StyledSwatch
               h={ this.state.h }
@@ -860,7 +340,6 @@ class App extends Component {
               l={ this.state.darkenOne }
             ></StyledSwatch>
           </div>
-          <p>SCRl1 | SCL | SCL dar1 | M dar1</p>
           <div className="pallet">
             <StyledSwatch
               h={ this.state.h }
@@ -888,7 +367,6 @@ class App extends Component {
               l={ this.state.darkenOne }
             ></StyledSwatch>
           </div>
-          <p>SCRl1 | SCL | SCL dar1 | M dar1</p>
           <div className="pallet">
             <StyledSwatch
               h={ this.state.h }
@@ -914,62 +392,6 @@ class App extends Component {
               h={ this.state.h }
               s={ this.state.s }
               l={ this.state.darkenOne }
-            ></StyledSwatch>
-          </div>
-          <p>SCRl1 | SCL | SCL dar1 | M dar1</p>
-          <div className="pallet">
-            <StyledSwatch
-              h={ this.state.h }
-              s={ this.state.s }
-              l={ this.state.l }
-            ></StyledSwatch>
-            <StyledSwatch
-              h={ this.state.analogusRightH}
-              s={ this.state.s }
-              l={ this.state.lightenOne }
-            ></StyledSwatch>
-            <StyledSwatch
-              h={ this.state.analogusRightH }
-              s={ this.state.s }
-              l={ this.state.l }
-            ></StyledSwatch>
-            <StyledSwatch
-              h={ this.state.complementaryH }
-              s={ this.state.s }
-              l={ this.state.lightenOne }
-            ></StyledSwatch>
-            <StyledSwatch
-              h={ this.state.h }
-              s={ this.state.s }
-              l={ this.state.darkenOne }
-            ></StyledSwatch>
-          </div>
-          <p>SCRl1 | SCL | SCL dar1 | M dar1</p>
-          <div className="pallet">
-            <StyledSwatch
-              h={ this.state.h }
-              s={ this.state.s }
-              l={ this.state.l }
-            ></StyledSwatch>
-            <StyledSwatch
-              h={ this.state.splitComplementaryRightH}
-              s={ this.state.s }
-              l={ this.state.lightenOne }
-            ></StyledSwatch>
-            <StyledSwatch
-              h={ this.state.splitComplementaryLeftH }
-              s={ this.state.s }
-              l={ this.state.lightenOne }
-            ></StyledSwatch>
-            <StyledSwatch
-              h={ this.state.analogusLeftH }
-              s={ this.state.s }
-              l={ this.state.lightenOne }
-            ></StyledSwatch>
-            <StyledSwatch
-              h={ this.state.h }
-              s={ this.state.s }
-              l={ this.state.lightenOne }
             ></StyledSwatch>
           </div>
         </div>
