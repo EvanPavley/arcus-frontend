@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import withStyles from 'react-jss'
 import CircularColor from 'react-circular-color';
 import hexToHsl from 'hex-to-hsl'
+import Slider from '@material-ui/lab/Slider';
 
 import '../css/App.css';
 
@@ -12,10 +13,10 @@ const styles = {
       ${props.s}%,
       ${props.l}%
     )`,
-    height: '2rem',
-    width: '2rem',
-    marginRight: '.15rem',
-    marginLeft: '.15rem',
+    height: '5rem',
+    width: '5rem',
+    marginRight: '.5rem',
+    marginLeft: '.5rem',
   }
 }
 
@@ -41,22 +42,38 @@ class App extends Component {
 
   getTriadicRight = hue => hue + 120
 
+  getLightenOne = light => {
+    let newLight = 0
+    if (light <= 65 && light > 40) {
+      newLight = light + 20
+    }else if (light > 65) {
+      newLight = 85
+    }else{
+      newLight = light + 10
+    }
+    return newLight
+  }
+
+  getDarkenOne = light => light - 10
+
   state = {
     selectedColor: '#00bcff',
     h: 196,
     s: 100,
     l: 50,
-    complementaryH: this.getComplement(188),
-    analogusRightH: this.getAnalogusRight(188),
-    analogusLeftH: this.getAnalogusLeft(188),
-    splitComplementaryLeftH: this.getSplitComplementaryLeft(188),
-    splitComplementaryRightH: this.getSplitComplementaryRight(188),
-    triadicLeft: this.getTriadicLeft(188),
-    triadicRight: this.getTriadicRight(188),
-    lightenOne: 70,
-    darkenOne: 40,
+    complementaryH: this.getComplement(196),
+    analogusRightH: this.getAnalogusRight(196),
+    analogusLeftH: this.getAnalogusLeft(196),
+    splitComplementaryLeftH: this.getSplitComplementaryLeft(196),
+    splitComplementaryRightH: this.getSplitComplementaryRight(196),
+    triadicLeft: this.getTriadicLeft(196),
+    triadicRight: this.getTriadicRight(196),
+    lightenOne: this.getLightenOne(50),
+    darkenOne: this.getDarkenOne(50),
     desaturateOne: 60,
     desaturateTwo: 30,
+    lightSliderVal: 50,
+    satSliderVal: 100,
   };
 
   handleHueChange = (color) => {
@@ -70,8 +87,6 @@ class App extends Component {
     this.setState({ selectedColor: color });
 
     this.setState({ h: hsl.h });
-    this.setState({ s: hsl.s});
-    this.setState({ l: hsl.l});
 
     this.setState({ analogusRightH: this.getAnalogusRight(hsl.h)});
     this.setState({ analogusLeftH: this.getAnalogusLeft(hsl.h)});
@@ -82,19 +97,53 @@ class App extends Component {
 
     this.setState({ triadicLeft: this.getTriadicLeft(hsl.h)});
     this.setState({ triadicRight: this.getTriadicRight(hsl.h)});
+  }
 
+  handleLightChange = (event) => {
+    let light = parseInt(event.target.value)
+    this.setState({ l: light});
+    this.setState({ lightSliderVal: light});
+    this.setState({ lightenOne: this.getLightenOne(light)});
+    this.setState({ darkenOne: this.getDarkenOne(light)});
+  };
+
+  handleSaturationChange = (event) => {
+    let sat = parseInt(event.target.value)
+    this.setState({ s: sat});
+    this.setState({ satSliderVal: sat});
   }
 
   render() {
+    console.log(this.state.lightSliderVal);
     return (
       <div className="App">
         <div className="color-picker">
           <CircularColor
-            size={200}
+            size={250}
             color={ this.state.selectedColor }
             onChange={this.handleHueChange}
             centerRect={true}
           />
+          <div className="slider-container">
+            <input
+              type="range"
+              min="25"
+              max="75"
+              onChange= {this.handleLightChange}
+              value={this.state.lightSliderVal}
+              class="slider"
+              id="myRange"/>
+          </div>
+          <div className="slider-container">
+            <input
+              type="range"
+              min="40"
+              max="100"
+              onChange= {this.handleSaturationChange}
+              value={this.state.satSliderVal}
+              class="slider"
+              id="myRange"/>
+          </div>
         </div>
         <div>
           <div className="pallet">
