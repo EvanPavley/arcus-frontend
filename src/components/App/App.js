@@ -3,7 +3,7 @@ import withStyles from 'react-jss'
 import CircularColor from 'react-circular-color';
 import hexToHsl from 'hex-to-hsl'
 
-import '../css/App.css';
+import './css/App.css';
 
 const styles = {
   swatch: {
