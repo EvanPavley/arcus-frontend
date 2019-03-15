@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import withStyles from 'react-jss'
 import CircularColor from 'react-circular-color';
 import hexToHsl from 'hex-to-hsl'
-import Slider from '@material-ui/lab/Slider';
 
 import '../css/App.css';
 
@@ -29,17 +28,11 @@ const StyledSwatch = withStyles(styles)(swatch)
 
 class App extends Component {
   getComplement = hue => hue + 180
-
   getAnalogusRight = hue => hue + 30
-
   getAnalogusLeft = hue => hue - 30
-
   getSplitComplementaryLeft = hue => hue + 210
-
   getSplitComplementaryRight = hue => hue + 150
-
   getTriadicLeft = hue => hue + 240
-
   getTriadicRight = hue => hue + 120
 
   getLightenOne = light => {
@@ -53,8 +46,27 @@ class App extends Component {
     }
     return newLight
   }
-
   getDarkenOne = light => light - 10
+
+  getDesaturateOne = sat => {
+    let newSat = 0
+    if (sat > 60) {
+      newSat = sat - 40
+    }else {
+      newSat = 20
+    }
+    return newSat
+  }
+  getDesaturateTwo = sat => {
+    let newSat = 0
+    if (sat > 60) {
+      newSat = sat - 70
+    }else {
+      newSat = 10
+    }
+    return newSat
+  }
+
 
   state = {
     selectedColor: '#00bcff',
@@ -70,15 +82,12 @@ class App extends Component {
     triadicRight: this.getTriadicRight(196),
     lightenOne: this.getLightenOne(50),
     darkenOne: this.getDarkenOne(50),
-    desaturateOne: 60,
-    desaturateTwo: 30,
-    lightSliderVal: 50,
-    satSliderVal: 100,
+    desaturateOne: this.getDesaturateOne(100),
+    desaturateTwo: this.getDesaturateTwo(100),
   };
 
   handleHueChange = (color) => {
     let hslArray = hexToHsl(color)
-    console.log(color);
     let hsl = {
       h: hslArray[0],
       s: hslArray[1],
@@ -102,19 +111,19 @@ class App extends Component {
   handleLightChange = (event) => {
     let light = parseInt(event.target.value)
     this.setState({ l: light});
-    this.setState({ lightSliderVal: light});
     this.setState({ lightenOne: this.getLightenOne(light)});
     this.setState({ darkenOne: this.getDarkenOne(light)});
   };
 
   handleSaturationChange = (event) => {
     let sat = parseInt(event.target.value)
+    console.log(sat);
     this.setState({ s: sat});
-    this.setState({ satSliderVal: sat});
+    this.setState({ desaturateOne: this.getDesaturateOne(sat)});
+    this.setState({ desaturateTwo: this.getDesaturateTwo(sat)});
   }
 
   render() {
-    console.log(this.state.lightSliderVal);
     return (
       <div className="App">
         <div className="color-picker">
@@ -130,8 +139,8 @@ class App extends Component {
               min="25"
               max="75"
               onChange= {this.handleLightChange}
-              value={this.state.lightSliderVal}
-              class="slider"
+              value={this.state.l}
+              className="slider"
               id="myRange"/>
           </div>
           <div className="slider-container">
@@ -140,8 +149,8 @@ class App extends Component {
               min="40"
               max="100"
               onChange= {this.handleSaturationChange}
-              value={this.state.satSliderVal}
-              class="slider"
+              value={this.state.s}
+              className="slider"
               id="myRange"/>
           </div>
         </div>
