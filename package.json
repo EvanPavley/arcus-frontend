@@ -11,7 +11,10 @@
     "react-color": "^2.17.0",
     "react-dom": "^16.8.4",
     "react-jss": "^8.6.1",
-    "react-scripts": "2.1.8"
+    "react-redux": "^6.0.1",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "2.1.8",
+    "redux": "^4.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
