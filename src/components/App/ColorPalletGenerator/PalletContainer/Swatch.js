@@ -1,10 +1,25 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import withStyles from 'react-jss'
 
-const Swatch = (props) => {
+const Swatch = ({classes}) => {
   return (
-    <div />
+    <div className={classes.swatch}>
+    </div>
   )
 }
 
-export default Swatch
+const styles = {
+  swatch: {
+    backgroundColor: props => `hsl(
+      ${props.h},
+      ${props.s}%,
+      ${props.l}%
+    )`,
+    height: '5rem',
+    width: '5rem',
+    marginRight: '.5rem',
+    marginLeft: '.5rem',
+  }
+}
+
+export default withStyles(styles)(Swatch)
