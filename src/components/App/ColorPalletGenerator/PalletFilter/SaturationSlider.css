@@ -1,0 +1,29 @@
+.sat-slider-container{
+  width: 12rem;
+  margin-left: 1.5rem;
+}
+.sat-slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 1rem;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.sat-slider:hover {
+  opacity: 1;
+}
+
+.sat-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 1.1rem;
+  height: 1rem;
+  background: #ff5b7f;
+  cursor: pointer;
+}
