@@ -1,0 +1,24 @@
+.nav-container {
+  border: 2px dashed #bababa;
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem;
+}
+
+.nav-item{
+  border: 2px solid #bababa;
+  padding: 1rem;
+}
+
+.nav-item:visited {
+  color: gray;
+  text-decoration: none;
+}
+.nav-item:link {
+  color: gray;
+  text-decoration: none;
+}
+
+.nav-item:hover {
+  background-color: #efefef;
+}

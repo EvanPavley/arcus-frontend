@@ -1,5 +1,5 @@
 import ColorAdapter from '../ColorAdapter'
-import { CHANGE_HUE, CHANGE_SATURATION, CHANGE_LIGHT } from '../types';
+import { CHANGE_HUE, CHANGE_SATURATION, CHANGE_LIGHT, SELECT_PALLET } from '../types';
 
 const colorPalletState = {
   selectedColor: '#00bcff',
@@ -20,6 +20,28 @@ const colorPalletState = {
   l: 50,
   lightenOne: ColorAdapter.getLightenOne(50),
   darkenOne: ColorAdapter.getDarkenOne(50),
+
+  selectedPallet: {
+    OneHue: 196,
+    OneSat: 100,
+    OneLight: 50,
+
+    TwoHue: 346,
+    TwoSat: 100,
+    TwoLight: 70,
+
+    ThreeHue: 46,
+    ThreeSat: 100,
+    ThreeLight: 70,
+
+    FourHue: 166,
+    FourSat: 100,
+    FourLight: 70,
+
+    FiveHue: 196,
+    FiveSat: 100,
+    FiveLight: 70,
+  }
 };
 
 export default function colorPalletReducer (state = colorPalletState, action){
@@ -48,6 +70,10 @@ export default function colorPalletReducer (state = colorPalletState, action){
         lightenOne: ColorAdapter.getLightenOne(action.payload),
         darkenOne: ColorAdapter.getDarkenOne(action.payload),
       };
+    case SELECT_PALLET:
+      return{ ...state,
+        selectedPallet: action.payload,
+      }
     default:
       return state;
   }

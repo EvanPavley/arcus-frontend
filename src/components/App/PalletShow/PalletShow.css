@@ -1,0 +1,34 @@
+.pallet-show-container{
+  display: flex;
+  margin-top: 2rem;
+  justify-content: center;
+}
+
+.pallet-show{
+  display: flex;
+  margin-bottom: 1rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  border: 2px dashed #bababa;
+}
+
+.button-container{
+  border: 2px dashed #bababa;
+  padding: .5rem;
+  margin-right: .5rem;
+  margin-left: .5rem;
+}
+
+.back-btn{
+  border: 2px solid #bababa;
+  text-align: center;
+  width: 5rem;
+  padding: .5rem;
+  color: gray;
+}
+
+.back-btn:hover {
+  background-color: #efefef;
+}

@@ -1,12 +1,10 @@
 .pallet{
   display: flex;
-  margin-right: 5rem;
   margin-top: 2rem;
   margin-bottom: .5rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
   padding-right: .5rem;
   padding-left: .5rem;
-  background-color: #efefef;
-  border: .1rem dashed #efefef
+  border: 2px dashed #bababa;
 }

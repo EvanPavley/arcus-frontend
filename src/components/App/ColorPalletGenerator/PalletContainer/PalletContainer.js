@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux';
 import Pallet from './Pallet'
+import './PalletContainer.css'
 
 const PalletContainer = (props) => {
   return (

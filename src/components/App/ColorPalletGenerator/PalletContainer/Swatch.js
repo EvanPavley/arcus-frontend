@@ -4,7 +4,6 @@ import hsl from 'hsl-to-hex'
 
 const Swatch = (props) => {
   const hex = hsl(props.h, props.s, props.l).toUpperCase()
-  console.log(props);
   return (
     <div className={props.classes.swatch}>
       <p className={props.classes.swatchText}>{hex}</p>
@@ -19,20 +18,21 @@ const styles = {
       ${props.s}%,
       ${props.l}%
     )`,
-    height: '5rem',
-    width: '5rem',
+    height: props => props.height,
+    width: props => props.height,
     marginRight: '.5rem',
     marginLeft: '.5rem',
+    display: 'flex',
     // '&:hover': {
     //   backgroundColor: 'red',
     // }
   },
   swatchText: {
-    marginTop: '2rem',
     textAlign: 'center',
     color: 'white',
-    fontSize: '.8rem',
+    fontSize: props => props.fontSize,
     fontWeight: 'bold',
+    margin: 'auto',
   },
 }
 
