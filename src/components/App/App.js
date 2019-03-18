@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 
 import './App.css';
-import ColorPalletGenerator from './ColorPalletGenerator/ColorPalletGenerator'
+import Navbar from './Navbar';
+import ColorPalletGenerator from './ColorPalletGenerator/ColorPalletGenerator';
+
 
 class App extends Component {
 
