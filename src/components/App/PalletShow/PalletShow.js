@@ -25,6 +25,7 @@ const PalletShow = (props) => {
             height={'10rem'}
             width={'10rem'}
             fontSize={'1.7em'}
+            visibility={'visible'}
           ></Swatch>
           <Swatch
             h={ props.selectedPallet.TwoHue }
@@ -33,6 +34,7 @@ const PalletShow = (props) => {
             height={'10rem'}
             width={'10rem'}
             fontSize={'1.7em'}
+            visibility={'visible'}
           ></Swatch>
           <Swatch
             h={ props.selectedPallet.ThreeHue }
@@ -41,6 +43,7 @@ const PalletShow = (props) => {
             height={'5rem'}
             width={'5rem'}
             fontSize={'.8em'}
+            visibility={'visible'}
           ></Swatch>
           <Swatch
             h={ props.selectedPallet.FourHue }
@@ -49,6 +52,7 @@ const PalletShow = (props) => {
             height={'5rem'}
             width={'5rem'}
             fontSize={'.8em'}
+            visibility={'visible'}
           ></Swatch>
           <Swatch
             h={ props.selectedPallet.FiveHue }
@@ -57,6 +61,7 @@ const PalletShow = (props) => {
             height={'5rem'}
             width={'5rem'}
             fontSize={'.8em'}
+            visibility={'visible'}
           ></Swatch>
           <div className='button-container'>
             <div className='back-btn' onClick={() => props.history.goBack()}>

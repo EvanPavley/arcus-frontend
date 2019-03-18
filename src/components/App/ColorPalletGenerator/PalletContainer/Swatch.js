@@ -33,6 +33,7 @@ const styles = {
     fontSize: props => props.fontSize,
     fontWeight: 'bold',
     margin: 'auto',
+    visibility: props => props.visibility,
   },
 }
 

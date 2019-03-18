@@ -44,6 +44,7 @@ const Pallet = (props) => {
         height={'5rem'}
         width={'5rem'}
         fontSize={'.8em'}
+        visibility={'hidden'}
       ></Swatch>
       <Swatch
         h={ props.TwoHue }
@@ -52,6 +53,7 @@ const Pallet = (props) => {
         height={'5rem'}
         width={'5rem'}
         fontSize={'.8em'}
+        visibility={'hidden'}
       ></Swatch>
       <Swatch
         h={ props.ThreeHue }
@@ -60,6 +62,7 @@ const Pallet = (props) => {
         height={'5rem'}
         width={'5rem'}
         fontSize={'.8em'}
+        visibility={'hidden'}
       ></Swatch>
       <Swatch
         h={ props.FourHue }
@@ -68,6 +71,7 @@ const Pallet = (props) => {
         height={'5rem'}
         width={'5rem'}
         fontSize={'.8em'}
+        visibility={'hidden'}
       ></Swatch>
       <Swatch
         h={ props.FiveHue }
@@ -76,6 +80,7 @@ const Pallet = (props) => {
         height={'5rem'}
         width={'5rem'}
         fontSize={'.8em'}
+        visibility={'hidden'}
       ></Swatch>
     </div>
   )
