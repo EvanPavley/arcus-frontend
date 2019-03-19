@@ -6,8 +6,10 @@ const Profile = (props) => {
   return (
     <div className="profile-container">
       {props.current_user === null ? (
-        <p> please login to view your profile</p>
-      ) 
+        <div>
+          <p> please login to view your profile</p>
+        </div>
+      )
       : (
         <div>
           <p>{props.current_user.username}</p>

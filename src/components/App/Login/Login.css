@@ -44,3 +44,17 @@
 #login-submit:hover {
   background-color: #efefef;
 }
+
+.btn{
+  margin-top: 2rem;
+  border: 2px solid #bababa;
+  text-align: center;
+  width: 6rem;
+  padding: .5rem;
+  color: gray;
+  margin-bottom: 1rem;
+}
+
+.btn:hover {
+  background-color: #efefef;
+}

@@ -48,7 +48,44 @@ const colorPalletState = {
   password: '',
 
   users: [],
-  current_user: null,
+  current_user: {
+    "id": 4,
+    "username": "Evan",
+    "email": "e@p.com",
+    "password": "123",
+    "pallets": [
+      {
+      "id": 6,
+      "one": "#00BBFF",
+      "two": "#FF668A",
+      "three": "#FFDB66",
+      "four": "#66FFDB",
+      "five": "#66D6FF",
+      "created_at": "2019-03-19T14:29:02.005Z",
+      "updated_at": "2019-03-19T14:29:02.005Z"
+      },
+      {
+      "id": 7,
+      "one": "#AF2708",
+      "two": "#E00B4E",
+      "three": "#D91251",
+      "four": "#7F1C06",
+      "five": "#7B1F0A",
+      "created_at": "2019-03-19T14:29:02.007Z",
+      "updated_at": "2019-03-19T14:29:02.007Z"
+      },
+      {
+      "id": 8,
+      "one": "#F41AC9",
+      "two": "#A1F97B",
+      "three": "#1AF4B3",
+      "four": "#21EDB0",
+      "five": "#D10AAA",
+      "created_at": "2019-03-19T14:29:02.009Z",
+      "updated_at": "2019-03-19T14:29:02.009Z"
+      }
+    ]
+  },
 };
 
 export default function colorPalletReducer (state = colorPalletState, action){

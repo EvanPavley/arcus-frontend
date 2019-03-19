@@ -28,6 +28,10 @@ const Login = (props) => {
     props.handleInputChange({name:'password', value:''})
   }
 
+  let handleLogout = () => {
+    props.setCurrentUser(null);
+  }
+
   return (
     <div className="login-container">
       {props.current_user === null ? (
@@ -65,7 +69,9 @@ const Login = (props) => {
       )
       :
       (
-        <p>logout btn here</p>
+        <div className='btn' onClick={handleLogout}>
+          L O G O U T
+        </div>
       )}
     </div>
   )
