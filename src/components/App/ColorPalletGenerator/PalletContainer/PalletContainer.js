@@ -27,6 +27,7 @@ const PalletContainer = (props) => {
           FiveSat={ props.s }
           FiveLight={ props.lightenOne }
 
+          visibility={'hidden'}
       />
       <Pallet
           OneHue={ props.h }
@@ -49,6 +50,7 @@ const PalletContainer = (props) => {
           FiveSat={ props.desaturateOne }
           FiveLight={ props.darkenOne }
 
+          visibility={'hidden'}
       />
       <Pallet
           OneHue={ props.h }
@@ -71,6 +73,7 @@ const PalletContainer = (props) => {
           FiveSat={ props.s }
           FiveLight={ props.darkenOne }
 
+          visibility={'hidden'}
       />
       <Pallet
           OneHue={ props.h }
@@ -93,6 +96,7 @@ const PalletContainer = (props) => {
           FiveSat={ props.desaturateOne }
           FiveLight={ props.darkenOne }
 
+          visibility={'hidden'}
       />
       <Pallet
           OneHue={ props.h }
@@ -115,6 +119,7 @@ const PalletContainer = (props) => {
           FiveSat={ props.s }
           FiveLight={ props.darkenOne }
 
+          visibility={'hidden'}
       />
       <Pallet
           OneHue={ props.h }
@@ -137,6 +142,7 @@ const PalletContainer = (props) => {
           FiveSat={ props.desaturateOne }
           FiveLight={ props.darkenOne }
 
+          visibility={'hidden'}
       />
       <Pallet
           OneHue={ props.h }
@@ -159,6 +165,7 @@ const PalletContainer = (props) => {
           FiveSat={ props.desaturateOne }
           FiveLight={ props.darkenOne }
 
+          visibility={'hidden'}
       />
       <Pallet
           OneHue={ props.h }
@@ -181,6 +188,7 @@ const PalletContainer = (props) => {
           FiveSat={ props.s }
           FiveLight={ props.darkenOne }
 
+          visibility={'hidden'}
       />
       <Pallet
           OneHue={ props.h }
@@ -203,6 +211,7 @@ const PalletContainer = (props) => {
           FiveSat={ props.desaturateOne }
           FiveLight={ props.darkenOne }
 
+          visibility={'hidden'}
       />
       <Pallet
           OneHue={ props.h }
@@ -225,6 +234,7 @@ const PalletContainer = (props) => {
           FiveSat={ props.s }
           FiveLight={ props.darkenOne }
 
+          visibility={'hidden'}
       />
       <Pallet
           OneHue={ props.h }
@@ -247,6 +257,7 @@ const PalletContainer = (props) => {
           FiveSat={ props.s }
           FiveLight={ props.darkenOne }
 
+          visibility={'hidden'}
       />
   </div>
   )

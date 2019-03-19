@@ -8,3 +8,7 @@
   padding-left: .5rem;
   border: 2px dashed #bababa;
 }
+
+.pallet:hover {
+  background-color: #efefef;
+}

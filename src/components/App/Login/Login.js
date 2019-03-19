@@ -69,7 +69,7 @@ const Login = (props) => {
       )
       :
       (
-        <div className='btn' onClick={handleLogout}>
+        <div className='logout-btn' onClick={handleLogout}>
           L O G O U T
         </div>
       )}

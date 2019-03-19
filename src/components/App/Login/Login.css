@@ -45,7 +45,7 @@
   background-color: #efefef;
 }
 
-.btn{
+.logout-btn{
   margin-top: 2rem;
   border: 2px solid #bababa;
   text-align: center;
@@ -55,6 +55,6 @@
   margin-bottom: 1rem;
 }
 
-.btn:hover {
+.logout-btn:hover {
   background-color: #efefef;
 }

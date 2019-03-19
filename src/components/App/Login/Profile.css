@@ -1,3 +1,10 @@
+.profile{
+  text-align: center;
+  font-size: 1.3rem;
+  margin-top: 2rem;
+  color: gray;
+}
+
 .profile-container{
   display: flex;
   justify-content: center;
@@ -10,4 +17,25 @@
   padding-left: 1rem;
   padding-right: 1rem;
   padding-bottom: 1.5rem;
+  font-size: 1rem;
+  margin-right: 4rem;
+}
+
+#name {
+  text-align: left;
+  font-size: 1.3rem;
+  margin-left: 1rem;
+}
+
+.mockup-container-profile{
+  border: 2px dashed #bababa;
+  padding: 1rem;
+  color: gray;
+}
+
+.star-one-container-profile{
+  border: 2px dashed #bababa;
+  padding: 1rem;
+  width: 40rem;
+  margin: .5rem;
 }

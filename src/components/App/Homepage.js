@@ -1,9 +1,10 @@
 import React from 'react'
+import './Homepage.css'
 
 const Homepage = (props) => {
   return (
-    <div>
-      <p> Home Page </p>
+    <div className="homepage-container">
+      <p> put homepage here </p>
     </div>
   )
 }
