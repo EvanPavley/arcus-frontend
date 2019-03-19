@@ -2,8 +2,8 @@ import React from 'react'
 
 const Login = (props) => {
   return (
-    <div>
-      <p> LOGIN </p>
+    <div className="login-container">
+      
     </div>
   )
 }

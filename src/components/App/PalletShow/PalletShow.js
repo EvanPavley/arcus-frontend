@@ -64,12 +64,16 @@ const PalletShow = (props) => {
             visibility={'visible'}
           ></Swatch>
           <div className='button-container'>
-            <div className='back-btn' onClick={() => props.history.goBack()}>
+            <div className='btn'>
+              S A V E
+            </div>
+            <div className='btn' onClick={() => props.history.goBack()}>
               B A C K
             </div>
           </div>
         </div>
         <div className='mockup-container'>
+          Mockups:
           <div className='star-one-container'>
             <Stars
               hexOne = {hexOne}
