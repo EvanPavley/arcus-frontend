@@ -6,6 +6,7 @@ import hsl from 'hsl-to-hex'
 
 import './PalletShow.css'
 import Swatch from '../ColorPalletGenerator/PalletContainer/Swatch'
+import { addPallet } from '../../../actions/actions';
 
 const PalletShow = (props) => {
   const hexOne = hsl(props.selectedPallet.OneHue, props.selectedPallet.OneSat, props.selectedPallet.OneLight)
@@ -13,6 +14,20 @@ const PalletShow = (props) => {
   const hexThree = hsl(props.selectedPallet.ThreeHue, props.selectedPallet.ThreeSat, props.selectedPallet.ThreeLight)
   const hexFour = hsl(props.selectedPallet.FourHue, props.selectedPallet.FourSat, props.selectedPallet.FourLight)
   const hexFive = hsl(props.selectedPallet.FiveHue, props.selectedPallet.FiveSat, props.selectedPallet.FiveLight)
+
+  let handleSave = (e) => {
+    if (props.current_user === null) {
+      alert("Please login to save a pallet.")
+    }else {
+      props.addPallet({
+            "one": hexOne,
+            "two": hexTwo,
+            "three": hexThree,
+            "four": hexFour,
+            "five": hexFive,
+            })
+    }
+  }
 
   return (
     <div className='pallet-show-container'>
@@ -64,7 +79,7 @@ const PalletShow = (props) => {
             visibility={'visible'}
           ></Swatch>
           <div className='button-container'>
-            <div className='btn'>
+            <div className='btn' onClick={handleSave}>
               S A V E
             </div>
             <div className='btn' onClick={() => props.history.goBack()}>
@@ -92,7 +107,14 @@ const PalletShow = (props) => {
 function msp(state) {
   return {
     selectedPallet: state.selectedPallet,
+    current_user: state.current_user
   }
 }
 
-export default connect(msp)(withRouter(PalletShow))
+function mdp(dispatch){
+  return {
+    addPallet: (pallet) => dispatch(addPallet(pallet)),
+  }
+}
+
+export default connect(msp, mdp)(withRouter(PalletShow))

@@ -5,3 +5,4 @@ export const SELECT_PALLET = "SELECT_PALLET";
 export const INPUT_CHANGE = "INPUT_CHANGE";
 export const SET_USERS = "SET_USERS";
 export const SET_CURRENT_USER = "SET_CURRENT_USER";
+export const ADD_PALLET = "ADD_PALLET";

@@ -86,11 +86,11 @@ class Profile extends Component {
         : (
           <div className="profile-container">
             <div className="profilePallets">
-              <p id="name" >{this.props.current_user.username}'s pallets</p>
+              <p id="name" >{this.props.current_user.username}'s pallets:</p>
               {this.renderPallets()}
             </div>
             <div className='mockup-container-profile'>
-              Mockups:
+              <p id="name" >Mockups:</p>
               <div className='star-one-container-profile'>
                 <Stars
                   hexOne = {hexOne}
