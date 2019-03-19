@@ -12,6 +12,9 @@ const Navbar = (props) => {
       <NavLink className='nav-item' to='/ColorPalletGenerator'>
         Color Pallet Generator{' '}
       </NavLink>
+      <NavLink className='nav-item' to='/Profile'>
+        Profile{' '}
+      </NavLink>
       <NavLink className='nav-item' to='/Login'>
         Login{' '}
       </NavLink>

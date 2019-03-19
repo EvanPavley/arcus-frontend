@@ -1,5 +1,5 @@
 import ColorAdapter from '../ColorAdapter'
-import { CHANGE_HUE, CHANGE_SATURATION, CHANGE_LIGHT, SELECT_PALLET } from '../types';
+import { CHANGE_HUE, CHANGE_SATURATION, CHANGE_LIGHT, SELECT_PALLET, INPUT_CHANGE, SET_USERS, SET_CURRENT_USER } from '../types';
 
 const colorPalletState = {
   selectedColor: '#00bcff',
@@ -41,7 +41,14 @@ const colorPalletState = {
     FiveHue: 196,
     FiveSat: 100,
     FiveLight: 70,
-  }
+  },
+
+  username: '',
+  email: '',
+  password: '',
+
+  users: [],
+  current_user: {},
 };
 
 export default function colorPalletReducer (state = colorPalletState, action){
@@ -73,6 +80,18 @@ export default function colorPalletReducer (state = colorPalletState, action){
     case SELECT_PALLET:
       return{ ...state,
         selectedPallet: action.payload,
+      }
+    case INPUT_CHANGE:
+      return{ ...state,
+        [action.payload.name]: action.payload.value,
+      }
+    case SET_USERS:
+      return{...state,
+        users: action.payload,
+      }
+    case SET_CURRENT_USER:
+      return{...state,
+        current_user: action.payload
       }
     default:
       return state;

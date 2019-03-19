@@ -1,0 +1,46 @@
+.login-container{
+  display: flex;
+  justify-content: center;
+}
+
+.login-form-container{
+  margin-top: 2rem;
+  text-align: left;
+  border: 2px dashed #bababa;
+  padding-top: 2rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-bottom: 1rem;
+}
+
+.login-form input{
+  margin-bottom: 1.5rem;
+  margin-top: .3rem;
+  color: gray;
+  width: 12rem;
+  padding: .2rem;
+  font-size: .9rem;
+}
+.login-form label{
+  padding-left: .4rem;
+  color: gray;
+  font-size: 1.1rem;
+}
+
+.button-holder{
+  text-align: center;
+}
+
+#login-submit{
+  border: 2px solid #bababa;
+  text-align: center;
+  width: 7rem;
+  height: 2.5rem;
+  color: gray;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+#login-submit:hover {
+  background-color: #efefef;
+}

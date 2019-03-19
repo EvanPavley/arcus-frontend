@@ -29,7 +29,11 @@ const Pallet = (props) => {
       FiveSat: props.FiveSat,
       FiveLight: props.FiveLight,
     })
-    props.history.push(`/PalletShow`)
+    if (props.onProfile === true) {
+      console.log('hit');
+    }else {
+      props.history.push(`/PalletShow`)
+    }
   }
 
   return (
