@@ -30,6 +30,7 @@ const Login = (props) => {
 
   return (
     <div className="login-container">
+      {props.current_user === null ? (
       <div className="login-form-container">
         <form className="login-form" onSubmit={handleSubmit}>
           <label>Username:</label>
@@ -61,6 +62,11 @@ const Login = (props) => {
           </div>
         </form>
       </div>
+      )
+      :
+      (
+        <p>logout btn here</p>
+      )}
     </div>
   )
 }

@@ -48,7 +48,7 @@ const colorPalletState = {
   password: '',
 
   users: [],
-  current_user: {},
+  current_user: null,
 };
 
 export default function colorPalletReducer (state = colorPalletState, action){

@@ -5,9 +5,14 @@ import './Profile.css'
 const Profile = (props) => {
   return (
     <div className="profile-container">
-      <div>
-        <p>{props.current_user.username}</p>
-      </div>
+      {props.current_user === null ? (
+        <p> please login to view your profile</p>
+      ) 
+      : (
+        <div>
+          <p>{props.current_user.username}</p>
+        </div>
+      )}
     </div>
   )
 }
