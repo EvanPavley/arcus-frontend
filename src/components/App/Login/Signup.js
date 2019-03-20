@@ -2,7 +2,7 @@ import React from 'react'
 import './Login.css'
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { handleInputChange, setCurrentUser } from '../../../actions/actions';
+import { handleInputChange, setCurrentUser, setUsers } from '../../../actions/actions';
 
 const Signup = (props) => {
   let handleChange = (e) => {
@@ -18,15 +18,24 @@ const Signup = (props) => {
   let handleSubmit = (e) => {
     e.preventDefault();
     if (checkExistingUser(props.username)) {
-      props.history.push('/Profile');
-
-      let logged_user = props.users.find(u => u.username === props.username)
-
-      fetch(`http://localhost:3000/api/v1/users/${logged_user.id}`)
+      alert("You've already signed up, Please login.")
+    }else{
+      fetch('http://localhost:3000/api/v1/users/', {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          username: props.username,
+          email: props.email,
+          password: props.password,
+        })
+      })
       .then(r => r.json())
       .then(user => props.setCurrentUser(user))
-    }else{
-      alert("wrong username or password");
+      // .then(() => props.setUsers(props.users(props.current_user)))
+      props.history.push('/Profile')
     }
     props.handleInputChange({name:'username', value:''})
     props.handleInputChange({name:'email', value:''})
@@ -101,6 +110,7 @@ function mdp(dispatch){
   return {
     handleInputChange: ({name, value}) => dispatch(handleInputChange({name, value})),
     setCurrentUser: (user) => dispatch(setCurrentUser(user)),
+    setUsers: (users) => dispatch(setUsers(users)),
   }
 }
 
