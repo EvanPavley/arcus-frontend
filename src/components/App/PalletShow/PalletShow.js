@@ -2,6 +2,7 @@ import React from 'react'
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Stars from './Stars';
+import Test from './Test';
 import hsl from 'hsl-to-hex'
 
 import './PalletShow.css'
@@ -15,17 +16,54 @@ const PalletShow = (props) => {
   const hexFour = hsl(props.selectedPallet.FourHue, props.selectedPallet.FourSat, props.selectedPallet.FourLight)
   const hexFive = hsl(props.selectedPallet.FiveHue, props.selectedPallet.FiveSat, props.selectedPallet.FiveLight)
 
+  let postPallet = () => {
+    return fetch('http://localhost:3000/api/v1/pallets', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({
+        one: hexOne,
+        two: hexTwo,
+        three: hexThree,
+        four: hexFour,
+        five: hexFive,
+      })
+    })
+  }
+
+  let postJoin = (pallet_id) => {
+    return fetch('http://localhost:3000/api/v1/user_pallets', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({
+        user_id: props.current_user.id,
+        pallet_id: pallet_id,
+      })
+    })
+  }
+
   let handleSave = (e) => {
     if (props.current_user === null) {
       alert("Please login to save a pallet.")
     }else {
       props.addPallet({
-            "one": hexOne,
-            "two": hexTwo,
-            "three": hexThree,
-            "four": hexFour,
-            "five": hexFive,
-            })
+        "one": hexOne,
+        "two": hexTwo,
+        "three": hexThree,
+        "four": hexFour,
+        "five": hexFive,
+      })
+
+      postPallet()
+      .then(r => r.json())
+      .then(pallet => postJoin(pallet.id))
+
+      props.history.goBack()
     }
   }
 
@@ -91,6 +129,15 @@ const PalletShow = (props) => {
           Mockups:
           <div className='star-one-container'>
             <Stars
+              hexOne = {hexOne}
+              hexTwo = {hexTwo}
+              hexThree = {hexThree}
+              hexFour = {hexFour}
+              hexFive = {hexFive}
+            />
+          </div>
+          <div className='star-one-container'>
+            <Test
               hexOne = {hexOne}
               hexTwo = {hexTwo}
               hexThree = {hexThree}

@@ -4,6 +4,7 @@ import './Profile.css'
 
 import Pallet from '../ColorPalletGenerator/PalletContainer/Pallet'
 import Stars from '../PalletShow/Stars'
+import Test from '../PalletShow/Test'
 
 import hexToHsl from 'hex-to-hsl'
 import hsl from 'hsl-to-hex'
@@ -93,6 +94,15 @@ class Profile extends Component {
               <p id="name" >Mockups:</p>
               <div className='star-one-container-profile'>
                 <Stars
+                  hexOne = {hexOne}
+                  hexTwo = {hexTwo}
+                  hexThree = {hexThree}
+                  hexFour = {hexFour}
+                  hexFive = {hexFive}
+                />
+              </div>
+              <div className='star-one-container-profile'>
+                <Test
                   hexOne = {hexOne}
                   hexTwo = {hexTwo}
                   hexThree = {hexThree}
