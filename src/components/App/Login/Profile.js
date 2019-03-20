@@ -8,7 +8,7 @@ import Test from '../PalletShow/Test'
 
 import hexToHsl from 'hex-to-hsl'
 import hsl from 'hsl-to-hex'
-import { selectPallet } from '../../../actions/actions';
+import { selectPallet, setCurrentUser } from '../../../actions/actions';
 
 class Profile extends Component {
   componentDidMount() {
@@ -33,9 +33,17 @@ class Profile extends Component {
       FiveSat: '0',
       FiveLight: '73',
     })
+    if (this.props.current_user === null) {
+
+    }else {
+      fetch(`http://localhost:3000/api/v1/users/${this.props.current_user.id}`)
+      .then(r => r.json())
+      .then(user => setCurrentUser(user))
+    }
   }
 
   renderPallets = () => {
+    console.log(this.props.current_user);
     return this.props.current_user.pallets.map(p => {
       let hslOne = hexToHsl(p.one)
       let hslTwo = hexToHsl(p.two)
@@ -44,6 +52,7 @@ class Profile extends Component {
       let hslFive = hexToHsl(p.five)
       return(
         <Pallet
+          id= {p.id}
           OneHue={ hslOne[0] }
           OneSat={ hslOne[1] }
           OneLight={ hslOne[2] }
@@ -128,6 +137,7 @@ function msp(state) {
 function mdp(dispatch){
   return {
     selectPallet: (pallet) => dispatch(selectPallet(pallet)),
+    setCurrentUser: (user) => dispatch(setCurrentUser(user)),
   }
 }
 

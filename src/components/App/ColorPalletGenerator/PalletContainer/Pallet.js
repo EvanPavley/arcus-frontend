@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import Swatch from './Swatch'
-import { selectPallet } from '../../../../actions/actions';
+import { selectPallet, deletePallet } from '../../../../actions/actions';
 import './Pallet.css'
 
 const Pallet = (props) => {
@@ -30,10 +30,46 @@ const Pallet = (props) => {
       FiveLight: props.FiveLight,
     })
     if (props.onProfile === true) {
-      console.log('hit');
+      let targetPallet = props.current_user.pallets.find(p => p.id === props.id)
+      let targetJoin = props.current_user.user_pallets.find(j => j.pallet_id === targetPallet.id)
+      console.log(targetPallet);
+      console.log(targetJoin);
     }else {
       props.history.push(`/PalletShow`)
     }
+  }
+
+  let handelDelete = (e) => {
+    props.selectPallet({
+      OneHue: props.OneHue,
+      OneSat: props.OneSat,
+      OneLight: props.OneLight,
+
+      TwoHue: props.TwoHue,
+      TwoSat: props.TwoSat,
+      TwoLight: props.TwoLight,
+
+      ThreeHue: props.ThreeHue,
+      ThreeSat: props.ThreeSat,
+      ThreeLight: props.ThreeLight,
+
+      FourHue: props.FourHue,
+      FourSat: props.FourSat,
+      FourLight: props.FourLight,
+
+      FiveHue: props.FiveHue,
+      FiveSat: props.FiveSat,
+      FiveLight: props.FiveLight,
+    })
+
+    let targetPallet = props.current_user.pallets.find(p => p.id === props.id)
+    let filteredPallets = props.current_user.pallets.filter(p => p !== targetPallet)
+    props.deletePallet(filteredPallets)
+
+    let targetJoin = props.current_user.user_pallets.find(j => j.pallet_id === targetPallet.id)
+    fetch(`http://localhost:3000/api/v1/user_pallets/${targetJoin.id}`, {
+      method: "DELETE"
+    })
   }
 
   return (
@@ -86,6 +122,11 @@ const Pallet = (props) => {
         fontSize={'.8em'}
         visibility={props.visibility}
       ></Swatch>
+    {props.onProfile === true ? (
+      <div className="delete-btn" onClick={handelDelete}>
+        <p>X</p>
+      </div>
+    ):(null)}
     </div>
   )
 }
@@ -93,12 +134,15 @@ const Pallet = (props) => {
 function msp(state) {
   return {
     selectedPallet: state.selectedPallet,
+    users: state.users,
+    current_user: state.current_user,
   }
 }
 
 function mdp(dispatch){
   return {
     selectPallet: (pallet) => dispatch(selectPallet(pallet)),
+    deletePallet: (pallets) => dispatch(deletePallet(pallets)),
   }
 }
 

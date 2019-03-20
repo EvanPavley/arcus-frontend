@@ -12,3 +12,22 @@
 .pallet:hover {
   background-color: #efefef;
 }
+
+.delete-btn{
+  height: 2rem;
+  width: 2rem;
+  margin-right: .5rem;
+  margin-left: .5rem;
+  border: 2px solid #bababa;
+}
+
+.delete-btn p {
+  margin: 0rem;
+  text-align: center;
+  justify-content: center;
+  padding-top: .4rem;
+}
+
+.delete-btn:hover {
+  background-color: #FFB3B6;
+}

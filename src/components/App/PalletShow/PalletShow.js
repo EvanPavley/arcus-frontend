@@ -7,14 +7,14 @@ import hsl from 'hsl-to-hex'
 
 import './PalletShow.css'
 import Swatch from '../ColorPalletGenerator/PalletContainer/Swatch'
-import { addPallet } from '../../../actions/actions';
+import { addPallet, addJoin } from '../../../actions/actions';
 
 const PalletShow = (props) => {
-  const hexOne = hsl(props.selectedPallet.OneHue, props.selectedPallet.OneSat, props.selectedPallet.OneLight)
-  const hexTwo = hsl(props.selectedPallet.TwoHue, props.selectedPallet.TwoSat, props.selectedPallet.TwoLight)
-  const hexThree = hsl(props.selectedPallet.ThreeHue, props.selectedPallet.ThreeSat, props.selectedPallet.ThreeLight)
-  const hexFour = hsl(props.selectedPallet.FourHue, props.selectedPallet.FourSat, props.selectedPallet.FourLight)
-  const hexFive = hsl(props.selectedPallet.FiveHue, props.selectedPallet.FiveSat, props.selectedPallet.FiveLight)
+  const hexOne = hsl(props.selectedPallet.OneHue, props.selectedPallet.OneSat, props.selectedPallet.OneLight).toUpperCase()
+  const hexTwo = hsl(props.selectedPallet.TwoHue, props.selectedPallet.TwoSat, props.selectedPallet.TwoLight).toUpperCase()
+  const hexThree = hsl(props.selectedPallet.ThreeHue, props.selectedPallet.ThreeSat, props.selectedPallet.ThreeLight).toUpperCase()
+  const hexFour = hsl(props.selectedPallet.FourHue, props.selectedPallet.FourSat, props.selectedPallet.FourLight).toUpperCase()
+  const hexFive = hsl(props.selectedPallet.FiveHue, props.selectedPallet.FiveSat, props.selectedPallet.FiveLight).toUpperCase()
 
   let postPallet = () => {
     return fetch('http://localhost:3000/api/v1/pallets', {
@@ -51,18 +51,22 @@ const PalletShow = (props) => {
     if (props.current_user === null) {
       alert("Please login to save a pallet.")
     }else {
-      props.addPallet({
-        "one": hexOne,
-        "two": hexTwo,
-        "three": hexThree,
-        "four": hexFour,
-        "five": hexFive,
-      })
 
       postPallet()
       .then(r => r.json())
-      .then(pallet => postJoin(pallet.id))
-
+      .then(pallet => {
+        postJoin(pallet.id)
+        .then(r => r.json())
+        .then(join => props.addJoin(join))
+        props.addPallet({
+          id: pallet.id,
+          one: pallet.one,
+          two: pallet.two,
+          three: pallet.three,
+          four: pallet.four,
+          five: pallet.five,
+        })
+      })
       props.history.goBack()
     }
   }
@@ -161,6 +165,7 @@ function msp(state) {
 function mdp(dispatch){
   return {
     addPallet: (pallet) => dispatch(addPallet(pallet)),
+    addJoin: (join) => dispatch(addJoin(join)),
   }
 }
 

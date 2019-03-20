@@ -1,5 +1,5 @@
 import ColorAdapter from '../ColorAdapter'
-import { CHANGE_HUE, CHANGE_SATURATION, CHANGE_LIGHT, SELECT_PALLET, INPUT_CHANGE, SET_USERS, SET_CURRENT_USER, ADD_PALLET } from '../types';
+import { CHANGE_HUE, CHANGE_SATURATION, CHANGE_LIGHT, SELECT_PALLET, INPUT_CHANGE, SET_USERS, SET_CURRENT_USER, ADD_PALLET, ADD_JOIN, DELETE_PALLET } from '../types';
 
 const colorPalletState = {
   selectedColor: '#00bcff',
@@ -101,6 +101,23 @@ export default function colorPalletReducer (state = colorPalletState, action){
             ...state.current_user.pallets,
             action.payload
           ],
+        }
+      }
+    case ADD_JOIN:
+    return{...state,
+      current_user: {
+        ...state.current_user,
+        user_pallets:[
+          ...state.current_user.user_pallets,
+          action.payload
+        ],
+      }
+    }
+    case DELETE_PALLET:
+      return{...state,
+        current_user: {
+          ...state.current_user,
+          pallets: action.payload
         }
       }
     default:
