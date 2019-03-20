@@ -12,6 +12,7 @@ const SaturationSlider = (props) => {
 
   return (
     <div className="sat-slider-container">
+      <p> S A T U R A T I O N </p>
       <input
         className="sat-slider"
         type="range"

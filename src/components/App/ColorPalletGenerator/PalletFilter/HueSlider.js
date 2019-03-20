@@ -15,6 +15,7 @@ const HueSlider = (props) => {
 
   return (
     <div className='hue-slider'>
+      <p> H U E </p>
       <CircularColor
         size={props.size}
         color={ props.selectedColor }

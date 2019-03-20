@@ -19,7 +19,12 @@ const Login = (props) => {
     e.preventDefault();
     if (checkExistingUser(props.username)) {
       props.history.push('/Profile');
-      props.setCurrentUser(props.users.find(u => u.username === props.username));
+
+      let logged_user = props.users.find(u => u.username === props.username)
+      
+      fetch(`http://localhost:3000/api/v1/users/${logged_user.id}`)
+      .then(r => r.json())
+      .then(user => props.setCurrentUser(user))
     }else{
       alert("wrong username or password");
     }

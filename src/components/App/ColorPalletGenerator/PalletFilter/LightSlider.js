@@ -12,6 +12,7 @@ const LightSlider = (props) => {
 
   return (
     <div className="light-slider-container">
+      <p> L I G H T </p>
       <input
         className="light-slider"
         type="range"

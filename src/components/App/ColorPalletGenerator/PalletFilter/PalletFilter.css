@@ -2,3 +2,10 @@
   margin-right: 4rem;
   border: 2px dashed #bababa;
 }
+
+.pallet-filter p {
+  color: gray;
+  text-align: center;
+  margin: .2rem;
+  font-size: .9rem;
+}
