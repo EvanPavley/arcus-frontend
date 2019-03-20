@@ -18,6 +18,9 @@ const Navbar = (props) => {
       <NavLink className='nav-item' to='/Login'>
         Login{' '}
       </NavLink>
+      <NavLink className='nav-item' to='/Signup'>
+        Sign Up{' '}
+      </NavLink>
     </div>
   )
 }

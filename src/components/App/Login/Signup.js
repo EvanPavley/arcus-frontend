@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { handleInputChange, setCurrentUser } from '../../../actions/actions';
 
-const Login = (props) => {
+const Signup = (props) => {
   let handleChange = (e) => {
     let name = e.target.name
     let value = e.target.value
@@ -41,16 +41,24 @@ const Login = (props) => {
     <div className="login-container">
       {props.current_user === null ? (
       <div className="login-form-container">
+        <div className='button-holder'>
+          <p className='title'>Sign Up</p>
+        </div>
         <form className="login-form" onSubmit={handleSubmit}>
-          <div className='button-holder'>
-            <p className='title'>Login</p>
-          </div>
           <label>Username:</label>
           <br/>
           <input
             name='username'
             onChange={handleChange}
             value={props.username}
+          />
+          <br/>
+          <label>Email:</label>
+          <br/>
+          <input
+            name='email'
+            onChange={handleChange}
+            value={props.email}
           />
           <br/>
           <label>Password:</label>
@@ -96,4 +104,4 @@ function mdp(dispatch){
   }
 }
 
-export default connect(msp, mdp)(withRouter(Login))
+export default connect(msp, mdp)(withRouter(Signup))

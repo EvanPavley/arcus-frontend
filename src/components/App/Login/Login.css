@@ -4,7 +4,7 @@
 }
 
 .login-form-container{
-  margin-top: 2rem;
+  margin-top: 5rem;
   text-align: left;
   border: 2px dashed #bababa;
   padding-top: 2rem;
@@ -57,4 +57,11 @@
 
 .logout-btn:hover {
   background-color: #efefef;
+}
+
+.title{
+  margin: 0;
+  color: gray;
+  font-size: 2rem;
+  margin-bottom: 1.7rem;
 }

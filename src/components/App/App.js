@@ -9,6 +9,7 @@ import ColorPalletGenerator from './ColorPalletGenerator/ColorPalletGenerator';
 import PalletShow from './PalletShow/PalletShow';
 import Homepage from './Homepage'
 import Login from './Login/Login'
+import Signup from './Login/Signup'
 import Profile from './Login/Profile'
 
 
@@ -54,6 +55,12 @@ class App extends Component {
             path='/Profile'
             render={(props) => (
               <Profile/>
+            )}
+          />
+        <Route
+            path='/Signup'
+            render={(props) => (
+              <Signup/>
             )}
           />
       </div>
