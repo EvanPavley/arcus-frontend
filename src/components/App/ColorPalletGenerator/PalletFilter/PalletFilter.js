@@ -11,8 +11,8 @@ const PalletFilter = (props) => {
   return (
     <div className='pallet-filter'>
       <HueSlider size={250}/>
-      <LightSlider/>
-      <SaturationSlider/>
+      <LightSlider max={75} min={25}/>
+      <SaturationSlider max={100} min={40}/>
     </div>
   )
 }

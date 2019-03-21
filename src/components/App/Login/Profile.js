@@ -163,7 +163,7 @@ class Profile extends Component {
 
       ThreeHue={ this.props.editablePallet.ThreeHue }
       ThreeSat={ this.props.editablePallet.ThreeSat }
-      ThreeLight={ this.props.editablePallet.TwoLight }
+      ThreeLight={ this.props.editablePallet.ThreeLight }
 
       FourHue={ this.props.editablePallet.FourHue }
       FourSat={ this.props.editablePallet.FourSat }
@@ -247,10 +247,10 @@ class Profile extends Component {
                     </div>
                   </div>
                   <div className="editable-pallet-filter-container">
-                    <HueSlider />
+                    <HueSlider onEdit={true} size={175} />
                     <div className="light-sat">
-                      <LightSlider />
-                      <SaturationSlider />
+                      <LightSlider onEdit={true} min={0} max={100}/>
+                      <SaturationSlider onEdit={true} min={0} max={100}/>
                     </div>
                   </div>
                 </div>

@@ -10,3 +10,4 @@ export const ADD_JOIN = "ADD_JOIN";
 export const DELETE_PALLET = "DELETE_PALLET";
 export const SET_EDITABLE_PALLET = "SET_EDITABLE_PALLET";
 export const SELECT_COLOR_NUM = "SELECT_COLOR";
+export const EDIT_COLOR = "EDIT_COLOR";
