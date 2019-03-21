@@ -85,6 +85,7 @@ const Pallet = (props) => {
         width={'5rem'}
         fontSize={'.8em'}
         visibility={props.visibility}
+        editable={props.editable}
       ></Swatch>
       <Swatch
         h={ props.TwoHue }
@@ -94,6 +95,7 @@ const Pallet = (props) => {
         width={'5rem'}
         fontSize={'.8em'}
         visibility={props.visibility}
+        editable={props.editable}
       ></Swatch>
       <Swatch
         h={ props.ThreeHue }
@@ -103,6 +105,7 @@ const Pallet = (props) => {
         width={'5rem'}
         fontSize={'.8em'}
         visibility={props.visibility}
+        editable={props.editable}
       ></Swatch>
       <Swatch
         h={ props.FourHue }
@@ -112,6 +115,7 @@ const Pallet = (props) => {
         width={'5rem'}
         fontSize={'.8em'}
         visibility={props.visibility}
+        editable={props.editable}
       ></Swatch>
       <Swatch
         h={ props.FiveHue }
@@ -121,6 +125,7 @@ const Pallet = (props) => {
         width={'5rem'}
         fontSize={'.8em'}
         visibility={props.visibility}
+        editable={props.editable}
       ></Swatch>
     {props.onProfile === true ? (
       <div className="delete-btn" onClick={handelDelete}>

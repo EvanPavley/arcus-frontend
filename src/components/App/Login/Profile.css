@@ -39,3 +39,19 @@
   width: 40rem;
   margin: .5rem;
 }
+
+.profile-nav{
+  border: 2px dashed #bababa;
+  color: gray;
+  display: flex;
+  justify-content: space-around;
+}
+
+.profile-nav-item{
+  border: 2px solid #bababa;
+  padding: 1rem;
+}
+
+.profile-nav-item:hover {
+  background-color: #efefef;
+}

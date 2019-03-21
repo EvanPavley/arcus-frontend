@@ -4,8 +4,15 @@ import hsl from 'hsl-to-hex'
 
 const Swatch = (props) => {
   const hex = hsl(props.h, props.s, props.l).toUpperCase()
+
+  let handelClick = () => {
+    if (props.editable === true) {
+      console.log('hey')
+    }
+  }
+
   return (
-    <div className={props.classes.swatch}>
+    <div className={props.classes.swatch} onClick={handelClick}>
       <p className={props.classes.swatchText}>{hex}</p>
     </div>
   )

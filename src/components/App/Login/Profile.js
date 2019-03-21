@@ -11,6 +11,10 @@ import hsl from 'hsl-to-hex'
 import { selectPallet } from '../../../actions/actions';
 
 class Profile extends Component {
+  state = {
+    toggleView: true
+  }
+
   componentDidMount() {
     this.props.selectPallet({
       OneHue: '0',
@@ -35,7 +39,34 @@ class Profile extends Component {
     })
   }
 
+  handelViewClick = (e) => {
+    this.props.selectPallet({
+      OneHue: '0',
+      OneSat: '0',
+      OneLight: '73',
 
+      TwoHue: '0',
+      TwoSat: '0',
+      TwoLight: '73',
+
+      ThreeHue: '0',
+      ThreeSat: '0',
+      ThreeLight: '73',
+
+      FourHue: '0',
+      FourSat: '0',
+      FourLight: '73',
+
+      FiveHue: '0',
+      FiveSat: '0',
+      FiveLight: '73',
+    })
+    if (e.target.innerHTML === "Mockup View") {
+      this.setState({toggleView: true})
+    }else {
+      this.setState({toggleView: false})
+    }
+  }
 
   renderPallets = () => {
     return this.props.current_user.pallets.map(p => {
@@ -74,6 +105,34 @@ class Profile extends Component {
     })
   }
 
+  renderEditablePallet = () => {
+    return <Pallet
+      OneHue={ this.props.selectedPallet.OneHue }
+      OneSat={ this.props.selectedPallet.OneSat }
+      OneLight={ this.props.selectedPallet.OneLight }
+
+      TwoHue={ this.props.selectedPallet.TwoHue }
+      TwoSat={ this.props.selectedPallet.TwoSat }
+      TwoLight={ this.props.selectedPallet.TwoLight }
+
+      ThreeHue={ this.props.selectedPallet.ThreeHue }
+      ThreeSat={ this.props.selectedPallet.ThreeSat }
+      ThreeLight={ this.props.selectedPallet.TwoLight }
+
+      FourHue={ this.props.selectedPallet.FourHue }
+      FourSat={ this.props.selectedPallet.FourSat }
+      FourLight={ this.props.selectedPallet.FourLight }
+
+      FiveHue={ this.props.selectedPallet.FiveHue }
+      FiveSat={ this.props.selectedPallet.FiveSat }
+      FiveLight={ this.props.selectedPallet.FiveLight }
+      
+      onProfile={ true }
+      editable={true}
+      visibility={'hidden'}
+    />
+  }
+
   render(){
     let hexOne = hsl(this.props.selectedPallet.OneHue, this.props.selectedPallet.OneSat, this.props.selectedPallet.OneLight)
     let hexTwo = hsl(this.props.selectedPallet.TwoHue, this.props.selectedPallet.TwoSat, this.props.selectedPallet.TwoLight)
@@ -94,25 +153,48 @@ class Profile extends Component {
               {this.renderPallets()}
             </div>
             <div className='mockup-container-profile'>
-              <p id="name" >Mockups:</p>
-              <div className='star-one-container-profile'>
-                <Stars
-                  hexOne = {hexOne}
-                  hexTwo = {hexTwo}
-                  hexThree = {hexThree}
-                  hexFour = {hexFour}
-                  hexFive = {hexFive}
-                />
+              <div className="profile-nav">
+                <div
+                className="profile-nav-item"
+                onClick= {this.handelViewClick}
+                >
+                  Mockup View
+                </div>
+                <div
+                className="profile-nav-item"
+                onClick= {this.handelViewClick}
+                >
+                  Create Pallet View
+                </div>
               </div>
-              <div className='star-one-container-profile'>
-                <Test
-                  hexOne = {hexOne}
-                  hexTwo = {hexTwo}
-                  hexThree = {hexThree}
-                  hexFour = {hexFour}
-                  hexFive = {hexFive}
-                />
-              </div>
+              {this.state.toggleView === true ? (
+                <div>
+                  <p id="name" >Mockups:</p>
+                  <div className='star-one-container-profile'>
+                    <Stars
+                      hexOne = {hexOne}
+                      hexTwo = {hexTwo}
+                      hexThree = {hexThree}
+                      hexFour = {hexFour}
+                      hexFive = {hexFive}
+                    />
+                  </div>
+                  <div className='star-one-container-profile'>
+                    <Test
+                      hexOne = {hexOne}
+                      hexTwo = {hexTwo}
+                      hexThree = {hexThree}
+                      hexFour = {hexFour}
+                      hexFive = {hexFive}
+                    />
+                  </div>
+                </div>
+              )
+              : (
+                <div className="editable-pallet-container">
+                  {this.renderEditablePallet()}
+                </div>
+              )}
             </div>
           </div>
         )}
