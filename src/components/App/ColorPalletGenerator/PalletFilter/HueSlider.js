@@ -4,12 +4,25 @@ import { connect } from 'react-redux';
 import CircularColor from 'react-circular-color';
 import hexToHsl from 'hex-to-hsl'
 
-import { changeHue } from '../../../../actions/actions';
+import { changeHue, editColor } from '../../../../actions/actions';
 import './HueSlider.css'
 
 const HueSlider = (props) => {
 
   let handleHueChange = (hexColor) => {
+    if (props.onEdit === true) {
+      if (props.selectedColorNum === "one") {
+        props.editColor({name:'OneHue', value:hexToHsl(hexColor)[0]})
+      }else if (props.selectedColorNum === "two") {
+        props.editColor({name:'TwoHue', value:hexToHsl(hexColor)[0]})
+      }else if (props.selectedColorNum === "three") {
+        props.editColor({name:'ThreeHue', value:hexToHsl(hexColor)[0]})
+      }else if (props.selectedColorNum === "four") {
+        props.editColor({name:'FourHue', value:hexToHsl(hexColor)[0]})
+      }else if (props.selectedColorNum === "five") {
+        props.editColor({name:'FiveHue', value:hexToHsl(hexColor)[0]})
+      }
+    }
     props.changeHue({hue: hexToHsl(hexColor)[0], hex: hexColor})
   }
 
@@ -39,11 +52,13 @@ function msp(state) {
     splitComplementaryRightH: state.splitComplementaryRightH,
     triadicLeft: state.triadicLeft,
     triadicRight: state.triadicRight,
+    selectedColorNum: state.selectedColorNum,
   }
 }
 function mdp(dispatch){
   return {
     changeHue: (hue) => dispatch(changeHue(hue)),
+    editColor: ({name, value}) => dispatch(editColor({name, value})),
   }
 }
 export default connect(msp, mdp)(HueSlider)

@@ -3,12 +3,33 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import Swatch from './Swatch'
-import { selectPallet, deletePallet } from '../../../../actions/actions';
+import { selectPallet, deletePallet, setEditablePallet } from '../../../../actions/actions';
 import './Pallet.css'
 
 const Pallet = (props) => {
   let handleClick = () => {
     props.selectPallet({
+      OneHue: props.OneHue,
+      OneSat: props.OneSat,
+      OneLight: props.OneLight,
+
+      TwoHue: props.TwoHue,
+      TwoSat: props.TwoSat,
+      TwoLight: props.TwoLight,
+
+      ThreeHue: props.ThreeHue,
+      ThreeSat: props.ThreeSat,
+      ThreeLight: props.ThreeLight,
+
+      FourHue: props.FourHue,
+      FourSat: props.FourSat,
+      FourLight: props.FourLight,
+
+      FiveHue: props.FiveHue,
+      FiveSat: props.FiveSat,
+      FiveLight: props.FiveLight,
+    })
+    props.setEditablePallet({
       OneHue: props.OneHue,
       OneSat: props.OneSat,
       OneLight: props.OneLight,
@@ -153,12 +174,14 @@ function msp(state) {
     selectedPallet: state.selectedPallet,
     users: state.users,
     current_user: state.current_user,
+    editablePallet: state.editablePallet,
   }
 }
 
 function mdp(dispatch){
   return {
     selectPallet: (pallet) => dispatch(selectPallet(pallet)),
+    setEditablePallet: (pallet) => dispatch(setEditablePallet(pallet)),
     deletePallet: (pallets) => dispatch(deletePallet(pallets)),
   }
 }

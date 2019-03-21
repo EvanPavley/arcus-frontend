@@ -43,6 +43,7 @@ function msp(state) {
     s: state.s,
     desaturateOne: state.desaturateOne,
     desaturateTwo: state.desaturateTwo,
+    selectedColorNum: state.selectedColorNum,
   }
 }
 function mdp(dispatch){

@@ -11,7 +11,7 @@ import Test from '../PalletShow/Test'
 
 import hexToHsl from 'hex-to-hsl'
 import hsl from 'hsl-to-hex'
-import { selectPallet, setEditablePallet } from '../../../actions/actions';
+import { selectPallet, setEditablePallet, addPallet, addJoin } from '../../../actions/actions';
 
 class Profile extends Component {
   state = {
@@ -181,6 +181,63 @@ class Profile extends Component {
     />
   }
 
+
+
+  postPallet = () => {
+    const hexOne = hsl(this.props.editablePallet.OneHue, this.props.editablePallet.OneSat, this.props.editablePallet.OneLight).toUpperCase()
+    const hexTwo = hsl(this.props.editablePallet.TwoHue, this.props.editablePallet.TwoSat, this.props.editablePallet.TwoLight).toUpperCase()
+    const hexThree = hsl(this.props.editablePallet.ThreeHue, this.props.editablePallet.ThreeSat, this.props.editablePallet.ThreeLight).toUpperCase()
+    const hexFour = hsl(this.props.editablePallet.FourHue, this.props.editablePallet.FourSat, this.props.editablePallet.FourLight).toUpperCase()
+    const hexFive = hsl(this.props.editablePallet.FiveHue, this.props.editablePallet.FiveSat, this.props.editablePallet.FiveLight).toUpperCase()
+
+    return fetch('http://localhost:3000/api/v1/pallets', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({
+        one: hexOne,
+        two: hexTwo,
+        three: hexThree,
+        four: hexFour,
+        five: hexFive,
+      })
+    })
+  }
+
+  postJoin = (pallet_id) => {
+    return fetch('http://localhost:3000/api/v1/user_pallets', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({
+        user_id: this.props.current_user.id,
+        pallet_id: pallet_id,
+      })
+    })
+  }
+
+  handleSave = (e) => {
+      this.postPallet()
+      .then(r => r.json())
+      .then(pallet => {
+        this.postJoin(pallet.id)
+        .then(r => r.json())
+        .then(join => this.props.addJoin(join))
+        this.props.addPallet({
+          id: pallet.id,
+          one: pallet.one,
+          two: pallet.two,
+          three: pallet.three,
+          four: pallet.four,
+          five: pallet.five,
+        })
+      })
+  }
+
   render(){
     let hexOne = hsl(this.props.selectedPallet.OneHue, this.props.selectedPallet.OneSat, this.props.selectedPallet.OneLight)
     let hexTwo = hsl(this.props.selectedPallet.TwoHue, this.props.selectedPallet.TwoSat, this.props.selectedPallet.TwoLight)
@@ -212,7 +269,7 @@ class Profile extends Component {
                 className="profile-nav-item"
                 onClick= {this.handelViewClick}
                 >
-                  Create Pallet View
+                  Custom Pallet View
                 </div>
               </div>
               {this.state.toggleView === true ? (
@@ -242,7 +299,7 @@ class Profile extends Component {
                 <div className="editable-pallet-container">
                   <div className="editable-pallet">
                     {this.renderEditablePallet()}
-                    <div className="profile-save-btn">
+                    <div className="profile-save-btn" onClick={this.handleSave}>
                     S A V E
                     </div>
                   </div>
@@ -275,6 +332,8 @@ function mdp(dispatch){
   return {
     selectPallet: (pallet) => dispatch(selectPallet(pallet)),
     setEditablePallet: (pallet) => dispatch(setEditablePallet(pallet)),
+    addPallet: (pallet) => dispatch(addPallet(pallet)),
+    addJoin: (join) => dispatch(addJoin(join)),
   }
 }
 
