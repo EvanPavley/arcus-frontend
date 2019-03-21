@@ -19,6 +19,7 @@ const HueSlider = (props) => {
       <CircularColor
         size={props.size}
         color={ props.selectedColor }
+        value={ props.selectedColor }
         onChange={handleHueChange}
         centerRect={true}
       />

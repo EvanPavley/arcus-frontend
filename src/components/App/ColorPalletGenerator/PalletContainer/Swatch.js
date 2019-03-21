@@ -1,13 +1,19 @@
 import React from 'react'
+import { connect } from 'react-redux';
 import withStyles from 'react-jss'
 import hsl from 'hsl-to-hex'
+import { changeHue, changeLight, changeSaturation, selectColorNum } from '../../../../actions/actions';
+
 
 const Swatch = (props) => {
   const hex = hsl(props.h, props.s, props.l).toUpperCase()
 
   let handelClick = () => {
     if (props.editable === true) {
-      console.log('hey')
+      props.changeHue({hue: props.h, hex: hex})
+      props.changeSaturation(props.s)
+      props.changeLight(props.l)
+      props.selectColorNum(props.number)
     }
   }
 
@@ -30,9 +36,10 @@ const styles = {
     marginRight: '.5rem',
     marginLeft: '.5rem',
     display: 'flex',
-    // '&:hover': {
-    //   backgroundColor: 'red',
-    // }
+    border: props => props.border,
+    '&:hover': {
+      border: props => props.borderHover,
+    }
   },
   swatchText: {
     textAlign: 'center',
@@ -44,4 +51,19 @@ const styles = {
   },
 }
 
-export default withStyles(styles)(Swatch)
+function msp(state) {
+  return {
+    selectedColor: state.selectedColor,
+  }
+}
+
+function mdp(dispatch){
+  return {
+    changeHue: (hue) => dispatch(changeHue(hue)),
+    changeLight: (light) => dispatch(changeLight(light)),
+    changeSaturation: (sat) => dispatch(changeSaturation(sat)),
+    selectColorNum: (colorNum) => dispatch(selectColorNum(colorNum)),
+  }
+}
+
+export default withStyles(styles)(connect(msp, mdp)(Swatch));

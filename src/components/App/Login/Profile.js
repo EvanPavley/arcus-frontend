@@ -3,12 +3,15 @@ import { connect } from 'react-redux';
 import './Profile.css'
 
 import Pallet from '../ColorPalletGenerator/PalletContainer/Pallet'
+import HueSlider from '../ColorPalletGenerator/PalletFilter/HueSlider'
+import LightSlider from '../ColorPalletGenerator/PalletFilter/LightSlider'
+import SaturationSlider from '../ColorPalletGenerator/PalletFilter/SaturationSlider'
 import Stars from '../PalletShow/Stars'
 import Test from '../PalletShow/Test'
 
 import hexToHsl from 'hex-to-hsl'
 import hsl from 'hsl-to-hex'
-import { selectPallet } from '../../../actions/actions';
+import { selectPallet, setEditablePallet } from '../../../actions/actions';
 
 class Profile extends Component {
   state = {
@@ -37,10 +40,52 @@ class Profile extends Component {
       FiveSat: '0',
       FiveLight: '73',
     })
+    this.props.setEditablePallet({
+      OneHue: '0',
+      OneSat: '0',
+      OneLight: '73',
+
+      TwoHue: '0',
+      TwoSat: '0',
+      TwoLight: '73',
+
+      ThreeHue: '0',
+      ThreeSat: '0',
+      ThreeLight: '73',
+
+      FourHue: '0',
+      FourSat: '0',
+      FourLight: '73',
+
+      FiveHue: '0',
+      FiveSat: '0',
+      FiveLight: '73',
+    })
   }
 
   handelViewClick = (e) => {
     this.props.selectPallet({
+      OneHue: '0',
+      OneSat: '0',
+      OneLight: '73',
+
+      TwoHue: '0',
+      TwoSat: '0',
+      TwoLight: '73',
+
+      ThreeHue: '0',
+      ThreeSat: '0',
+      ThreeLight: '73',
+
+      FourHue: '0',
+      FourSat: '0',
+      FourLight: '73',
+
+      FiveHue: '0',
+      FiveSat: '0',
+      FiveLight: '73',
+    })
+    this.props.setEditablePallet({
       OneHue: '0',
       OneSat: '0',
       OneLight: '73',
@@ -98,6 +143,7 @@ class Profile extends Component {
           FiveSat={ hslFive[1] }
           FiveLight={ hslFive[2] }
 
+          editable={ false }
           onProfile={ true }
           visibility={'visible'}
         />
@@ -107,29 +153,31 @@ class Profile extends Component {
 
   renderEditablePallet = () => {
     return <Pallet
-      OneHue={ this.props.selectedPallet.OneHue }
-      OneSat={ this.props.selectedPallet.OneSat }
-      OneLight={ this.props.selectedPallet.OneLight }
+      OneHue={ this.props.editablePallet.OneHue }
+      OneSat={ this.props.editablePallet.OneSat }
+      OneLight={ this.props.editablePallet.OneLight }
 
-      TwoHue={ this.props.selectedPallet.TwoHue }
-      TwoSat={ this.props.selectedPallet.TwoSat }
-      TwoLight={ this.props.selectedPallet.TwoLight }
+      TwoHue={ this.props.editablePallet.TwoHue }
+      TwoSat={ this.props.editablePallet.TwoSat }
+      TwoLight={ this.props.editablePallet.TwoLight }
 
-      ThreeHue={ this.props.selectedPallet.ThreeHue }
-      ThreeSat={ this.props.selectedPallet.ThreeSat }
-      ThreeLight={ this.props.selectedPallet.TwoLight }
+      ThreeHue={ this.props.editablePallet.ThreeHue }
+      ThreeSat={ this.props.editablePallet.ThreeSat }
+      ThreeLight={ this.props.editablePallet.TwoLight }
 
-      FourHue={ this.props.selectedPallet.FourHue }
-      FourSat={ this.props.selectedPallet.FourSat }
-      FourLight={ this.props.selectedPallet.FourLight }
+      FourHue={ this.props.editablePallet.FourHue }
+      FourSat={ this.props.editablePallet.FourSat }
+      FourLight={ this.props.editablePallet.FourLight }
 
-      FiveHue={ this.props.selectedPallet.FiveHue }
-      FiveSat={ this.props.selectedPallet.FiveSat }
-      FiveLight={ this.props.selectedPallet.FiveLight }
-      
+      FiveHue={ this.props.editablePallet.FiveHue }
+      FiveSat={ this.props.editablePallet.FiveSat }
+      FiveLight={ this.props.editablePallet.FiveLight }
+
       onProfile={ true }
-      editable={true}
+      editable={ true }
       visibility={'hidden'}
+      border={'3px solid white'}
+      borderHover={'3px solid #00BBFF'}
     />
   }
 
@@ -192,7 +240,19 @@ class Profile extends Component {
               )
               : (
                 <div className="editable-pallet-container">
-                  {this.renderEditablePallet()}
+                  <div className="editable-pallet">
+                    {this.renderEditablePallet()}
+                    <div className="profile-save-btn">
+                    S A V E
+                    </div>
+                  </div>
+                  <div className="editable-pallet-filter-container">
+                    <HueSlider />
+                    <div className="light-sat">
+                      <LightSlider />
+                      <SaturationSlider />
+                    </div>
+                  </div>
                 </div>
               )}
             </div>
@@ -207,12 +267,14 @@ function msp(state) {
   return {
     current_user: state.current_user,
     selectedPallet: state.selectedPallet,
+    editablePallet: state.editablePallet,
   }
 }
 
 function mdp(dispatch){
   return {
     selectPallet: (pallet) => dispatch(selectPallet(pallet)),
+    setEditablePallet: (pallet) => dispatch(setEditablePallet(pallet)),
   }
 }
 

@@ -8,3 +8,5 @@ export const SET_CURRENT_USER = "SET_CURRENT_USER";
 export const ADD_PALLET = "ADD_PALLET";
 export const ADD_JOIN = "ADD_JOIN";
 export const DELETE_PALLET = "DELETE_PALLET";
+export const SET_EDITABLE_PALLET = "SET_EDITABLE_PALLET";
+export const SELECT_COLOR_NUM = "SELECT_COLOR";

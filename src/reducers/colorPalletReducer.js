@@ -1,5 +1,5 @@
 import ColorAdapter from '../ColorAdapter'
-import { CHANGE_HUE, CHANGE_SATURATION, CHANGE_LIGHT, SELECT_PALLET, INPUT_CHANGE, SET_USERS, SET_CURRENT_USER, ADD_PALLET, ADD_JOIN, DELETE_PALLET } from '../types';
+import { CHANGE_HUE, CHANGE_SATURATION, CHANGE_LIGHT, SELECT_PALLET, INPUT_CHANGE, SET_USERS, SET_CURRENT_USER, ADD_PALLET, ADD_JOIN, DELETE_PALLET, SET_EDITABLE_PALLET, SELECT_COLOR_NUM} from '../types';
 
 const colorPalletState = {
   selectedColor: '#00bcff',
@@ -43,12 +43,36 @@ const colorPalletState = {
     FiveLight: 70,
   },
 
+  editablePallet: {
+    OneHue: 196,
+    OneSat: 100,
+    OneLight: 50,
+
+    TwoHue: 346,
+    TwoSat: 100,
+    TwoLight: 70,
+
+    ThreeHue: 46,
+    ThreeSat: 100,
+    ThreeLight: 70,
+
+    FourHue: 166,
+    FourSat: 100,
+    FourLight: 70,
+
+    FiveHue: 196,
+    FiveSat: 100,
+    FiveLight: 70,
+  },
+
   username: '',
   email: '',
   password: '',
 
   users: [],
-  current_user: null
+  current_user: null,
+
+  selectedColorNum: null,
 };
 
 export default function colorPalletReducer (state = colorPalletState, action){
@@ -80,6 +104,10 @@ export default function colorPalletReducer (state = colorPalletState, action){
     case SELECT_PALLET:
       return{ ...state,
         selectedPallet: action.payload,
+      }
+    case SET_EDITABLE_PALLET:
+      return{ ...state,
+        editablePallet: action.payload,
       }
     case INPUT_CHANGE:
       return{ ...state,
@@ -120,6 +148,11 @@ export default function colorPalletReducer (state = colorPalletState, action){
           pallets: action.payload
         }
       }
+    case SELECT_COLOR_NUM:{
+      return{ ...state,
+        selectedColorNum: action.payload,
+      }
+    }
     default:
       return state;
   }

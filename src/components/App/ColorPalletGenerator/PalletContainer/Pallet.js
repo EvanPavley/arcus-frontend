@@ -30,10 +30,7 @@ const Pallet = (props) => {
       FiveLight: props.FiveLight,
     })
     if (props.onProfile === true) {
-      let targetPallet = props.current_user.pallets.find(p => p.id === props.id)
-      let targetJoin = props.current_user.user_pallets.find(j => j.pallet_id === targetPallet.id)
-      console.log(targetPallet);
-      console.log(targetJoin);
+
     }else {
       props.history.push(`/PalletShow`)
     }
@@ -86,6 +83,9 @@ const Pallet = (props) => {
         fontSize={'.8em'}
         visibility={props.visibility}
         editable={props.editable}
+        border={props.border}
+        borderHover={props.borderHover}
+        number={"one"}
       ></Swatch>
       <Swatch
         h={ props.TwoHue }
@@ -96,6 +96,9 @@ const Pallet = (props) => {
         fontSize={'.8em'}
         visibility={props.visibility}
         editable={props.editable}
+        border={props.border}
+        borderHover={props.borderHover}
+        number={"two"}
       ></Swatch>
       <Swatch
         h={ props.ThreeHue }
@@ -106,6 +109,9 @@ const Pallet = (props) => {
         fontSize={'.8em'}
         visibility={props.visibility}
         editable={props.editable}
+        border={props.border}
+        borderHover={props.borderHover}
+        number={"three"}
       ></Swatch>
       <Swatch
         h={ props.FourHue }
@@ -116,6 +122,9 @@ const Pallet = (props) => {
         fontSize={'.8em'}
         visibility={props.visibility}
         editable={props.editable}
+        border={props.border}
+        borderHover={props.borderHover}
+        number={"four"}
       ></Swatch>
       <Swatch
         h={ props.FiveHue }
@@ -126,8 +135,11 @@ const Pallet = (props) => {
         fontSize={'.8em'}
         visibility={props.visibility}
         editable={props.editable}
+        border={props.border}
+        borderHover={props.borderHover}
+        number={"five"}
       ></Swatch>
-    {props.onProfile === true ? (
+    {props.onProfile === true && props.editable === false? (
       <div className="delete-btn" onClick={handelDelete}>
         <p>X</p>
       </div>

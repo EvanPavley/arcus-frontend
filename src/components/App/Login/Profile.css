@@ -55,3 +55,33 @@
 .profile-nav-item:hover {
   background-color: #efefef;
 }
+
+.editable-pallet-filter-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.light-sat{
+  display: block;
+}
+
+.editable-pallet{
+  display: flex;
+  justify-content: space-around;
+}
+
+.profile-save-btn{
+  border: 2px solid #bababa;
+  text-align: center;
+  width: 5rem;
+  height: 1.5rem;
+  padding: .5rem;
+  color: gray;
+  margin-bottom: 1rem;
+  margin-top: 4.5rem;
+  margin-left: 1rem;
+}
+
+.profile-save-btn:hover {
+  background-color: #efefef;
+}
