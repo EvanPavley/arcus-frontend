@@ -64,49 +64,7 @@ class Profile extends Component {
   }
 
   handelViewClick = (e) => {
-    this.props.selectPallet({
-      OneHue: '0',
-      OneSat: '0',
-      OneLight: '73',
-
-      TwoHue: '0',
-      TwoSat: '0',
-      TwoLight: '73',
-
-      ThreeHue: '0',
-      ThreeSat: '0',
-      ThreeLight: '73',
-
-      FourHue: '0',
-      FourSat: '0',
-      FourLight: '73',
-
-      FiveHue: '0',
-      FiveSat: '0',
-      FiveLight: '73',
-    })
-    this.props.setEditablePallet({
-      OneHue: '0',
-      OneSat: '0',
-      OneLight: '73',
-
-      TwoHue: '0',
-      TwoSat: '0',
-      TwoLight: '73',
-
-      ThreeHue: '0',
-      ThreeSat: '0',
-      ThreeLight: '73',
-
-      FourHue: '0',
-      FourSat: '0',
-      FourLight: '73',
-
-      FiveHue: '0',
-      FiveSat: '0',
-      FiveLight: '73',
-    })
-    if (e.target.innerHTML === "Mockup View") {
+    if (e.target.innerHTML === "View Mockups") {
       this.setState({toggleView: true})
     }else {
       this.setState({toggleView: false})
@@ -146,6 +104,8 @@ class Profile extends Component {
           editable={ false }
           onProfile={ true }
           visibility={'visible'}
+          height={'5rem'}
+          width={'5rem'}
         />
       )
     })
@@ -178,6 +138,8 @@ class Profile extends Component {
       visibility={'hidden'}
       border={'3px solid white'}
       borderHover={'3px solid #00BBFF'}
+      height={'5rem'}
+      width={'5rem'}
     />
   }
 
@@ -263,13 +225,13 @@ class Profile extends Component {
                 className="profile-nav-item"
                 onClick= {this.handelViewClick}
                 >
-                  Mockup View
+                  View Mockups
                 </div>
                 <div
                 className="profile-nav-item"
                 onClick= {this.handelViewClick}
                 >
-                  Custom Pallet View
+                  Customize Pallet
                 </div>
               </div>
               {this.state.toggleView === true ? (

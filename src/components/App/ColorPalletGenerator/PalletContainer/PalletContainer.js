@@ -28,6 +28,8 @@ const PalletContainer = (props) => {
           FiveLight={ props.lightenOne }
 
           visibility={'hidden'}
+          height={'5rem'}
+          width={'5rem'}
       />
       <Pallet
           OneHue={ props.h }
@@ -51,6 +53,8 @@ const PalletContainer = (props) => {
           FiveLight={ props.darkenOne }
 
           visibility={'hidden'}
+          height={'5rem'}
+          width={'5rem'}
       />
       <Pallet
           OneHue={ props.h }
@@ -74,6 +78,8 @@ const PalletContainer = (props) => {
           FiveLight={ props.darkenOne }
 
           visibility={'hidden'}
+          height={'5rem'}
+          width={'5rem'}
       />
       <Pallet
           OneHue={ props.h }
@@ -97,6 +103,8 @@ const PalletContainer = (props) => {
           FiveLight={ props.darkenOne }
 
           visibility={'hidden'}
+          height={'5rem'}
+          width={'5rem'}
       />
       <Pallet
           OneHue={ props.h }
@@ -120,6 +128,8 @@ const PalletContainer = (props) => {
           FiveLight={ props.darkenOne }
 
           visibility={'hidden'}
+          height={'5rem'}
+          width={'5rem'}
       />
       <Pallet
           OneHue={ props.h }
@@ -143,6 +153,8 @@ const PalletContainer = (props) => {
           FiveLight={ props.darkenOne }
 
           visibility={'hidden'}
+          height={'5rem'}
+          width={'5rem'}
       />
       <Pallet
           OneHue={ props.h }
@@ -166,6 +178,8 @@ const PalletContainer = (props) => {
           FiveLight={ props.darkenOne }
 
           visibility={'hidden'}
+          height={'5rem'}
+          width={'5rem'}
       />
       <Pallet
           OneHue={ props.h }
@@ -189,6 +203,8 @@ const PalletContainer = (props) => {
           FiveLight={ props.darkenOne }
 
           visibility={'hidden'}
+          height={'5rem'}
+          width={'5rem'}
       />
       <Pallet
           OneHue={ props.h }
@@ -212,6 +228,8 @@ const PalletContainer = (props) => {
           FiveLight={ props.darkenOne }
 
           visibility={'hidden'}
+          height={'5rem'}
+          width={'5rem'}
       />
       <Pallet
           OneHue={ props.h }
@@ -235,6 +253,8 @@ const PalletContainer = (props) => {
           FiveLight={ props.darkenOne }
 
           visibility={'hidden'}
+          height={'5rem'}
+          width={'5rem'}
       />
       <Pallet
           OneHue={ props.h }
@@ -258,6 +278,8 @@ const PalletContainer = (props) => {
           FiveLight={ props.darkenOne }
 
           visibility={'hidden'}
+          height={'5rem'}
+          width={'5rem'}
       />
   </div>
   )

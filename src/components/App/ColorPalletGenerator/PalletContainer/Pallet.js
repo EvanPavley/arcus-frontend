@@ -99,8 +99,8 @@ const Pallet = (props) => {
         h={ props.OneHue }
         s={ props.OneSat }
         l={ props.OneLight }
-        height={'5rem'}
-        width={'5rem'}
+        height={props.height}
+        width={props.width}
         fontSize={'.8em'}
         visibility={props.visibility}
         editable={props.editable}
@@ -112,8 +112,8 @@ const Pallet = (props) => {
         h={ props.TwoHue }
         s={ props.TwoSat }
         l={ props.TwoLight }
-        height={'5rem'}
-        width={'5rem'}
+        height={props.height}
+        width={props.width}
         fontSize={'.8em'}
         visibility={props.visibility}
         editable={props.editable}
@@ -125,8 +125,8 @@ const Pallet = (props) => {
         h={ props.ThreeHue }
         s={ props.ThreeSat }
         l={ props.ThreeLight }
-        height={'5rem'}
-        width={'5rem'}
+        height={props.height}
+        width={props.width}
         fontSize={'.8em'}
         visibility={props.visibility}
         editable={props.editable}
@@ -138,8 +138,8 @@ const Pallet = (props) => {
         h={ props.FourHue }
         s={ props.FourSat }
         l={ props.FourLight }
-        height={'5rem'}
-        width={'5rem'}
+        height={props.height}
+        width={props.width}
         fontSize={'.8em'}
         visibility={props.visibility}
         editable={props.editable}
@@ -151,8 +151,8 @@ const Pallet = (props) => {
         h={ props.FiveHue }
         s={ props.FiveSat }
         l={ props.FiveLight }
-        height={'5rem'}
-        width={'5rem'}
+        height={props.height}
+        width={props.width}
         fontSize={'.8em'}
         visibility={props.visibility}
         editable={props.editable}
