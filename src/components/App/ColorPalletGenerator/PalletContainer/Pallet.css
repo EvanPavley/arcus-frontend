@@ -1,33 +1,52 @@
 .pallet{
-  display: flex;
   margin-top: 2rem;
   margin-bottom: .5rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  padding-right: .5rem;
-  padding-left: .5rem;
-  border: 2px dashed #bababa;
+  padding-top: 1.2rem;
+  padding-bottom: .4rem;
+  padding-right: .7rem;
+  padding-left: .7rem;
+  border: 2px solid #e5e5e5;
+  background-color: #efefef;
+  border-radius: .3rem
+}
+
+.swatchHolder{
+  display: flex;
 }
 
 .pallet:hover {
-  background-color: #efefef;
+  background-color: #e5e5e5;
 }
 
-.delete-btn{
-  height: 2rem;
-  width: 2rem;
-  margin-right: .5rem;
-  margin-left: .5rem;
+.pallet-btn{
+  height: .8rem;
+  width: .8rem;
+  border-radius: .3rem;
   border: 2px solid #bababa;
+  margin-left: 1rem;
 }
 
-.delete-btn p {
+.pallet-btn p {
   margin: 0rem;
   text-align: center;
   justify-content: center;
   padding-top: .4rem;
 }
 
-.delete-btn:hover {
-  background-color: #FFB3B6;
+.pallet-btn:hover {
+  background-color: #66D6FF;
+}
+
+.toolItems{
+  margin-top: .5rem;
+  display: flex;
+  color: gray;
+  justify-content: space-between;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  font-size: .8rem;
+}
+
+.tool-btns{
+  display: flex;
 }

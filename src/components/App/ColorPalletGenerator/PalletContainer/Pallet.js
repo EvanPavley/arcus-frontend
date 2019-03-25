@@ -91,80 +91,104 @@ const Pallet = (props) => {
   }
 
   return (
-    <div
-      className='pallet'
-      onClick= {handleClick}
-      >
-      <Swatch
-        h={ props.OneHue }
-        s={ props.OneSat }
-        l={ props.OneLight }
-        height={props.height}
-        width={props.width}
-        fontSize={'.8em'}
-        visibility={props.visibility}
-        editable={props.editable}
-        border={props.border}
-        borderHover={props.borderHover}
-        number={"one"}
-      ></Swatch>
-      <Swatch
-        h={ props.TwoHue }
-        s={ props.TwoSat }
-        l={ props.TwoLight }
-        height={props.height}
-        width={props.width}
-        fontSize={'.8em'}
-        visibility={props.visibility}
-        editable={props.editable}
-        border={props.border}
-        borderHover={props.borderHover}
-        number={"two"}
-      ></Swatch>
-      <Swatch
-        h={ props.ThreeHue }
-        s={ props.ThreeSat }
-        l={ props.ThreeLight }
-        height={props.height}
-        width={props.width}
-        fontSize={'.8em'}
-        visibility={props.visibility}
-        editable={props.editable}
-        border={props.border}
-        borderHover={props.borderHover}
-        number={"three"}
-      ></Swatch>
-      <Swatch
-        h={ props.FourHue }
-        s={ props.FourSat }
-        l={ props.FourLight }
-        height={props.height}
-        width={props.width}
-        fontSize={'.8em'}
-        visibility={props.visibility}
-        editable={props.editable}
-        border={props.border}
-        borderHover={props.borderHover}
-        number={"four"}
-      ></Swatch>
-      <Swatch
-        h={ props.FiveHue }
-        s={ props.FiveSat }
-        l={ props.FiveLight }
-        height={props.height}
-        width={props.width}
-        fontSize={'.8em'}
-        visibility={props.visibility}
-        editable={props.editable}
-        border={props.border}
-        borderHover={props.borderHover}
-        number={"five"}
-      ></Swatch>
-    {props.onProfile === true && props.editable === false? (
-      <div className="delete-btn" onClick={handelDelete}>
-        <p>X</p>
+    <div className='pallet'>
+      <div
+        className='swatchHolder'
+        onClick= {handleClick}
+        >
+        <Swatch
+          h={ props.OneHue }
+          s={ props.OneSat }
+          l={ props.OneLight }
+          height={props.height}
+          width={props.width}
+          fontSize={'.8em'}
+          visibility={props.visibility}
+          editable={props.editable}
+          border={props.border}
+          borderHover={props.borderHover}
+          number={"one"}
+        ></Swatch>
+        <Swatch
+          h={ props.TwoHue }
+          s={ props.TwoSat }
+          l={ props.TwoLight }
+          height={props.height}
+          width={props.width}
+          fontSize={'.8em'}
+          visibility={props.visibility}
+          editable={props.editable}
+          border={props.border}
+          borderHover={props.borderHover}
+          number={"two"}
+        ></Swatch>
+        <Swatch
+          h={ props.ThreeHue }
+          s={ props.ThreeSat }
+          l={ props.ThreeLight }
+          height={props.height}
+          width={props.width}
+          fontSize={'.8em'}
+          visibility={props.visibility}
+          editable={props.editable}
+          border={props.border}
+          borderHover={props.borderHover}
+          number={"three"}
+        ></Swatch>
+        <Swatch
+          h={ props.FourHue }
+          s={ props.FourSat }
+          l={ props.FourLight }
+          height={props.height}
+          width={props.width}
+          fontSize={'.8em'}
+          visibility={props.visibility}
+          editable={props.editable}
+          border={props.border}
+          borderHover={props.borderHover}
+          number={"four"}
+        ></Swatch>
+        <Swatch
+          h={ props.FiveHue }
+          s={ props.FiveSat }
+          l={ props.FiveLight }
+          height={props.height}
+          width={props.width}
+          fontSize={'.8em'}
+          visibility={props.visibility}
+          editable={props.editable}
+          border={props.border}
+          borderHover={props.borderHover}
+          number={"five"}
+        ></Swatch>
       </div>
-    ):(null)}
+        {props.onProfile === true && props.editable === false? (
+          <div className="toolItems">
+            <div>
+              0 likes
+            </div>
+            <div className="pallet-btn" onClick={handelDelete}>
+              <p> </p>
+            </div>
+          </div>
+        ):(
+          <div className="toolItems">
+            <div>
+              0 likes
+            </div>
+            <div className="tool-btns">
+              <div className="pallet-btn">
+                <p> </p>
+              </div>
+              <div className="pallet-btn">
+                <p> </p>
+              </div>
+              <div className="pallet-btn">
+                <p> </p>
+              </div>
+            </div>
+          </div>
+        )}
     </div>
   )
 }
