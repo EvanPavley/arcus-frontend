@@ -29,6 +29,7 @@ const PalletShow = (props) => {
         three: hexThree,
         four: hexFour,
         five: hexFive,
+        hex_id: `${hexOne}-${hexTwo}-${hexThree}-${hexFour}-${hexFive}`,
       })
     })
   }

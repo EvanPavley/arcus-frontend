@@ -73,13 +73,14 @@
 .profile-save-btn{
   border: 2px solid #bababa;
   text-align: center;
-  width: 5rem;
+  width: 4rem;
   height: 1.5rem;
   padding: .5rem;
   color: gray;
   margin-bottom: 1rem;
   margin-top: 4.5rem;
   margin-left: 1rem;
+  font-size: 1rem
 }
 
 .profile-save-btn:hover {
