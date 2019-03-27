@@ -10,6 +10,7 @@ import Swatch from '../ColorPalletGenerator/PalletContainer/Swatch'
 import { addPallet, addJoin } from '../../../actions/actions';
 
 const PalletShow = (props) => {
+  
   const hexOne = hsl(props.selectedPallet.OneHue, props.selectedPallet.OneSat, props.selectedPallet.OneLight).toUpperCase()
   const hexTwo = hsl(props.selectedPallet.TwoHue, props.selectedPallet.TwoSat, props.selectedPallet.TwoLight).toUpperCase()
   const hexThree = hsl(props.selectedPallet.ThreeHue, props.selectedPallet.ThreeSat, props.selectedPallet.ThreeLight).toUpperCase()

@@ -1,12 +1,76 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+import hsl from 'hsl-to-hex'
 
 import Swatch from './Swatch'
-import { selectPallet, deletePallet, setEditablePallet } from '../../../../actions/actions';
+import { selectPallet, deletePallet, setEditablePallet, addPallet, addJoin, selectHexPallet } from '../../../../actions/actions';
 import './Pallet.css'
 
 const Pallet = (props) => {
+
+  let postPallet = (palletObj) => {
+    return fetch('http://localhost:3000/api/v1/pallets', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({
+        one: palletObj.hexOne,
+        two: palletObj.hexTwo,
+        three: palletObj.hexThree,
+        four: palletObj.hexFour,
+        five: palletObj.hexFive,
+        hex_id: `${palletObj.hexOne}-${palletObj.hexTwo}-${palletObj.hexThree}-${palletObj.hexFour}-${palletObj.hexFive}`,
+      })
+    })
+  }
+
+  let postJoin = (pallet_id) => {
+    return fetch('http://localhost:3000/api/v1/user_pallets', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({
+        user_id: props.current_user.id,
+        pallet_id: pallet_id,
+      })
+    })
+  }
+
+  let handleSave = (e) => {
+
+    if (props.current_user === null) {
+      alert("Please login to save a pallet.")
+    } else {
+      const hexPalletObj = {
+        hexOne: hsl(props.OneHue, props.OneSat, props.OneLight).toUpperCase(),
+        hexTwo: hsl(props.TwoHue, props.TwoSat, props.TwoLight).toUpperCase(),
+        hexThree: hsl(props.ThreeHue, props.ThreeSat, props.ThreeLight).toUpperCase(),
+        hexFour: hsl(props.FourHue, props.FourSat, props.FourLight).toUpperCase(),
+        hexFive: hsl(props.FiveHue, props.FiveSat, props.FiveLight).toUpperCase(),
+      }
+      postPallet(hexPalletObj)
+      .then(r => r.json())
+      .then(pallet => {
+        postJoin(pallet.id)
+        .then(r => r.json())
+        .then(join => props.addJoin(join))
+        props.addPallet({
+          id: pallet.id,
+          one: pallet.one,
+          two: pallet.two,
+          three: pallet.three,
+          four: pallet.four,
+          five: pallet.five,
+        })
+      })
+    }
+  }
+
   let handleClick = () => {
     props.selectPallet({
       OneHue: props.OneHue,
@@ -193,7 +257,7 @@ const Pallet = (props) => {
                 </svg>
               </div>
               */}
-              <div className="pallet-btn">
+              <div className="pallet-btn" onClick={handleSave}>
                 <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34.65 34.65">
                   <path
                   fill="#a5a5a5"
@@ -211,6 +275,7 @@ const Pallet = (props) => {
 function msp(state) {
   return {
     selectedPallet: state.selectedPallet,
+    selectedHexPallet: state.selectedHexPallet,
     users: state.users,
     current_user: state.current_user,
     editablePallet: state.editablePallet,
@@ -220,8 +285,11 @@ function msp(state) {
 function mdp(dispatch){
   return {
     selectPallet: (pallet) => dispatch(selectPallet(pallet)),
+    selectHexPallet: (pallet) => dispatch(selectHexPallet(pallet)),
     setEditablePallet: (pallet) => dispatch(setEditablePallet(pallet)),
     deletePallet: (pallets) => dispatch(deletePallet(pallets)),
+    addPallet: (pallet) => dispatch(addPallet(pallet)),
+    addJoin: (join) => dispatch(addJoin(join)),
   }
 }
 
