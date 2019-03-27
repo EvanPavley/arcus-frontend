@@ -80,58 +80,58 @@ const PalletShow = (props) => {
             h={ props.selectedPallet.OneHue }
             s={ props.selectedPallet.OneSat }
             l={ props.selectedPallet.OneLight }
-            height={'10rem'}
-            width={'10rem'}
-            fontSize={'1.7em'}
+            height={'5.5rem'}
+            width={'5.5rem'}
+            fontSize={'1em'}
             visibility={'visible'}
           ></Swatch>
           <Swatch
             h={ props.selectedPallet.TwoHue }
             s={ props.selectedPallet.TwoSat }
             l={ props.selectedPallet.TwoLight }
-            height={'10rem'}
-            width={'10rem'}
-            fontSize={'1.7em'}
+            height={'5.5rem'}
+            width={'5.5rem'}
+            fontSize={'1em'}
             visibility={'visible'}
           ></Swatch>
           <Swatch
             h={ props.selectedPallet.ThreeHue }
             s={ props.selectedPallet.ThreeSat }
             l={ props.selectedPallet.ThreeLight }
-            height={'5rem'}
-            width={'5rem'}
-            fontSize={'.8em'}
+            height={'5.5rem'}
+            width={'5.5rem'}
+            fontSize={'1em'}
             visibility={'visible'}
           ></Swatch>
           <Swatch
             h={ props.selectedPallet.FourHue }
             s={ props.selectedPallet.FourSat }
             l={ props.selectedPallet.FourLight }
-            height={'5rem'}
-            width={'5rem'}
-            fontSize={'.8em'}
+            height={'5.5rem'}
+            width={'5.5rem'}
+            fontSize={'1em'}
             visibility={'visible'}
           ></Swatch>
           <Swatch
             h={ props.selectedPallet.FiveHue }
             s={ props.selectedPallet.FiveSat }
             l={ props.selectedPallet.FiveLight }
-            height={'5rem'}
-            width={'5rem'}
-            fontSize={'.8em'}
+            height={'5.5rem'}
+            width={'5.5rem'}
+            fontSize={'1em'}
             visibility={'visible'}
           ></Swatch>
           <div className='button-container'>
             <div className='btn' onClick={handleSave}>
-              S A V E
+              <p>S A V E</p>
             </div>
-            <div className='btn' onClick={() => props.history.goBack()}>
-              B A C K
+            <div id='backbtn' className='btn' onClick={() => props.history.goBack()}>
+              <p>B A C K</p>
             </div>
           </div>
         </div>
         <div className='mockup-container'>
-          Mockups:
+          <p>Mockups:</p>
           <div className='star-one-container'>
             <Stars
               hexOne = {hexOne}

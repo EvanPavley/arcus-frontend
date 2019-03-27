@@ -1,6 +1,6 @@
 .profile{
   text-align: center;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   margin-top: 2rem;
   color: gray;
 }
@@ -13,47 +13,59 @@
 }
 
 .profilePallets{
-  border: 2px dashed #bababa;
   padding-left: 1rem;
-  padding-right: 1rem;
+  padding-right: 4rem;
   padding-bottom: 1.5rem;
   font-size: 1rem;
-  margin-right: 4rem;
+  border-right: 2px solid #e5e5e5;
+
 }
 
 #name {
   text-align: left;
-  font-size: 1.3rem;
+  font-size: 1rem;
   margin-left: 1rem;
 }
 
 .mockup-container-profile{
-  border: 2px dashed #bababa;
-  padding: 1rem;
+  width: 35rem;
   color: gray;
+  margin-left: 4rem;
 }
 
 .star-one-container-profile{
   border: 2px dashed #bababa;
   padding: 1rem;
-  width: 40rem;
-  margin: .5rem;
+  width: 32.8rem;
+  margin-bottom: 2rem;
+  border: 2px solid #e5e5e5;
+  background-color: #efefef;
+  border-radius: .3rem;
 }
 
 .profile-nav{
-  border: 2px dashed #bababa;
+  font-weight: 600;
+  border-top: 2px solid #c9c9c9;
+  border-bottom: 2px solid #c9c9c9;
+  border-right: 1px solid #c9c9c9;
+  border-left: 1px solid #c9c9c9;
+  border-radius: .2rem;
+  background-color: #efefef;
   color: gray;
   display: flex;
   justify-content: space-around;
 }
 
 .profile-nav-item{
-  border: 2px solid #bababa;
+  border-right: 1px solid #c9c9c9;
+  border-left: 1px solid #c9c9c9;
   padding: 1rem;
+  width: 100%;
 }
 
 .profile-nav-item:hover {
-  background-color: #efefef;
+  background-color: #a8e7ff;
+  color: black;
 }
 
 .editable-pallet-filter-container {

@@ -6,7 +6,9 @@
 .login-form-container{
   margin-top: 5rem;
   text-align: left;
-  border: 2px dashed #bababa;
+  border: 3px solid #e5e5e5;
+  background-color: #efefef;
+  border-radius: .3rem;
   padding-top: 2rem;
   padding-left: 3rem;
   padding-right: 3rem;
@@ -25,6 +27,7 @@
   padding-left: .4rem;
   color: gray;
   font-size: 1.1rem;
+  font-weight: 500;
 }
 
 .button-holder{
@@ -32,36 +35,50 @@
 }
 
 #login-submit{
-  border: 2px solid #bababa;
+  border: 2px solid #00BBFF;
+  background-color: #00BBFF;
   text-align: center;
   width: 7rem;
-  height: 2.5rem;
-  color: gray;
+  height: 3rem;
+  font-weight: bold;
+  border-radius: .2rem;
   margin-bottom: 1rem;
   font-size: 1rem;
+  color: white;
 }
 
 #login-submit:hover {
-  background-color: #efefef;
+  color: black;
+  background-color: #a8e7ff;
 }
 
 .logout-btn{
-  margin-top: 2rem;
-  border: 2px solid #bababa;
+  margin-top: 3rem;
+  border: 3px solid #00BBFF;
+  background-color: #00BBFF;
+  font-weight: bold;
   text-align: center;
-  width: 6rem;
-  padding: .5rem;
-  color: gray;
+  border-radius: .3rem;
+  width: 10rem;
+  height: 4rem;
+  color: white;
+  font-size: 1.3rem;
   margin-bottom: 1rem;
 }
 
+.logout-btn p{
+
+}
+
 .logout-btn:hover {
-  background-color: #efefef;
+  color: black;
+  background-color: #a8e7ff;
 }
 
 .title{
   margin: 0;
-  color: gray;
+  color: #5e5e5e;
+  font-weight: bold;
   font-size: 2rem;
   margin-bottom: 1.7rem;
 }

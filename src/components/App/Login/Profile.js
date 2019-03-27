@@ -104,8 +104,8 @@ class Profile extends Component {
           editable={ false }
           onProfile={ true }
           visibility={'visible'}
-          height={'5rem'}
-          width={'5rem'}
+          height={'4.2rem'}
+          width={'4.2rem'}
         />
       )
     })
@@ -216,7 +216,7 @@ class Profile extends Component {
         : (
           <div className="profile-container">
             <div className="profilePallets">
-              <p id="name" >{this.props.current_user.username}'s pallets:</p>
+              <p id="name" >{this.props.current_user.username}'s Palettes:</p>
               {this.renderPallets()}
             </div>
             <div className='mockup-container-profile'>
@@ -231,7 +231,7 @@ class Profile extends Component {
                 className="profile-nav-item"
                 onClick= {this.handelViewClick}
                 >
-                  Customize Pallet
+                  Customize Palette
                 </div>
               </div>
               {this.state.toggleView === true ? (
@@ -261,9 +261,6 @@ class Profile extends Component {
                 <div className="editable-pallet-container">
                   <div className="editable-pallet">
                     {this.renderEditablePallet()}
-                    <div className="profile-save-btn" onClick={this.handleSave}>
-                    S A V E
-                    </div>
                   </div>
                   <div className="editable-pallet-filter-container">
                     <HueSlider onEdit={true} size={175} />

@@ -12,38 +12,59 @@
   padding-bottom: 1.5rem;
   padding-right: 1rem;
   padding-left: 1rem;
-  border: 2px dashed #bababa;
+  border: 3px solid #e5e5e5;
+  background-color: #efefef;
+  border-radius: .3rem
 }
 
 .button-container{
-  border: 2px dashed #bababa;
-  padding: .5rem;
   margin-right: .5rem;
-  margin-left: .5rem;
+  margin-left: 1.5rem;
 }
 
 .btn{
-  border: 2px solid #bababa;
+  border: 2px solid #b2b2b2;
+  background-color: #b2b2b2;
   text-align: center;
   width: 5rem;
-  padding: .5rem;
-  color: gray;
+  height: 2.1rem;
+  border-radius: .2rem;
+  color: white;
   margin-bottom: 1rem;
+  font-weight: 600;
 }
 
 .btn:hover {
-  background-color: #efefef;
+  background-color: #a8e7ff;
+  border: 2px solid #00BBFF;
+  color: black;
 }
 
+.btn p {
+  margin: .5rem;
+}
+
+#backbtn {
+  margin-bottom: 0rem
+}
+#backbtn:hover {
+  background-color: #ff9eb4;
+  border: 2px solid #FF668A;
+  color: black;
+}
+
+.mockup-container p {
+  margin-left: 1rem;
+}
 .mockup-container{
-  border: 2px dashed #bababa;
   margin-top: 2rem;
-  padding: 2rem;
   color: gray;
 }
 
 .star-one-container{
-  border: 2px dashed #bababa;
-  padding: 1rem;
-  margin-bottom: .5rem;
+  border-radius: .3rem;
+  border: 3px solid #e5e5e5;
+  background-color: #efefef;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
 }

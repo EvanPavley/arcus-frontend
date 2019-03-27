@@ -87,7 +87,7 @@ const Signup = (props) => {
       :
       (
         <div className='logout-btn' onClick={handleLogout}>
-          L O G O U T
+          <p>L O G O U T</p>
         </div>
       )}
     </div>

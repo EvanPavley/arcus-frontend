@@ -14,7 +14,7 @@ const Navbar = (props) => {
           onClick={() => props.history.push('/HomePage')}
         />
         <NavLink className='nav-item' to='/ColorPalletGenerator'>
-          Color Pallet Generator{' '}
+          Color Palette Generator{' '}
         </NavLink>
         <NavLink className='nav-item' to='/Profile'>
           Profile{' '}

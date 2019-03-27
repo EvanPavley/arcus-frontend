@@ -182,6 +182,7 @@ const Pallet = (props) => {
               0 saves
             </div>
             <div className="tool-btns">
+              {/*
               <div className="pallet-btn">
                 <svg id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 53.7 53.7">
                 	<g id="_5" data-name=" 5">
@@ -191,6 +192,7 @@ const Pallet = (props) => {
                 	</g>
                 </svg>
               </div>
+              */}
               <div className="pallet-btn">
                 <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34.65 34.65">
                   <path
