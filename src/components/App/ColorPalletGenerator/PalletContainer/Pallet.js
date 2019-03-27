@@ -227,7 +227,7 @@ const Pallet = (props) => {
         ></Swatch>
       </div>
         {props.onProfile === true && props.editable === false? (
-          <div className="toolItems">
+          <div className="toolItems" >
             <div>
               0 saves
             </div>

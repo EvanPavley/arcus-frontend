@@ -7,7 +7,7 @@
   padding-left: .7rem;
   border: 2px solid #e5e5e5;
   background-color: #efefef;
-  border-radius: .3rem
+  border-radius: .2rem
 }
 
 .swatchHolder{
@@ -21,7 +21,7 @@
 .pallet-btn{
   height: 1rem;
   width: 1rem;
-  border-radius: .3rem;
+  border-radius: .2rem;
   margin-left: 1rem;
 }
 
