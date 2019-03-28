@@ -1,8 +1,8 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import Stars from './Stars';
-import Test from './Test';
+import WebsiteMockup from './WebsiteMockup';
+import TextMockup from './TextMockup';
 import hsl from 'hsl-to-hex'
 
 import './PalletShow.css'
@@ -10,7 +10,7 @@ import Swatch from '../ColorPalletGenerator/PalletContainer/Swatch'
 import { addPallet, addJoin } from '../../../actions/actions';
 
 const PalletShow = (props) => {
-  
+
   const hexOne = hsl(props.selectedPallet.OneHue, props.selectedPallet.OneSat, props.selectedPallet.OneLight).toUpperCase()
   const hexTwo = hsl(props.selectedPallet.TwoHue, props.selectedPallet.TwoSat, props.selectedPallet.TwoLight).toUpperCase()
   const hexThree = hsl(props.selectedPallet.ThreeHue, props.selectedPallet.ThreeSat, props.selectedPallet.ThreeLight).toUpperCase()
@@ -134,7 +134,7 @@ const PalletShow = (props) => {
         <div className='mockup-container'>
           <p>Mockups:</p>
           <div className='star-one-container'>
-            <Stars
+            <TextMockup
               hexOne = {hexOne}
               hexTwo = {hexTwo}
               hexThree = {hexThree}
@@ -143,7 +143,7 @@ const PalletShow = (props) => {
             />
           </div>
           <div className='star-one-container'>
-            <Test
+            <WebsiteMockup
               hexOne = {hexOne}
               hexTwo = {hexTwo}
               hexThree = {hexThree}

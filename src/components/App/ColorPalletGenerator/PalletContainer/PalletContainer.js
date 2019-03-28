@@ -12,21 +12,21 @@ const PalletContainer = (props) => {
           OneSat={ props.s }
           OneLight={ props.l }
 
-          TwoHue={ props.splitComplementaryRightH}
+          TwoHue={ props.analogusRightH }
           TwoSat={ props.s }
           TwoLight={ props.lightenOne }
 
-          ThreeHue={ props.splitComplementaryLeftH }
-          ThreeSat={ props.s }
+          ThreeHue={ props.analogusRightH }
+          ThreeSat={ props.desaturateOne }
           ThreeLight={ props.lightenOne }
 
-          FourHue={ props.analogusLeftH }
+          FourHue={ props.h }
           FourSat={ props.s }
-          FourLight={ props.lightenOne }
+          FourLight={ props.darkenOne }
 
           FiveHue={ props.h }
-          FiveSat={ props.s }
-          FiveLight={ props.lightenOne }
+          FiveSat={ props.desaturateOne }
+          FiveLight={ props.darkenOne }
 
           visibility={'hidden'}
           height={'4.5rem'}
@@ -37,11 +37,11 @@ const PalletContainer = (props) => {
           OneSat={ props.s }
           OneLight={ props.l }
 
-          TwoHue={ props.analogusRightH }
+          TwoHue={ props.splitComplementaryLeftH }
           TwoSat={ props.s }
           TwoLight={ props.lightenOne }
 
-          ThreeHue={ props.analogusRightH }
+          ThreeHue={ props.splitComplementaryLeftH }
           ThreeSat={ props.desaturateOne }
           ThreeLight={ props.lightenOne }
 
@@ -112,6 +112,31 @@ const PalletContainer = (props) => {
           OneSat={ props.s }
           OneLight={ props.l }
 
+          TwoHue={ props.splitComplementaryRightH}
+          TwoSat={ props.s }
+          TwoLight={ props.lightenOne }
+
+          ThreeHue={ props.splitComplementaryLeftH }
+          ThreeSat={ props.s }
+          ThreeLight={ props.lightenOne }
+
+          FourHue={ props.analogusLeftH }
+          FourSat={ props.s }
+          FourLight={ props.lightenOne }
+
+          FiveHue={ props.h }
+          FiveSat={ props.s }
+          FiveLight={ props.lightenOne }
+
+          visibility={'hidden'}
+          height={'4.5rem'}
+          width={'4.5rem'}
+      />
+      <Pallet
+          OneHue={ props.h }
+          OneSat={ props.s }
+          OneLight={ props.l }
+
           TwoHue={ props.analogusRightH }
           TwoSat={ props.s }
           TwoLight={ props.lightenOne }
@@ -126,31 +151,6 @@ const PalletContainer = (props) => {
 
           FiveHue={ props.h }
           FiveSat={ props.s }
-          FiveLight={ props.darkenOne }
-
-          visibility={'hidden'}
-          height={'4.5rem'}
-          width={'4.5rem'}
-      />
-      <Pallet
-          OneHue={ props.h }
-          OneSat={ props.s }
-          OneLight={ props.l }
-
-          TwoHue={ props.splitComplementaryLeftH }
-          TwoSat={ props.s }
-          TwoLight={ props.lightenOne }
-
-          ThreeHue={ props.splitComplementaryLeftH }
-          ThreeSat={ props.desaturateOne }
-          ThreeLight={ props.lightenOne }
-
-          FourHue={ props.h }
-          FourSat={ props.s }
-          FourLight={ props.darkenOne }
-
-          FiveHue={ props.h }
-          FiveSat={ props.desaturateOne }
           FiveLight={ props.darkenOne }
 
           visibility={'hidden'}

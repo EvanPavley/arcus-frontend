@@ -227,9 +227,9 @@ const Pallet = (props) => {
         ></Swatch>
       </div>
         {props.onProfile === true && props.editable === false? (
-          <div className="toolItems" >
+          <div className="toolItems" onClick= {handleClick} >
             <div>
-              0 saves
+              {/*0 saves*/}
             </div>
             <div className="pallet-btn" id="deletee" onClick={handelDelete}>
               <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 87.17 87.17">
@@ -243,7 +243,7 @@ const Pallet = (props) => {
         ):(
           <div className="toolItems">
             <div>
-              0 saves
+              {/*0 saves*/}
             </div>
             <div className="tool-btns">
               {/*

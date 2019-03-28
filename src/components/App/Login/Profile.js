@@ -8,6 +8,8 @@ import LightSlider from '../ColorPalletGenerator/PalletFilter/LightSlider'
 import SaturationSlider from '../ColorPalletGenerator/PalletFilter/SaturationSlider'
 import Stars from '../PalletShow/Stars'
 import Test from '../PalletShow/Test'
+import WebsiteMockup from '../PalletShow/WebsiteMockup'
+import TextMockup from '../PalletShow/TextMockup'
 
 import hexToHsl from 'hex-to-hsl'
 import hsl from 'hsl-to-hex'
@@ -238,7 +240,7 @@ class Profile extends Component {
                 <div>
                   <p id="name" >Mockups:</p>
                   <div className='star-one-container-profile'>
-                    <Stars
+                    <TextMockup
                       hexOne = {hexOne}
                       hexTwo = {hexTwo}
                       hexThree = {hexThree}
@@ -247,7 +249,7 @@ class Profile extends Component {
                     />
                   </div>
                   <div className='star-one-container-profile'>
-                    <Test
+                    <WebsiteMockup
                       hexOne = {hexOne}
                       hexTwo = {hexTwo}
                       hexThree = {hexThree}
