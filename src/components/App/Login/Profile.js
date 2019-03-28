@@ -6,10 +6,9 @@ import Pallet from '../ColorPalletGenerator/PalletContainer/Pallet'
 import HueSlider from '../ColorPalletGenerator/PalletFilter/HueSlider'
 import LightSlider from '../ColorPalletGenerator/PalletFilter/LightSlider'
 import SaturationSlider from '../ColorPalletGenerator/PalletFilter/SaturationSlider'
-import Stars from '../PalletShow/Stars'
-import Test from '../PalletShow/Test'
 import WebsiteMockup from '../PalletShow/WebsiteMockup'
 import TextMockup from '../PalletShow/TextMockup'
+import LogoMockup from '../PalletShow/LogoMockup'
 
 import hexToHsl from 'hex-to-hsl'
 import hsl from 'hsl-to-hex'
@@ -257,6 +256,15 @@ class Profile extends Component {
                       hexFive = {hexFive}
                     />
                   </div>
+                  <div className='star-one-container-profile'>
+                    <LogoMockup
+                      hexOne = {hexOne}
+                      hexTwo = {hexTwo}
+                      hexThree = {hexThree}
+                      hexFour = {hexFour}
+                      hexFive = {hexFive}
+                    />
+                  </div>
                 </div>
               )
               : (
@@ -267,8 +275,8 @@ class Profile extends Component {
                   <div className="editable-pallet-filter-container">
                     <HueSlider onEdit={true} size={175} />
                     <div className="light-sat">
-                      <LightSlider onEdit={true} min={0} max={100}/>
-                      <SaturationSlider onEdit={true} min={0} max={100}/>
+                      <LightSlider onEdit={true} min={25} max={80}/>
+                      <SaturationSlider onEdit={true} min={40} max={100}/>
                     </div>
                   </div>
                 </div>

@@ -19,6 +19,7 @@ const Navbar = (props) => {
         <input
           className='image'
           type='image'
+          alt='logo'
           src={logo}
           onClick={() => props.history.push('/HomePage')}
         />

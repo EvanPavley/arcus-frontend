@@ -52,7 +52,12 @@ const Pallet = (props) => {
         hexThree: hsl(props.ThreeHue, props.ThreeSat, props.ThreeLight).toUpperCase(),
         hexFour: hsl(props.FourHue, props.FourSat, props.FourLight).toUpperCase(),
         hexFive: hsl(props.FiveHue, props.FiveSat, props.FiveLight).toUpperCase(),
+        hex_id: `${hsl(props.OneHue, props.OneSat, props.OneLight).toUpperCase()}-${hsl(props.TwoHue, props.TwoSat, props.TwoLight).toUpperCase()}-${hsl(props.ThreeHue, props.ThreeSat, props.ThreeLight).toUpperCase()}-${hsl(props.FourHue, props.FourSat, props.FourLight).toUpperCase()}-${hsl(props.FiveHue, props.FiveSat, props.FiveLight).toUpperCase()}`
       }
+      // console.log(hexPalletObj.hex_id);
+      // console.log(props.current_user.pallets);
+      // const pallet = props.current_user.pallets.find(p => p.hex_id === hexPalletObj.hex_id)
+      // console.log(pallet);
       postPallet(hexPalletObj)
       .then(r => r.json())
       .then(pallet => {
@@ -155,10 +160,9 @@ const Pallet = (props) => {
   }
 
   return (
-    <div className='pallet'>
+    <div className='pallet' onClick= {handleClick}>
       <div
         className='swatchHolder'
-        onClick= {handleClick}
         >
         <Swatch
           h={ props.OneHue }

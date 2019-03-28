@@ -1,6 +1,7 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+import LogoMockup from './LogoMockup';
 import WebsiteMockup from './WebsiteMockup';
 import TextMockup from './TextMockup';
 import hsl from 'hsl-to-hex'
@@ -144,6 +145,15 @@ const PalletShow = (props) => {
           </div>
           <div className='star-one-container'>
             <WebsiteMockup
+              hexOne = {hexOne}
+              hexTwo = {hexTwo}
+              hexThree = {hexThree}
+              hexFour = {hexFour}
+              hexFive = {hexFive}
+            />
+          </div>
+          <div className='star-one-container'>
+            <LogoMockup
               hexOne = {hexOne}
               hexTwo = {hexTwo}
               hexThree = {hexThree}
