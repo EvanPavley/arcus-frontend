@@ -5,8 +5,8 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { Provider } from 'react-redux';
 
 import './index.css';
-import App from './components/App/App';
-import store from './store';
+import App from './components/js/App';
+import store from './redux/store';
 
 ReactDOM.render(<Provider store={store}><Router><App /></Router></Provider>, document.getElementById('root'));
 
