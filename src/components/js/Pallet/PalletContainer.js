@@ -4,7 +4,6 @@ import Pallet from './Pallet'
 import '../../css/Pallet/PalletContainer.css'
 
 const PalletContainer = (props) => {
-  // console.log(props)
   return (
     <div className='pallet-container'>
       <Pallet

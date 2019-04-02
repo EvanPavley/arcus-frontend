@@ -18,6 +18,11 @@ class Profile extends Component {
   state = {
     toggleView: true
   }
+  const hexOne = hsl(this.props.editablePallet.OneHue, this.props.editablePallet.OneSat, this.props.editablePallet.OneLight).toUpperCase()
+  const hexTwo = hsl(this.props.editablePallet.TwoHue, this.props.editablePallet.TwoSat, this.props.editablePallet.TwoLight).toUpperCase()
+  const hexThree = hsl(this.props.editablePallet.ThreeHue, this.props.editablePallet.ThreeSat, this.props.editablePallet.ThreeLight).toUpperCase()
+  const hexFour = hsl(this.props.editablePallet.FourHue, this.props.editablePallet.FourSat, this.props.editablePallet.FourLight).toUpperCase()
+  const hexFive = hsl(this.props.editablePallet.FiveHue, this.props.editablePallet.FiveSat, this.props.editablePallet.FiveLight).toUpperCase()
 
   componentDidMount() {
     this.props.selectPallet({
@@ -147,12 +152,6 @@ class Profile extends Component {
 
 
   postPallet = () => {
-    const hexOne = hsl(this.props.editablePallet.OneHue, this.props.editablePallet.OneSat, this.props.editablePallet.OneLight).toUpperCase()
-    const hexTwo = hsl(this.props.editablePallet.TwoHue, this.props.editablePallet.TwoSat, this.props.editablePallet.TwoLight).toUpperCase()
-    const hexThree = hsl(this.props.editablePallet.ThreeHue, this.props.editablePallet.ThreeSat, this.props.editablePallet.ThreeLight).toUpperCase()
-    const hexFour = hsl(this.props.editablePallet.FourHue, this.props.editablePallet.FourSat, this.props.editablePallet.FourLight).toUpperCase()
-    const hexFive = hsl(this.props.editablePallet.FiveHue, this.props.editablePallet.FiveSat, this.props.editablePallet.FiveLight).toUpperCase()
-
     return fetch('http://localhost:3000/api/v1/pallets', {
       method: "POST",
       headers: {
@@ -202,11 +201,6 @@ class Profile extends Component {
   }
 
   render(){
-    let hexOne = hsl(this.props.selectedPallet.OneHue, this.props.selectedPallet.OneSat, this.props.selectedPallet.OneLight)
-    let hexTwo = hsl(this.props.selectedPallet.TwoHue, this.props.selectedPallet.TwoSat, this.props.selectedPallet.TwoLight)
-    let hexThree = hsl(this.props.selectedPallet.ThreeHue, this.props.selectedPallet.ThreeSat, this.props.selectedPallet.ThreeLight)
-    let hexFour = hsl(this.props.selectedPallet.FourHue, this.props.selectedPallet.FourSat, this.props.selectedPallet.FourLight)
-    let hexFive = hsl(this.props.selectedPallet.FiveHue, this.props.selectedPallet.FiveSat, this.props.selectedPallet.FiveLight)
     return (
       <div className="profile">
         {this.props.current_user === null ? (
@@ -217,7 +211,7 @@ class Profile extends Component {
         : (
           <div className="profile-container">
             <div className="profilePallets">
-              <p id="name" >{this.props.current_user.username}'s Palettes:</p>
+              <p id="name" >{this.props.current_user.username}s Palettes:</p>
               {this.renderPallets()}
             </div>
             <div className='mockup-container-profile'>
