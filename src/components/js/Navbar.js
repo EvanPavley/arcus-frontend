@@ -27,7 +27,7 @@ const Navbar = (props) => {
           Color Palette Generator{' '}
         </NavLink>
         <NavLink className='nav-item' to='/Profile'>
-          Profile{' '}
+          Your Palettes{' '}
         </NavLink>
       </div>
 

@@ -8,7 +8,7 @@ import hsl from 'hsl-to-hex'
 
 import '../css/PalletShow.css'
 import Swatch from './Pallet/Swatch'
-import { addPallet, addJoin } from '../../redux/actions';
+import { addPallet, addJoin, setSwatchText } from '../../redux/actions';
 
 const PalletShow = (props) => {
 
@@ -79,61 +79,79 @@ const PalletShow = (props) => {
     }
   }
 
+  let handelUnitChange = (e) => {
+    props.setSwatchText(e.target.dataset.id)
+  }
+
   return (
     <div className='pallet-show-container'>
       <div>
         <div className='pallet-show'>
-          <Swatch
-            h={ props.selectedPallet.OneHue }
-            s={ props.selectedPallet.OneSat }
-            l={ props.selectedPallet.OneLight }
-            height={'5.5rem'}
-            width={'5.5rem'}
-            fontSize={'1em'}
-            visibility={'visible'}
-          ></Swatch>
-          <Swatch
-            h={ props.selectedPallet.TwoHue }
-            s={ props.selectedPallet.TwoSat }
-            l={ props.selectedPallet.TwoLight }
-            height={'5.5rem'}
-            width={'5.5rem'}
-            fontSize={'1em'}
-            visibility={'visible'}
-          ></Swatch>
-          <Swatch
-            h={ props.selectedPallet.ThreeHue }
-            s={ props.selectedPallet.ThreeSat }
-            l={ props.selectedPallet.ThreeLight }
-            height={'5.5rem'}
-            width={'5.5rem'}
-            fontSize={'1em'}
-            visibility={'visible'}
-          ></Swatch>
-          <Swatch
-            h={ props.selectedPallet.FourHue }
-            s={ props.selectedPallet.FourSat }
-            l={ props.selectedPallet.FourLight }
-            height={'5.5rem'}
-            width={'5.5rem'}
-            fontSize={'1em'}
-            visibility={'visible'}
-          ></Swatch>
-          <Swatch
-            h={ props.selectedPallet.FiveHue }
-            s={ props.selectedPallet.FiveSat }
-            l={ props.selectedPallet.FiveLight }
-            height={'5.5rem'}
-            width={'5.5rem'}
-            fontSize={'1em'}
-            visibility={'visible'}
-          ></Swatch>
-          <div className='button-container'>
-            <div className='btn' onClick={handleSave}>
-              <p>S A V E</p>
+          <div className='pallet-show-pallet'>
+            <Swatch
+              h={ props.selectedPallet.OneHue }
+              s={ props.selectedPallet.OneSat }
+              l={ props.selectedPallet.OneLight }
+              height={'5.5rem'}
+              width={'5.5rem'}
+              fontSize={'1em'}
+              visibility={'visible'}
+            ></Swatch>
+            <Swatch
+              h={ props.selectedPallet.TwoHue }
+              s={ props.selectedPallet.TwoSat }
+              l={ props.selectedPallet.TwoLight }
+              height={'5.5rem'}
+              width={'5.5rem'}
+              fontSize={'1em'}
+              visibility={'visible'}
+            ></Swatch>
+            <Swatch
+              h={ props.selectedPallet.ThreeHue }
+              s={ props.selectedPallet.ThreeSat }
+              l={ props.selectedPallet.ThreeLight }
+              height={'5.5rem'}
+              width={'5.5rem'}
+              fontSize={'1em'}
+              visibility={'visible'}
+            ></Swatch>
+            <Swatch
+              h={ props.selectedPallet.FourHue }
+              s={ props.selectedPallet.FourSat }
+              l={ props.selectedPallet.FourLight }
+              height={'5.5rem'}
+              width={'5.5rem'}
+              fontSize={'1em'}
+              visibility={'visible'}
+            ></Swatch>
+            <Swatch
+              h={ props.selectedPallet.FiveHue }
+              s={ props.selectedPallet.FiveSat }
+              l={ props.selectedPallet.FiveLight }
+              height={'5.5rem'}
+              width={'5.5rem'}
+              fontSize={'1em'}
+              visibility={'visible'}
+            ></Swatch>
+            <div className='button-container'>
+              <div className='btn' onClick={handleSave}>
+                <p>S A V E</p>
+              </div>
+              <div id='backbtn' className='btn' onClick={() => props.history.goBack()}>
+                <p>B A C K</p>
+              </div>
             </div>
-            <div id='backbtn' className='btn' onClick={() => props.history.goBack()}>
-              <p>B A C K</p>
+          </div>
+
+          <div className='unit-container'>
+            <div className='unit-btn' id='hex' data-id='hex' onClick={handelUnitChange}>
+              <p data-id='hex' >H E X</p>
+            </div>
+            <div className='unit-btn' id='rgb' data-id='rgb' onClick={handelUnitChange}>
+              <p data-id='rgb' >R G B</p>
+            </div>
+            <div className='unit-btn' id='hsl' data-id='hsl' onClick={handelUnitChange}>
+              <p data-id='hsl' >H S L</p>
             </div>
           </div>
         </div>
@@ -175,7 +193,8 @@ const PalletShow = (props) => {
 function msp(state) {
   return {
     selectedPallet: state.selectedPallet,
-    current_user: state.current_user
+    current_user: state.current_user,
+    swatchText: state.swatchText,
   }
 }
 
@@ -183,6 +202,7 @@ function mdp(dispatch){
   return {
     addPallet: (pallet) => dispatch(addPallet(pallet)),
     addJoin: (join) => dispatch(addJoin(join)),
+    setSwatchText: (type) => dispatch(setSwatchText(type)),
   }
 }
 

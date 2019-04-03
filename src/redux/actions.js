@@ -1,4 +1,4 @@
-import { CHANGE_HUE, CHANGE_SATURATION, CHANGE_LIGHT, SELECT_PALLET, INPUT_CHANGE, SET_USERS, SET_CURRENT_USER, ADD_PALLET, ADD_JOIN, DELETE_PALLET, SET_EDITABLE_PALLET, SELECT_COLOR_NUM, EDIT_COLOR, SELECT_HEX_PALLET } from './types';
+import { CHANGE_HUE, CHANGE_SATURATION, CHANGE_LIGHT, SELECT_PALLET, INPUT_CHANGE, SET_USERS, SET_CURRENT_USER, ADD_PALLET, ADD_JOIN, DELETE_PALLET, SET_EDITABLE_PALLET, SELECT_COLOR_NUM, EDIT_COLOR, SELECT_HEX_PALLET, SET_SWATCH_TEXT } from './types';
 
 export function changeHue({hue, hex}){
   return {type: CHANGE_HUE, payload: {hue, hex}}
@@ -45,6 +45,10 @@ export function deletePallet(pallets){
 
 export function setEditablePallet(pallet){
   return{type: SET_EDITABLE_PALLET, payload: pallet}
+}
+
+export function setSwatchText(type){
+  return{type: SET_SWATCH_TEXT, payload: type}
 }
 
 export function selectColorNum(colorNum){

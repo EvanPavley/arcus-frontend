@@ -6,7 +6,6 @@
 }
 
 .pallet-show{
-  display: flex;
   margin-bottom: 1rem;
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
@@ -15,6 +14,10 @@
   border: 2px solid #e5e5e5;
   background-color: #efefef;
   border-radius: .2rem
+}
+
+.pallet-show-pallet{
+  display: flex;
 }
 
 .button-container{
@@ -67,4 +70,43 @@
   background-color: #efefef;
   padding: 1.5rem;
   margin-bottom: 2rem;
+}
+
+.unit-container{
+  margin-right: .5rem;
+  margin-left: .5rem;
+  margin-top: 1.5rem;
+  font-weight: 600;
+  border-radius: .2rem;
+  background-color: #b2b2b2;
+  display: flex;
+  justify-content: space-around;
+}
+
+.unit-btn{
+  width: 100%;
+  text-align: center;
+  height: 2.1rem;
+  color: white;
+  font-weight: 600;
+}
+
+#hex{
+  border-right: 2px solid white;
+}
+#rgb{
+  border-right: 2px solid white;
+  border-left: 2px solid white;
+}
+#hsl{
+  border-left: 2px solid white;
+}
+
+.unit-btn:hover {
+  background-color: #a8e7ff;
+  color: black;
+}
+
+.unit-btn p {
+  margin: .5rem;
 }

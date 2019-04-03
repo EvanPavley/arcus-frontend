@@ -1,5 +1,5 @@
 import ColorAdapter from '../adapters/ColorAdapter'
-import { CHANGE_HUE, CHANGE_SATURATION, CHANGE_LIGHT, SELECT_PALLET, INPUT_CHANGE, SET_USERS, SET_CURRENT_USER, ADD_PALLET, ADD_JOIN, DELETE_PALLET, SET_EDITABLE_PALLET, SELECT_COLOR_NUM, EDIT_COLOR, SELECT_HEX_PALLET} from './types';
+import { CHANGE_HUE, CHANGE_SATURATION, CHANGE_LIGHT, SELECT_PALLET, INPUT_CHANGE, SET_USERS, SET_CURRENT_USER, ADD_PALLET, ADD_JOIN, DELETE_PALLET, SET_EDITABLE_PALLET, SELECT_COLOR_NUM, EDIT_COLOR, SELECT_HEX_PALLET, SET_SWATCH_TEXT} from './types';
 
 const colorPalletState = {
   selectedColor: '#00bcff',
@@ -81,6 +81,7 @@ const colorPalletState = {
   current_user: null,
 
   selectedColorNum: null,
+  swatchText: 'hex',
 };
 
 export default function colorPalletReducer (state = colorPalletState, action){
@@ -112,6 +113,10 @@ export default function colorPalletReducer (state = colorPalletState, action){
     case SELECT_PALLET:
       return{ ...state,
         selectedPallet: action.payload,
+      }
+    case SET_SWATCH_TEXT:
+      return{ ...state,
+        swatchText: action.payload,
       }
     case SELECT_HEX_PALLET:
       return{ ...state,
