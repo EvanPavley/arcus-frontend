@@ -110,3 +110,14 @@
 .unit-btn p {
   margin: .5rem;
 }
+
+.info-container {
+  color: gray;
+  margin-left: 1rem;
+  margin-top: 1.5rem;
+}
+
+.info-header{
+  margin: 0;
+  font-weight: bold;
+}

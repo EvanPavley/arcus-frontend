@@ -2,11 +2,13 @@ import React from 'react'
 import { connect } from 'react-redux';
 import withStyles from 'react-jss'
 import hsl from 'hsl-to-hex'
+import hexRgb from 'hex-rgb'
 import { changeHue, changeLight, changeSaturation, selectColorNum } from '../../../redux/actions';
 
 
 const Swatch = (props) => {
   const hex = hsl(props.h, props.s, props.l).toUpperCase()
+  const rgb = hexRgb(hex)
 
   let handelClick = () => {
     if (props.editable === true) {
@@ -17,9 +19,21 @@ const Swatch = (props) => {
     }
   }
 
+  let handleSwatchText = () => {
+    if (props.swatchText === 'hex') {
+      return `${hex}`
+    }
+    if (props.swatchText === 'hsl') {
+      return `H:${props.h} S:${props.s}% L:${props.l}%`
+    }
+    if (props.swatchText === 'rgb') {
+      return `R:${rgb.red} G:${rgb.green} B:${rgb.blue}`
+    }
+  }
+
   return (
     <div className={props.classes.swatch} onClick={handelClick}>
-      <p className={props.classes.swatchText}>{hex}</p>
+      <p className={props.classes.swatchTextClass}>{handleSwatchText()}</p>
     </div>
   )
 }
@@ -41,12 +55,14 @@ const styles = {
       border: props => props.borderHover,
     }
   },
-  swatchText: {
+  swatchTextClass: {
     textAlign: 'center',
     color: 'white',
     fontSize: props => props.fontSize,
     fontWeight: 'bold',
     margin: 'auto',
+    marginRight: '.2rem',
+    marginLeft: '.5rem',
     visibility: props => props.visibility,
   },
 }
@@ -54,6 +70,7 @@ const styles = {
 function msp(state) {
   return {
     selectedColor: state.selectedColor,
+    swatchText: state.swatchText,
   }
 }
 

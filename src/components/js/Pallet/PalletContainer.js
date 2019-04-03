@@ -27,6 +27,7 @@ const PalletContainer = (props) => {
           FiveSat={ props.desaturateOne }
           FiveLight={ props.darkenOne }
 
+          colorRelationships={ 'Analogus' }
           visibility={'hidden'}
           height={'4.5rem'}
           width={'4.5rem'}
@@ -52,6 +53,7 @@ const PalletContainer = (props) => {
           FiveSat={ props.desaturateOne }
           FiveLight={ props.darkenOne }
 
+          colorRelationships={ 'Split Complementary' }
           visibility={'hidden'}
           height={'4.5rem'}
           width={'4.5rem'}
@@ -77,6 +79,7 @@ const PalletContainer = (props) => {
           FiveSat={ props.s }
           FiveLight={ props.darkenOne }
 
+          colorRelationships={ 'Complementary, Analogus' }
           visibility={'hidden'}
           height={'4.5rem'}
           width={'4.5rem'}
@@ -102,6 +105,7 @@ const PalletContainer = (props) => {
           FiveSat={ props.desaturateOne }
           FiveLight={ props.darkenOne }
 
+          colorRelationships={ 'Analogus' }
           visibility={'hidden'}
           height={'4.5rem'}
           width={'4.5rem'}
@@ -127,6 +131,7 @@ const PalletContainer = (props) => {
           FiveSat={ props.s }
           FiveLight={ props.lightenOne }
 
+          colorRelationships={ 'Split Complementary, Analogus' }
           visibility={'hidden'}
           height={'4.5rem'}
           width={'4.5rem'}
@@ -152,6 +157,7 @@ const PalletContainer = (props) => {
           FiveSat={ props.s }
           FiveLight={ props.darkenOne }
 
+          colorRelationships={ 'Analogus' }
           visibility={'hidden'}
           height={'4.5rem'}
           width={'4.5rem'}
@@ -177,6 +183,7 @@ const PalletContainer = (props) => {
           FiveSat={ props.desaturateOne }
           FiveLight={ props.darkenOne }
 
+          colorRelationships={ 'Split Complementary' }
           visibility={'hidden'}
           height={'4.5rem'}
           width={'4.5rem'}
@@ -202,6 +209,7 @@ const PalletContainer = (props) => {
           FiveSat={ props.s }
           FiveLight={ props.darkenOne }
 
+          colorRelationships={ 'Split Complementary' }
           visibility={'hidden'}
           height={'4.5rem'}
           width={'4.5rem'}
@@ -227,6 +235,7 @@ const PalletContainer = (props) => {
           FiveSat={ props.desaturateOne }
           FiveLight={ props.darkenOne }
 
+          colorRelationships={ 'Complementary' }
           visibility={'hidden'}
           height={'4.5rem'}
           width={'4.5rem'}
@@ -252,6 +261,7 @@ const PalletContainer = (props) => {
           FiveSat={ props.s }
           FiveLight={ props.darkenOne }
 
+          colorRelationships={ 'Complementary, Split Complementary' }
           visibility={'hidden'}
           height={'4.5rem'}
           width={'4.5rem'}
@@ -277,6 +287,7 @@ const PalletContainer = (props) => {
           FiveSat={ props.s }
           FiveLight={ props.darkenOne }
 
+          colorRelationships={ 'Analogus, Complementary' }
           visibility={'hidden'}
           height={'4.5rem'}
           width={'4.5rem'}

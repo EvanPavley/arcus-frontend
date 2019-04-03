@@ -104,7 +104,7 @@ class Profile extends Component {
 
           editable={ false }
           onProfile={ true }
-          visibility={'visible'}
+          visibility={'hidden'}
           height={'4.2rem'}
           width={'4.2rem'}
         />

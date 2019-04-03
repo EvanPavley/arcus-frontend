@@ -113,6 +113,8 @@ const Pallet = (props) => {
       FiveHue: props.FiveHue,
       FiveSat: props.FiveSat,
       FiveLight: props.FiveLight,
+
+      colorRelationships: props.colorRelationships,
     })
     props.setEditablePallet({
       OneHue: props.OneHue,
@@ -134,6 +136,8 @@ const Pallet = (props) => {
       FiveHue: props.FiveHue,
       FiveSat: props.FiveSat,
       FiveLight: props.FiveLight,
+
+      colorRelationships: props.colorRelationships,
     })
     if (props.onProfile === true) {
       if (e.target.dataset.btn === "save") {

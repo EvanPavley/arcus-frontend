@@ -11,7 +11,6 @@ import Swatch from './Pallet/Swatch'
 import { addPallet, addJoin, setSwatchText } from '../../redux/actions';
 
 const PalletShow = (props) => {
-
   const hexOne = hsl(props.selectedPallet.OneHue, props.selectedPallet.OneSat, props.selectedPallet.OneLight).toUpperCase()
   const hexTwo = hsl(props.selectedPallet.TwoHue, props.selectedPallet.TwoSat, props.selectedPallet.TwoLight).toUpperCase()
   const hexThree = hsl(props.selectedPallet.ThreeHue, props.selectedPallet.ThreeSat, props.selectedPallet.ThreeLight).toUpperCase()
@@ -154,6 +153,14 @@ const PalletShow = (props) => {
               <p data-id='hsl' >H S L</p>
             </div>
           </div>
+          {props.selectedPallet.colorRelationships === undefined? (
+            null
+          ):(
+            <div className='info-container'>
+              <span className='info-header' >Color Relationships: </span>
+              <span> {props.selectedPallet.colorRelationships} </span>
+            </div>
+          )}
         </div>
         <div className='mockup-container'>
           <p>Mockups:</p>
