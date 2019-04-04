@@ -3,7 +3,6 @@ import { NavLink, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { setCurrentUser } from '../../redux/actions';
 import MediaQuery from 'react-responsive';
-import { slide as Menu } from 'react-burger-menu'
 
 import logo from '../../images/Arcuslogo.png'
 import '../css/Navbar.css';
@@ -26,12 +25,30 @@ const Navbar = (props) => {
               src={logo}
               onClick={() => props.history.push('/HomePage')}
             />
+            <NavLink className='nav-item' to='/ColorPalletGenerator'>
+              Color Palette Generator{' '}
+            </NavLink>
+            <NavLink className='nav-item' to='/Profile'>
+              Your Palettes{' '}
+            </NavLink>
           </div>
-          <Menu>
-            <a id="home" className="menu-item" href="/">Home</a>
-            <a id="about" className="menu-item" href="/about">About</a>
-            <a id="contact" className="menu-item" href="/contact">Contact</a>
-\          </Menu>
+
+          {props.current_user === null ? (
+            <div className='log-nav-container'>
+              <NavLink className='nav-item' to='/Login'>
+                Login{' '}
+              </NavLink>
+              <NavLink id="signup" to='/Signup'>
+                Sign Up{' '}
+              </NavLink>
+            </div>
+          ) : (
+            <div className='log-nav-container' onClick={handleLogout}>
+              <div id="signup">
+                Logout
+              </div>
+            </div>
+          )}
         </div>
       </MediaQuery>
       <MediaQuery orientation="landscape">
