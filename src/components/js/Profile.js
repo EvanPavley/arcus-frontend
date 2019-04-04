@@ -353,7 +353,7 @@ class Profile extends Component {
             <div className="profile-container">
               <div>
                 <div className="profilePallets">
-                  <p id="name" >{this.props.current_user.username}s Palettes:</p>
+                  <p id="name" >{this.props.current_user.username}'s Palettes:</p>
                   {this.renderPallets()}
                 </div>
                 <div className='mockup-container-profile'>

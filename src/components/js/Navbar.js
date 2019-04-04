@@ -42,7 +42,6 @@ const Navbar = (props) => {
               type='image'
               alt='logo'
               src={logo}
-              onClick={() => props.history.push('/HomePage')}
             />
           </div>
 
@@ -82,7 +81,6 @@ const Navbar = (props) => {
               type='image'
               alt='logo'
               src={logo}
-              onClick={() => props.history.push('/HomePage')}
             />
             <NavLink className='nav-item' to='/ColorPalletGenerator'>
               Palette Creator{' '}
