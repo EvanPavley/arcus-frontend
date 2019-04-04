@@ -1,4 +1,4 @@
-@media only screen and (min-width: 1001px) {
+@media (orientation: landscape) {
   .nav-container {
     display: flex;
     justify-content: space-between;
@@ -12,7 +12,7 @@
   }
 }
 
-@media only screen and (max-width: 1000px) {
+@media (orientation: portrait) {
   .nav-container {
     display: flex;
     justify-content: space-between;
