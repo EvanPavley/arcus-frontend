@@ -9,6 +9,8 @@ import SaturationSlider from './PalletFilters/SaturationSlider'
 import WebsiteMockup from './Mockups/WebsiteMockup'
 import TextMockup from './Mockups/TextMockup'
 import LogoMockup from './Mockups/LogoMockup'
+import GradientMockup from './Mockups/GradientMockup'
+import BuisnessCardMockup from './Mockups/BuisnessCardMockup'
 
 import MediaQuery from 'react-responsive';
 import hexToHsl from 'hex-to-hsl'
@@ -244,6 +246,24 @@ class Profile extends Component {
               hexFive = {hexFive}
               />
           </div>
+          <div className='star-one-container-profile'>
+            <GradientMockup
+              hexOne = {hexOne}
+              hexTwo = {hexTwo}
+              hexThree = {hexThree}
+              hexFour = {hexFour}
+              hexFive = {hexFive}
+              />
+          </div>
+          <div className='star-one-container-profile'>
+            <BuisnessCardMockup
+              hexOne = {hexOne}
+              hexTwo = {hexTwo}
+              hexThree = {hexThree}
+              hexFour = {hexFour}
+              hexFive = {hexFive}
+              />
+          </div>
         </div>
       )
     }
@@ -277,6 +297,32 @@ class Profile extends Component {
       return (
           <div className='star-one-container-profile'>
             <LogoMockup
+              hexOne = {hexOne}
+              hexTwo = {hexTwo}
+              hexThree = {hexThree}
+              hexFour = {hexFour}
+              hexFive = {hexFive}
+            />
+          </div>
+      )
+    }
+    if (this.props.mockupShow === 'Gradient Mockup') {
+      return (
+          <div className='star-one-container-profile'>
+            <GradientMockup
+              hexOne = {hexOne}
+              hexTwo = {hexTwo}
+              hexThree = {hexThree}
+              hexFour = {hexFour}
+              hexFive = {hexFive}
+            />
+          </div>
+      )
+    }
+    if (this.props.mockupShow === 'Buisness Card Mockup') {
+      return (
+          <div className='star-one-container-profile'>
+            <BuisnessCardMockup
               hexOne = {hexOne}
               hexTwo = {hexTwo}
               hexThree = {hexThree}
@@ -336,6 +382,8 @@ class Profile extends Component {
                           <option>Text Mockup</option>
                           <option>Website Mockup</option>
                           <option>Logo Mockup</option>
+                          <option>Gradient Mockup</option>
+                          <option>Buisness Card Mockup</option>
                         </select>
                     </div>
                     {this.renderMockup()}
@@ -392,6 +440,8 @@ class Profile extends Component {
                         <option>Text Mockup</option>
                         <option>Website Mockup</option>
                         <option>Logo Mockup</option>
+                        <option>Gradient Mockup</option>
+                        <option>Buisness Card Mockup</option>
                       </select>
                   </div>
                   {this.renderMockup()}

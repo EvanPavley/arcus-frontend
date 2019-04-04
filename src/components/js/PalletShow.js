@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import LogoMockup from './Mockups/LogoMockup';
 import WebsiteMockup from './Mockups/WebsiteMockup';
 import TextMockup from './Mockups/TextMockup';
+import GradientMockup from './Mockups/GradientMockup';
+import BuisnessCardMockup from './Mockups/BuisnessCardMockup';
 import hsl from 'hsl-to-hex'
 
 import '../css/PalletShow.css'
@@ -117,6 +119,24 @@ const PalletShow = (props) => {
               hexFive = {hexFive}
               />
           </div>
+          <div className='star-one-container'>
+            <GradientMockup
+              hexOne = {hexOne}
+              hexTwo = {hexTwo}
+              hexThree = {hexThree}
+              hexFour = {hexFour}
+              hexFive = {hexFive}
+              />
+          </div>
+          <div className='star-one-container'>
+            <BuisnessCardMockup
+              hexOne = {hexOne}
+              hexTwo = {hexTwo}
+              hexThree = {hexThree}
+              hexFour = {hexFour}
+              hexFive = {hexFive}
+              />
+          </div>
         </div>
       )
     }
@@ -150,6 +170,32 @@ const PalletShow = (props) => {
       return (
           <div className='star-one-container'>
             <LogoMockup
+              hexOne = {hexOne}
+              hexTwo = {hexTwo}
+              hexThree = {hexThree}
+              hexFour = {hexFour}
+              hexFive = {hexFive}
+            />
+          </div>
+      )
+    }
+    if (props.mockupShow === 'Gradient Mockup') {
+      return (
+          <div className='star-one-container'>
+            <GradientMockup
+              hexOne = {hexOne}
+              hexTwo = {hexTwo}
+              hexThree = {hexThree}
+              hexFour = {hexFour}
+              hexFive = {hexFive}
+            />
+          </div>
+      )
+    }
+    if (props.mockupShow === 'Buisness Card Mockup') {
+      return (
+          <div className='star-one-container'>
+            <BuisnessCardMockup
               hexOne = {hexOne}
               hexTwo = {hexTwo}
               hexThree = {hexThree}
@@ -251,6 +297,8 @@ const PalletShow = (props) => {
                 <option>Text Mockup</option>
                 <option>Website Mockup</option>
                 <option>Logo Mockup</option>
+                <option>Gradient Mockup</option>
+                <option>Buisness Card Mockup</option>
               </select>
             </div>
           {renderMockup()}

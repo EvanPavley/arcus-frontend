@@ -1,0 +1,24 @@
+.bcm-1, .bcm-4 {
+  fill: #fff;
+}
+
+.bcm-1 {
+}
+
+.bcm-1, .bcm-3, .bcm-4 {
+  stroke-miterlimit: 10;
+}
+
+.bcm-1, .bcm-3 {
+  stroke-width: 2px;
+}
+
+.bcm-3 {
+  fill: none;
+  stroke: #000;
+}
+
+.bcm-4 {
+  stroke: #333;
+  stroke-width: 3px;
+}
