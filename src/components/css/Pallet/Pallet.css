@@ -1,13 +1,29 @@
-.pallet{
-  margin-top: 2rem;
-  margin-bottom: .5rem;
-  padding-top: 1.2rem;
-  padding-bottom: .4rem;
-  padding-right: .7rem;
-  padding-left: .7rem;
-  border: 2px solid #e5e5e5;
-  background-color: #efefef;
-  border-radius: .2rem
+@media (orientation: landscape) {
+  .pallet{
+    margin-top: 2rem;
+    margin-bottom: .5rem;
+    padding-top: 1.2rem;
+    padding-bottom: .4rem;
+    padding-right: .7rem;
+    padding-left: .7rem;
+    border: 2px solid #e5e5e5;
+    background-color: #efefef;
+    border-radius: .2rem
+  }
+}
+@media (orientation: portrait) {
+  .pallet{
+    margin-top: 2rem;
+    margin-bottom: .5rem;
+    padding-top: 1.2rem;
+    padding-bottom: .4rem;
+    padding-right: .7rem;
+    padding-left: .7rem;
+    width: 86%;
+    border: 2px solid #e5e5e5;
+    background-color: #efefef;
+    border-radius: .2rem
+  }
 }
 
 .swatchHolder{

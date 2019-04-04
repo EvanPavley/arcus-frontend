@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { setCurrentUser } from '../../redux/actions';
+import { setCurrentUser, selectNavMenu } from '../../redux/actions';
 import MediaQuery from 'react-responsive';
 
 import logo from '../../images/Arcuslogo.png'
@@ -11,6 +11,25 @@ const Navbar = (props) => {
 
   let handleLogout = () => {
     props.setCurrentUser(null);
+  }
+
+  let handleNavMenu = (e) => {
+    props.selectNavMenu(e.target.value)
+    if (e.target.value === 'Palette Creator') {
+      props.history.push('/ColorPalletGenerator')
+    }
+    if (e.target.value === 'Your Palettes') {
+      props.history.push('/Profile')
+    }
+    if (e.target.value === 'Login') {
+      props.history.push('/Login')
+    }
+    if (e.target.value === 'Sign Up') {
+      props.history.push('/Signup')
+    }
+    if (e.target.value === 'Logout') {
+      handleLogout()
+    }
   }
 
   return (
@@ -25,28 +44,32 @@ const Navbar = (props) => {
               src={logo}
               onClick={() => props.history.push('/HomePage')}
             />
-            <NavLink className='nav-item' to='/ColorPalletGenerator'>
-              Color Palette Generator{' '}
-            </NavLink>
-            <NavLink className='nav-item' to='/Profile'>
-              Your Palettes{' '}
-            </NavLink>
           </div>
 
           {props.current_user === null ? (
-            <div className='log-nav-container'>
-              <NavLink className='nav-item' to='/Login'>
-                Login{' '}
-              </NavLink>
-              <NavLink id="signup" to='/Signup'>
-                Sign Up{' '}
-              </NavLink>
+            <div class="styled-select-nav blue semi-square">
+              <select
+                onChange={handleNavMenu}
+                value={props.navMenu}
+                >
+                <option>Select a Page</option>
+                <option>Palette Creator</option>
+                <option>Your Palettes</option>
+                <option>Login</option>
+                <option>Sign Up</option>
+              </select>
             </div>
           ) : (
-            <div className='log-nav-container' onClick={handleLogout}>
-              <div id="signup">
-                Logout
-              </div>
+            <div class="styled-select-nav blue semi-square">
+              <select
+                onChange={handleNavMenu}
+                value={props.navMenu}
+                >
+                <option>Select a Page</option>
+                <option>Palette Creator</option>
+                <option>Your Palettes</option>
+                <option>Logout</option>
+              </select>
             </div>
           )}
         </div>
@@ -62,7 +85,7 @@ const Navbar = (props) => {
               onClick={() => props.history.push('/HomePage')}
             />
             <NavLink className='nav-item' to='/ColorPalletGenerator'>
-              Color Palette Generator{' '}
+              Palette Creator{' '}
             </NavLink>
             <NavLink className='nav-item' to='/Profile'>
               Your Palettes{' '}
@@ -93,12 +116,14 @@ const Navbar = (props) => {
 function msp(state) {
   return {
     current_user: state.current_user,
+    navMenu: state.navMenu,
   }
 }
 
 function mdp(dispatch){
   return {
     setCurrentUser: (user) => dispatch(setCurrentUser(user)),
+    selectNavMenu: (user) => dispatch(selectNavMenu(user)),
   }
 }
 

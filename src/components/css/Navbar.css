@@ -24,6 +24,33 @@
     border-bottom: 5px solid #e5e5e5;
     font-weight: bold;
   }
+  .styled-select-nav {
+    margin-top: .6rem;
+     height: 3rem;
+     overflow: hidden;
+     width: 13rem;
+     outline: none;
+  }
+
+  .styled-select-nav select {
+     margin-top: .4rem;
+     margin-left: .5rem;
+     background: transparent;
+     border: none;
+     font-weight: bold;
+     font-size: 1.01rem;
+     height: 2rem;
+     padding: 5px; /* If you add too much padding here, the options won't show in IE */
+     width: 9rem;
+     outline: none;
+  }
+
+  .semi-square {
+     border-radius: .2rem;
+  }
+
+  .blue    { background-color: #00BBFF; }
+  .blue select    { color: #fff; }
 }
 
 

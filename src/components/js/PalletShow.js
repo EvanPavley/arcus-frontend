@@ -252,7 +252,7 @@ const PalletShow = (props) => {
                 <option>Website Mockup</option>
                 <option>Logo Mockup</option>
               </select>
-          </div>
+            </div>
           {renderMockup()}
         </div>
       </div>

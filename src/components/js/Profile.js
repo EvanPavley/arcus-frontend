@@ -10,6 +10,7 @@ import WebsiteMockup from './Mockups/WebsiteMockup'
 import TextMockup from './Mockups/TextMockup'
 import LogoMockup from './Mockups/LogoMockup'
 
+import MediaQuery from 'react-responsive';
 import hexToHsl from 'hex-to-hsl'
 import hsl from 'hsl-to-hex'
 import { selectPallet, setEditablePallet, addPallet, addJoin, selectMockupShow } from '../../redux/actions';
@@ -301,57 +302,118 @@ class Profile extends Component {
           </div>
         )
         : (
-          <div className="profile-container">
-            <div className="profilePallets">
-              <p id="name" >{this.props.current_user.username}s Palettes:</p>
-              {this.renderPallets()}
-            </div>
-            <div className='mockup-container-profile'>
-              <div className="profile-nav">
-                <div
-                className="profile-nav-item"
-                onClick= {this.handelViewClick}
-                >
-                  View Mockups
+          <div>
+          <MediaQuery orientation="portrait">
+            <div className="profile-container">
+              <div>
+                <div className="profilePallets">
+                  <p id="name" >{this.props.current_user.username}s Palettes:</p>
+                  {this.renderPallets()}
                 </div>
-                <div
-                className="profile-nav-item"
-                onClick= {this.handelViewClick}
-                >
-                  Customize Palette
-                </div>
-              </div>
-              {this.state.toggleView === true ? (
-                <div>
-                  <div class="styled-select blue semi-square">
-                    <select
-                      onChange={this.handleMockUpMenu}
-                      value={this.props.mockupShow}
-                      >
-                      <option>All Mockups</option>
-                      <option>Text Mockup</option>
-                      <option>Website Mockup</option>
-                      <option>Logo Mockup</option>
-                    </select>
-                </div>
-                {this.renderMockup()}
-                </div>
-              )
-              : (
-                <div className="editable-pallet-container">
-                  <div className="editable-pallet">
-                    {this.renderEditablePallet()}
-                  </div>
-                  <div className="editable-pallet-filter-container">
-                    <HueSlider onEdit={true} size={175} />
-                    <div className="light-sat">
-                      <LightSlider onEdit={true} min={25} max={80}/>
-                      <SaturationSlider onEdit={true} min={40} max={100}/>
+                <div className='mockup-container-profile'>
+                  <div className="profile-nav">
+                    <div
+                    className="profile-nav-item"
+                    onClick= {this.handelViewClick}
+                    >
+                      View Mockups
+                    </div>
+                    <div
+                    className="profile-nav-item"
+                    onClick= {this.handelViewClick}
+                    >
+                      Customize Palette
                     </div>
                   </div>
+                  {this.state.toggleView === true ? (
+                    <div>
+                      <div class="styled-select blue semi-square">
+                        <select
+                          onChange={this.handleMockUpMenu}
+                          value={this.props.mockupShow}
+                          >
+                          <option>All Mockups</option>
+                          <option>Text Mockup</option>
+                          <option>Website Mockup</option>
+                          <option>Logo Mockup</option>
+                        </select>
+                    </div>
+                    {this.renderMockup()}
+                    </div>
+                  )
+                  : (
+                    <div className="editable-pallet-container">
+                      <div className="editable-pallet">
+                        {this.renderEditablePallet()}
+                      </div>
+                      <div className="editable-pallet-filter-container">
+                        <HueSlider onEdit={true} size={175} />
+                        <div className="light-sat">
+                          <LightSlider onEdit={true} min={25} max={80}/>
+                          <SaturationSlider onEdit={true} min={40} max={100}/>
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </div>
-              )}
+              </div>
             </div>
+          </MediaQuery>
+
+          <MediaQuery orientation="landscape">
+            <div className="profile-container">
+              <div className="profilePallets">
+                <p id="name" >{this.props.current_user.username}s Palettes:</p>
+                {this.renderPallets()}
+              </div>
+              <div className='mockup-container-profile'>
+                <div className="profile-nav">
+                  <div
+                  className="profile-nav-item"
+                  onClick= {this.handelViewClick}
+                  >
+                    View Mockups
+                  </div>
+                  <div
+                  className="profile-nav-item"
+                  onClick= {this.handelViewClick}
+                  >
+                    Customize Palette
+                  </div>
+                </div>
+                {this.state.toggleView === true ? (
+                  <div>
+                    <div class="styled-select blue semi-square">
+                      <select
+                        onChange={this.handleMockUpMenu}
+                        value={this.props.mockupShow}
+                        >
+                        <option>All Mockups</option>
+                        <option>Text Mockup</option>
+                        <option>Website Mockup</option>
+                        <option>Logo Mockup</option>
+                      </select>
+                  </div>
+                  {this.renderMockup()}
+                  </div>
+                )
+                : (
+                  <div className="editable-pallet-container">
+                    <div className="editable-pallet">
+                      {this.renderEditablePallet()}
+                    </div>
+                    <div className="editable-pallet-filter-container">
+                      <HueSlider onEdit={true} size={175} />
+                      <div className="light-sat">
+                        <LightSlider onEdit={true} min={25} max={80}/>
+                        <SaturationSlider onEdit={true} min={40} max={100}/>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          </MediaQuery>
           </div>
         )}
       </div>
