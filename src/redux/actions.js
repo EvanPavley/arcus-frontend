@@ -1,4 +1,4 @@
-import { CHANGE_HUE, CHANGE_SATURATION, CHANGE_LIGHT, SELECT_PALLET, INPUT_CHANGE, SET_USERS, SET_CURRENT_USER, ADD_PALLET, ADD_JOIN, DELETE_PALLET, SET_EDITABLE_PALLET, SELECT_COLOR_NUM, EDIT_COLOR, SELECT_HEX_PALLET, SET_SWATCH_TEXT } from './types';
+import { CHANGE_HUE, CHANGE_SATURATION, CHANGE_LIGHT, SELECT_PALLET, INPUT_CHANGE, SET_USERS, SET_CURRENT_USER, ADD_PALLET, ADD_JOIN, DELETE_PALLET, SET_EDITABLE_PALLET, SELECT_COLOR_NUM, EDIT_COLOR, SELECT_HEX_PALLET, SET_SWATCH_TEXT, SELECT_MOCKUP_SHOW } from './types';
 
 export function changeHue({hue, hex}){
   return {type: CHANGE_HUE, payload: {hue, hex}}
@@ -49,6 +49,10 @@ export function setEditablePallet(pallet){
 
 export function setSwatchText(type){
   return{type: SET_SWATCH_TEXT, payload: type}
+}
+
+export function selectMockupShow(mockup){
+  return{type: SELECT_MOCKUP_SHOW, payload: mockup}
 }
 
 export function selectColorNum(colorNum){

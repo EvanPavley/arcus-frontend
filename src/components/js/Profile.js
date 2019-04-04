@@ -12,7 +12,7 @@ import LogoMockup from './Mockups/LogoMockup'
 
 import hexToHsl from 'hex-to-hsl'
 import hsl from 'hsl-to-hex'
-import { selectPallet, setEditablePallet, addPallet, addJoin } from '../../redux/actions';
+import { selectPallet, setEditablePallet, addPallet, addJoin, selectMockupShow } from '../../redux/actions';
 
 class Profile extends Component {
   state = {
@@ -203,6 +203,90 @@ class Profile extends Component {
       })
   }
 
+  handleMockUpMenu = (e) => {
+    this.props.selectMockupShow(e.target.value)
+  }
+
+  renderMockup = () => {
+    let hexOne = hsl(this.props.selectedPallet.OneHue, this.props.selectedPallet.OneSat, this.props.selectedPallet.OneLight)
+    let hexTwo = hsl(this.props.selectedPallet.TwoHue, this.props.selectedPallet.TwoSat, this.props.selectedPallet.TwoLight)
+    let hexThree = hsl(this.props.selectedPallet.ThreeHue, this.props.selectedPallet.ThreeSat, this.props.selectedPallet.ThreeLight)
+    let hexFour = hsl(this.props.selectedPallet.FourHue, this.props.selectedPallet.FourSat, this.props.selectedPallet.FourLight)
+    let hexFive = hsl(this.props.selectedPallet.FiveHue, this.props.selectedPallet.FiveSat, this.props.selectedPallet.FiveLight)
+    if (this.props.mockupShow === 'All Mockups') {
+      return (
+        <div>
+          <div className='star-one-container-profile'>
+            <TextMockup
+              hexOne = {hexOne}
+              hexTwo = {hexTwo}
+              hexThree = {hexThree}
+              hexFour = {hexFour}
+              hexFive = {hexFive}
+            />
+          </div>
+          <div className='star-one-container-profile'>
+            <WebsiteMockup
+              hexOne = {hexOne}
+              hexTwo = {hexTwo}
+              hexThree = {hexThree}
+              hexFour = {hexFour}
+              hexFive = {hexFive}
+            />
+          </div>
+          <div className='star-one-container-profile'>
+            <LogoMockup
+              hexOne = {hexOne}
+              hexTwo = {hexTwo}
+              hexThree = {hexThree}
+              hexFour = {hexFour}
+              hexFive = {hexFive}
+              />
+          </div>
+        </div>
+      )
+    }
+    if (this.props.mockupShow === 'Text Mockup') {
+      return (
+          <div className='star-one-container-profile'>
+            <TextMockup
+              hexOne = {hexOne}
+              hexTwo = {hexTwo}
+              hexThree = {hexThree}
+              hexFour = {hexFour}
+              hexFive = {hexFive}
+            />
+          </div>
+      )
+    }
+    if (this.props.mockupShow === 'Website Mockup') {
+      return (
+          <div className='star-one-container-profile'>
+            <WebsiteMockup
+              hexOne = {hexOne}
+              hexTwo = {hexTwo}
+              hexThree = {hexThree}
+              hexFour = {hexFour}
+              hexFive = {hexFive}
+            />
+          </div>
+      )
+    }
+    if (this.props.mockupShow === 'Logo Mockup') {
+      return (
+          <div className='star-one-container-profile'>
+            <LogoMockup
+              hexOne = {hexOne}
+              hexTwo = {hexTwo}
+              hexThree = {hexThree}
+              hexFour = {hexFour}
+              hexFive = {hexFive}
+            />
+          </div>
+      )
+    }
+  }
+
   render(){
     let hexOne = hsl(this.props.selectedPallet.OneHue, this.props.selectedPallet.OneSat, this.props.selectedPallet.OneLight)
     let hexTwo = hsl(this.props.selectedPallet.TwoHue, this.props.selectedPallet.TwoSat, this.props.selectedPallet.TwoLight)
@@ -239,34 +323,18 @@ class Profile extends Component {
               </div>
               {this.state.toggleView === true ? (
                 <div>
-                  <p id="name" >Mockups:</p>
-                  <div className='star-one-container-profile'>
-                    <TextMockup
-                      hexOne = {hexOne}
-                      hexTwo = {hexTwo}
-                      hexThree = {hexThree}
-                      hexFour = {hexFour}
-                      hexFive = {hexFive}
-                    />
-                  </div>
-                  <div className='star-one-container-profile'>
-                    <WebsiteMockup
-                      hexOne = {hexOne}
-                      hexTwo = {hexTwo}
-                      hexThree = {hexThree}
-                      hexFour = {hexFour}
-                      hexFive = {hexFive}
-                    />
-                  </div>
-                  <div className='star-one-container-profile'>
-                    <LogoMockup
-                      hexOne = {hexOne}
-                      hexTwo = {hexTwo}
-                      hexThree = {hexThree}
-                      hexFour = {hexFour}
-                      hexFive = {hexFive}
-                    />
-                  </div>
+                  <div class="styled-select blue semi-square">
+                    <select
+                      onChange={this.handleMockUpMenu}
+                      value={this.props.mockupShow}
+                      >
+                      <option>All Mockups</option>
+                      <option>Text Mockup</option>
+                      <option>Website Mockup</option>
+                      <option>Logo Mockup</option>
+                    </select>
+                </div>
+                {this.renderMockup()}
                 </div>
               )
               : (
@@ -296,6 +364,7 @@ function msp(state) {
     current_user: state.current_user,
     selectedPallet: state.selectedPallet,
     editablePallet: state.editablePallet,
+    mockupShow: state.mockupShow,
   }
 }
 
@@ -305,6 +374,7 @@ function mdp(dispatch){
     setEditablePallet: (pallet) => dispatch(setEditablePallet(pallet)),
     addPallet: (pallet) => dispatch(addPallet(pallet)),
     addJoin: (join) => dispatch(addJoin(join)),
+    selectMockupShow: (mockup) => dispatch(selectMockupShow(mockup)),
   }
 }
 

@@ -1,3 +1,3 @@
-export default class ColorAdapter {
+export default class PalletAdapter {
 
 }

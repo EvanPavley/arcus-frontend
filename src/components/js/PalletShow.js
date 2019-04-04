@@ -8,7 +8,7 @@ import hsl from 'hsl-to-hex'
 
 import '../css/PalletShow.css'
 import Swatch from './Pallet/Swatch'
-import { addPallet, addJoin, setSwatchText } from '../../redux/actions';
+import { addPallet, addJoin, setSwatchText, selectMockupShow } from '../../redux/actions';
 
 const PalletShow = (props) => {
   const hexOne = hsl(props.selectedPallet.OneHue, props.selectedPallet.OneSat, props.selectedPallet.OneLight).toUpperCase()
@@ -80,6 +80,85 @@ const PalletShow = (props) => {
 
   let handelUnitChange = (e) => {
     props.setSwatchText(e.target.dataset.id)
+  }
+
+  let handleMockUpMenu = (e) => {
+    props.selectMockupShow(e.target.value)
+  }
+
+  let renderMockup = () => {
+    if (props.mockupShow === 'All Mockups') {
+      return (
+        <div>
+          <div className='star-one-container'>
+            <TextMockup
+              hexOne = {hexOne}
+              hexTwo = {hexTwo}
+              hexThree = {hexThree}
+              hexFour = {hexFour}
+              hexFive = {hexFive}
+            />
+          </div>
+          <div className='star-one-container'>
+            <WebsiteMockup
+              hexOne = {hexOne}
+              hexTwo = {hexTwo}
+              hexThree = {hexThree}
+              hexFour = {hexFour}
+              hexFive = {hexFive}
+            />
+          </div>
+          <div className='star-one-container'>
+            <LogoMockup
+              hexOne = {hexOne}
+              hexTwo = {hexTwo}
+              hexThree = {hexThree}
+              hexFour = {hexFour}
+              hexFive = {hexFive}
+              />
+          </div>
+        </div>
+      )
+    }
+    if (props.mockupShow === 'Text Mockup') {
+      return (
+          <div className='star-one-container'>
+            <TextMockup
+              hexOne = {hexOne}
+              hexTwo = {hexTwo}
+              hexThree = {hexThree}
+              hexFour = {hexFour}
+              hexFive = {hexFive}
+            />
+          </div>
+      )
+    }
+    if (props.mockupShow === 'Website Mockup') {
+      return (
+          <div className='star-one-container'>
+            <WebsiteMockup
+              hexOne = {hexOne}
+              hexTwo = {hexTwo}
+              hexThree = {hexThree}
+              hexFour = {hexFour}
+              hexFive = {hexFive}
+            />
+          </div>
+      )
+    }
+    if (props.mockupShow === 'Logo Mockup') {
+      return (
+          <div className='star-one-container'>
+            <LogoMockup
+              hexOne = {hexOne}
+              hexTwo = {hexTwo}
+              hexThree = {hexThree}
+              hexFour = {hexFour}
+              hexFive = {hexFive}
+            />
+          </div>
+      )
+    }
   }
 
   return (
@@ -163,34 +242,18 @@ const PalletShow = (props) => {
           )}
         </div>
         <div className='mockup-container'>
-          <p>Mockups:</p>
-          <div className='star-one-container'>
-            <TextMockup
-              hexOne = {hexOne}
-              hexTwo = {hexTwo}
-              hexThree = {hexThree}
-              hexFour = {hexFour}
-              hexFive = {hexFive}
-            />
+            <div class="styled-select blue semi-square">
+              <select
+                onChange={handleMockUpMenu}
+                value={props.mockupShow}
+                >
+                <option>All Mockups</option>
+                <option>Text Mockup</option>
+                <option>Website Mockup</option>
+                <option>Logo Mockup</option>
+              </select>
           </div>
-          <div className='star-one-container'>
-            <WebsiteMockup
-              hexOne = {hexOne}
-              hexTwo = {hexTwo}
-              hexThree = {hexThree}
-              hexFour = {hexFour}
-              hexFive = {hexFive}
-            />
-          </div>
-          <div className='star-one-container'>
-            <LogoMockup
-              hexOne = {hexOne}
-              hexTwo = {hexTwo}
-              hexThree = {hexThree}
-              hexFour = {hexFour}
-              hexFive = {hexFive}
-            />
-          </div>
+          {renderMockup()}
         </div>
       </div>
     </div>
@@ -202,6 +265,7 @@ function msp(state) {
     selectedPallet: state.selectedPallet,
     current_user: state.current_user,
     swatchText: state.swatchText,
+    mockupShow: state.mockupShow,
   }
 }
 
@@ -210,7 +274,8 @@ function mdp(dispatch){
     addPallet: (pallet) => dispatch(addPallet(pallet)),
     addJoin: (join) => dispatch(addJoin(join)),
     setSwatchText: (type) => dispatch(setSwatchText(type)),
+    selectMockupShow: (mockup) => dispatch(selectMockupShow(mockup)),
   }
 }
 
-export default connect(msp, mdp)(withRouter(PalletShow))
+export default withRouter(connect(msp, mdp)(PalletShow));

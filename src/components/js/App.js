@@ -72,6 +72,7 @@ function msp(state) {
   return {
     users: state.users,
     current_user: state.current_user,
+    mockupShow: state.mockupShow,
   }
 }
 

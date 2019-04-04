@@ -121,3 +121,32 @@
   margin: 0;
   font-weight: bold;
 }
+
+.styled-select {
+   background: url(../../images/arrow.png) no-repeat 96% 0;
+   height: 2.2rem;
+   overflow: hidden;
+   width: 14rem;
+   -webkit-user-select: none;
+   margin-left: 1rem;
+   margin-top: 2.5rem;
+   margin-bottom: 1rem;
+}
+
+.styled-select select {
+   background: transparent;
+   border: none;
+   font-weight: bold;
+   font-size: 1.01rem;
+   height: 2rem;
+   padding: 5px; /* If you add too much padding here, the options won't show in IE */
+   width: 16rem;
+   -webkit-user-select: none;
+}
+
+.semi-square {
+   border-radius: .2rem;
+}
+
+.blue    { background-color: #00BBFF; }
+.blue select    { color: #fff; }
