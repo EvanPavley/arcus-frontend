@@ -24,6 +24,7 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.props.s)
     return (
       <div className="app">
         <Navbar/>
@@ -72,7 +73,7 @@ function msp(state) {
   return {
     users: state.users,
     current_user: state.current_user,
-    mockupShow: state.mockupShow,
+    s: state.s
   }
 }
 

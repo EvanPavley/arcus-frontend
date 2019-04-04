@@ -104,8 +104,8 @@ export default function colorPalletReducer (state = colorPalletState, action){
     case CHANGE_SATURATION:
       return  { ...state,
         s: action.payload,
-        desaturateOne: ColorAdapter.getLightenOne(action.payload),
-        desaturateTwo: ColorAdapter.getDarkenOne(action.payload),
+        desaturateOne: ColorAdapter.getDesaturateOne(action.payload),
+        desaturateTwo: ColorAdapter.getDesaturateTwo(action.payload),
       };
     case CHANGE_LIGHT:
       return { ...state,

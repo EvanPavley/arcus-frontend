@@ -251,7 +251,7 @@ const PalletContainer = (props) => {
 
           ThreeHue={ props.complementaryH }
           ThreeSat={ props.s }
-          ThreeLight={ props.l }
+          ThreeLight={ props.darkenOne }
 
           FourHue={ props.splitComplementaryLeftH }
           FourSat={ props.s }
@@ -277,7 +277,7 @@ const PalletContainer = (props) => {
 
           ThreeHue={ props.analogusLeftH }
           ThreeSat={ props.s }
-          ThreeLight={ props.l }
+          ThreeLight={ props.darkenOne }
 
           FourHue={ props.complementaryH }
           FourSat={ props.s }

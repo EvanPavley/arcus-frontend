@@ -11,22 +11,31 @@ export default class ColorAdapter {
   static getLightenOne (light){
     let newLight = 0
     if (light <= 65 && light > 40) {
-      newLight = light + 20
+      newLight = light + 3
     }else if (light > 65) {
-      newLight = 85
+      newLight = 70
     }else{
       newLight = light + 10
     }
     return newLight
   }
-  static getDarkenOne (light) { return light - 10 }
+  static getDarkenOne (light) {
+    let newLight = 0
+    if (light > 50) {
+      newLight = light - 15
+    }else{
+      newLight = light - 10
+    }
+    return newLight
+  }
 
   static getDesaturateOne (sat) {
     let newSat = 0
-    if (sat > 60) {
-      newSat = sat - 40
-    }else {
-      newSat = 20
+    if (sat > 70) {
+      newSat = sat - 35
+    }
+    else {
+      newSat = sat + 35
     }
     return newSat
   }
@@ -35,7 +44,7 @@ export default class ColorAdapter {
     if (sat > 60) {
       newSat = sat - 70
     }else {
-      newSat = 10
+      newSat = sat + 10
     }
     return newSat
   }
