@@ -343,7 +343,7 @@ class Profile extends Component {
     return (
       <div className="profile">
         {this.props.current_user === null ? (
-          <div>
+          <div className="no-profile">
             <p> please login to view your palettes</p>
           </div>
         )

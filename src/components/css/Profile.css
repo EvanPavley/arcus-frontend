@@ -11,7 +11,10 @@
   margin-top: 2rem;
   color: gray;
 }
-
+.no-profile{
+  font-size: 1.5rem;
+  margin-top: 6rem;
+}
 @media (orientation: landscape) {
   .profilePallets{
     padding-left: 1rem;
