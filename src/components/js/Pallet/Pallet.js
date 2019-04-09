@@ -3,43 +3,12 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import hsl from 'hsl-to-hex'
 
+import PalletAdapter from '../../../adapters/PalletAdapter'
 import Swatch from './Swatch'
 import { selectPallet, deletePallet, setEditablePallet, addPallet, addJoin, selectHexPallet } from '../../../redux/actions';
 import '../../css/Pallet/Pallet.css'
 
 const Pallet = (props) => {
-
-  let postPallet = (palletObj) => {
-    return fetch('http://localhost:3000/api/v1/pallets', {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json"
-      },
-      body: JSON.stringify({
-        one: palletObj.hexOne,
-        two: palletObj.hexTwo,
-        three: palletObj.hexThree,
-        four: palletObj.hexFour,
-        five: palletObj.hexFive,
-        hex_id: palletObj.hex_id,
-      })
-    })
-  }
-
-  let postJoin = (pallet_id) => {
-    return fetch('http://localhost:3000/api/v1/user_pallets', {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json"
-      },
-      body: JSON.stringify({
-        user_id: props.current_user.id,
-        pallet_id: pallet_id,
-      })
-    })
-  }
 
   let handleSave = (e) => {
     if (props.current_user === null) {
@@ -56,10 +25,10 @@ const Pallet = (props) => {
       if (props.current_user.pallets.find(p => p.hex_id === hexPalletObj.hex_id)) {
         alert("You have already saved that palette")
       }else {
-        postPallet(hexPalletObj)
+        PalletAdapter.postPallet(hexPalletObj)
         .then(r => r.json())
         .then(pallet => {
-          postJoin(pallet.id)
+          PalletAdapter.postJoin(pallet.id, props.current_user.id)
           .then(r => r.json())
           .then(join => props.addJoin(join))
           props.addPallet({
@@ -270,17 +239,6 @@ const Pallet = (props) => {
               </div>
             </div>
             <div className="tool-btns">
-              {/*
-              <div className="pallet-btn">
-                <svg id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 53.7 53.7">
-                	<g id="_5" data-name=" 5">
-                		<path
-                      fill="#a5a5a5"
-                      d="M26.9,0C12,0,0,10.3,0,23,0,33.5,8.2,42.3,19.4,45.1l7.5,8.6,7.5-8.6C45.5,42.3,53.7,33.6,53.7,23,53.7,10.3,41.7,0,26.9,0Zm2.3,38.7-2.4,3.8L24,38.8C13.9,36.7,8.3,27.3,8.3,22.8s4.5-14,18.3-14,18.2,9.2,18.2,14S39.4,36.5,29.2,38.7Z"/>
-                	</g>
-                </svg>
-              </div>
-              */}
               <div data-btn="save" className="pallet-btn">
                 <svg data-btn="save" id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34.65 34.65">
                   <path

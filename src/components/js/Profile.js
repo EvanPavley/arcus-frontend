@@ -147,65 +147,6 @@ class Profile extends Component {
     />
   }
 
-
-
-  postPallet = () => {
-    const hexOne = hsl(this.props.editablePallet.OneHue, this.props.editablePallet.OneSat, this.props.editablePallet.OneLight).toUpperCase()
-    const hexTwo = hsl(this.props.editablePallet.TwoHue, this.props.editablePallet.TwoSat, this.props.editablePallet.TwoLight).toUpperCase()
-    const hexThree = hsl(this.props.editablePallet.ThreeHue, this.props.editablePallet.ThreeSat, this.props.editablePallet.ThreeLight).toUpperCase()
-    const hexFour = hsl(this.props.editablePallet.FourHue, this.props.editablePallet.FourSat, this.props.editablePallet.FourLight).toUpperCase()
-    const hexFive = hsl(this.props.editablePallet.FiveHue, this.props.editablePallet.FiveSat, this.props.editablePallet.FiveLight).toUpperCase()
-
-    return fetch('http://localhost:3000/api/v1/pallets', {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json"
-      },
-      body: JSON.stringify({
-        one: hexOne,
-        two: hexTwo,
-        three: hexThree,
-        four: hexFour,
-        five: hexFive,
-        hex_id: `${this.props.editable.OneHue}${this.props.editable.OneSat}${this.props.editable.OneLight}-${this.props.editable.TwoHue}${this.props.editable.TwoSat}${this.props.editable.TwoLight}-${this.props.editable.ThreeHue}${this.props.editable.ThreeSat}${this.props.editable.ThreeLight}-${this.props.editable.FourHue}${this.props.editable.FourSat}${this.props.editable.FourLight}-${this.props.editable.FiveHue}${this.props.editable.FiveSat}${this.props.editable.FiveLight}`
-      })
-    })
-  }
-
-  postJoin = (pallet_id) => {
-    return fetch('http://localhost:3000/api/v1/user_pallets', {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json"
-      },
-      body: JSON.stringify({
-        user_id: this.props.current_user.id,
-        pallet_id: pallet_id,
-      })
-    })
-  }
-
-  handleSave = (e) => {
-      this.postPallet()
-      .then(r => r.json())
-      .then(pallet => {
-        this.postJoin(pallet.id)
-        .then(r => r.json())
-        .then(join => this.props.addJoin(join))
-        this.props.addPallet({
-          id: pallet.id,
-          one: pallet.one,
-          two: pallet.two,
-          three: pallet.three,
-          four: pallet.four,
-          five: pallet.five,
-          hex_id: pallet.hex_id,
-        })
-      })
-  }
-
   handleMockUpMenu = (e) => {
     this.props.selectMockupShow(e.target.value)
   }
@@ -411,7 +352,7 @@ class Profile extends Component {
           <MediaQuery orientation="landscape">
             <div className="profile-container">
               <div className="profilePallets">
-                <p id="name" >{this.props.current_user.username}s Palettes:</p>
+                <p id="name" >{this.props.current_user.username}'s Palettes:</p>
                 {this.renderPallets()}
               </div>
               <div className='mockup-container-profile'>
