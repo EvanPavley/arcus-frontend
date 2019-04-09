@@ -3,4 +3,4 @@ A web-app that enables designers to quickly cycle through generated color palett
 
 ## Design Ideas
 
-<img alt="arcus logo" src="src/images/Arcus Wheel Gif.gif" width="1600px" height="1000px">
+<img alt="arcus logo" src="src/images/Arcus Wheel Gif.gif" width="250px" height="400px">
