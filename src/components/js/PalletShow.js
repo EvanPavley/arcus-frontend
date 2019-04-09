@@ -8,6 +8,7 @@ import GradientMockup from './Mockups/GradientMockup';
 import BuisnessCardMockup from './Mockups/BuisnessCardMockup';
 import hsl from 'hsl-to-hex'
 
+import PalletAdapter from '../../adapters/PalletAdapter'
 import '../css/PalletShow.css'
 import Swatch from './Pallet/Swatch'
 import { addPallet, addJoin, setSwatchText, selectMockupShow } from '../../redux/actions';
@@ -18,51 +19,27 @@ const PalletShow = (props) => {
   const hexThree = hsl(props.selectedPallet.ThreeHue, props.selectedPallet.ThreeSat, props.selectedPallet.ThreeLight).toUpperCase()
   const hexFour = hsl(props.selectedPallet.FourHue, props.selectedPallet.FourSat, props.selectedPallet.FourLight).toUpperCase()
   const hexFive = hsl(props.selectedPallet.FiveHue, props.selectedPallet.FiveSat, props.selectedPallet.FiveLight).toUpperCase()
-  const the_hex_id = `${props.selectedPallet.OneHue}${props.selectedPallet.OneSat}${props.selectedPallet.OneLight}-${props.selectedPallet.TwoHue}${props.selectedPallet.TwoSat}${props.selectedPallet.TwoLight}-${props.selectedPallet.ThreeHue}${props.selectedPallet.ThreeSat}${props.selectedPallet.ThreeLight}-${props.selectedPallet.FourHue}${props.selectedPallet.FourSat}${props.selectedPallet.FourLight}-${props.selectedPallet.FiveHue}${props.selectedPallet.FiveSat}${props.selectedPallet.FiveLight}`
 
-  let postPallet = () => {
-    return fetch('http://localhost:3000/api/v1/pallets', {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json"
-      },
-      body: JSON.stringify({
-        one: hexOne,
-        two: hexTwo,
-        three: hexThree,
-        four: hexFour,
-        five: hexFive,
-        hex_id: the_hex_id,
-      })
-    })
-  }
-
-  let postJoin = (pallet_id) => {
-    return fetch('http://localhost:3000/api/v1/user_pallets', {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json"
-      },
-      body: JSON.stringify({
-        user_id: props.current_user.id,
-        pallet_id: pallet_id,
-      })
-    })
+  const hexPalletObj = {
+    hexOne: hexOne,
+    hexTwo: hexTwo,
+    hexThree: hexThree,
+    hexFour: hexFour,
+    hexFive: hexFive,
+    hex_id: `${props.selectedPallet.OneHue}${props.selectedPallet.OneSat}${props.selectedPallet.OneLight}-${props.selectedPallet.TwoHue}${props.selectedPallet.TwoSat}${props.selectedPallet.TwoLight}-${props.selectedPallet.ThreeHue}${props.selectedPallet.ThreeSat}${props.selectedPallet.ThreeLight}-${props.selectedPallet.FourHue}${props.selectedPallet.FourSat}${props.selectedPallet.FourLight}-${props.selectedPallet.FiveHue}${props.selectedPallet.FiveSat}${props.selectedPallet.FiveLight}`
   }
 
   let handleSave = (e) => {
     if (props.current_user === null) {
       alert("Please login to save a pallet.")
     }else {
-      if (props.current_user.pallets.find(p => p.hex_id === the_hex_id)) {
+      if (props.current_user.pallets.find(p => p.hex_id === hexPalletObj.hex_id)) {
         alert("You have already saved that palette")
       }else {
-        postPallet()
+        PalletAdapter.postPallet(hexPalletObj)
         .then(r => r.json())
         .then(pallet => {
-          postJoin(pallet.id)
+          PalletAdapter.postJoin(pallet.id, props.current_user.id)
           .then(r => r.json())
           .then(join => props.addJoin(join))
           props.addPallet({
