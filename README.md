@@ -1,1 +1,1 @@
-Arcus 
+![alt text](src/images/Arcuslogo.png)
