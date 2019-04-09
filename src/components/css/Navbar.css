@@ -25,7 +25,7 @@
     font-weight: bold;
   }
   .styled-select-nav {
-    margin-top: .6rem;
+    margin-top: 0rem;
      height: 3rem;
      overflow: hidden;
      width: 13rem;
@@ -57,26 +57,26 @@
 
 .nav-item{
   margin: 1rem;
-  margin-top: 1.7rem;
+  margin-top: 1rem;
 }
 
 .nav-item:visited {
-  color: gray;
+  color: #3f3f3f;
   text-decoration: none;
 }
 .nav-item:link {
-  color: gray;
+  color: #3f3f3f;
   text-decoration: none;
 }
 
 .nav-item:hover {
-  color: black
+  color: #00BBFF
 }
 
 #signup{
   background-color: #00BBFF;
   text-align: center;
-  margin-top: .7rem;
+  margin-top: 0rem;
   margin-left: 1rem;
   border-radius: .2rem;
   padding-top: .7rem;
@@ -100,7 +100,7 @@
 
 .image{
   outline: none;
-  height: 70px;
+  height: 45px;
   width: auto;
   margin-right: 1rem;
 }
