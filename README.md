@@ -17,7 +17,7 @@ All of the mockups are SVGs and the fill color of their parts are changed throug
 
 ## Bulit With
 
-* [React](https://reactjs.org/) - implimented to render color palettes and sliders on multiple pages in diffrent ways
+* [React](https://reactjs.org/) - web library used for building the interface.
 * [Redux](https://redux.js.org/) - used to declaratively pass and manipulate reusable state to all components
 * [react-router](https://reacttraining.com/react-router/) - for page navigation
 * [JSS](https://cssinjs.org/?v=v10.0.0-alpha.13) - to manipulate CSS attributes based on state
