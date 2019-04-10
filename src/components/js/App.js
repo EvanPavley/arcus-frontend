@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { setUsers } from '../../redux/actions';
+import { setUsers, setCurrentUser } from '../../redux/actions';
 import '../css/App.css';
 import Navbar from './Navbar';
 import ColorPalletGenerator from './ColorPalletGenerator';
@@ -21,10 +21,23 @@ class App extends Component {
       .then(users =>
         this.props.setUsers(users)
       );
+
+    const token = localStorage.getItem("token")
+
+    if (token){
+      fetch("http://localhost:3000/api/v1/auto_login", {
+        method: "GET",
+        headers: {
+          "Authorization": token          }
+      })
+        .then(res => res.json())
+        .then(response =>
+          this.props.setCurrentUser(response)
+        )
+    }
   }
 
   render() {
-    console.log(this.props.s)
     return (
       <div className="app">
         <Navbar/>
@@ -73,13 +86,13 @@ function msp(state) {
   return {
     users: state.users,
     current_user: state.current_user,
-    s: state.s
   }
 }
 
 function mdp(dispatch){
   return {
     setUsers: (users) => dispatch(setUsers(users)),
+    setCurrentUser: (user) => dispatch(setCurrentUser(user)),
   }
 }
 

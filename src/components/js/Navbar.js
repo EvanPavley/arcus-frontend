@@ -10,6 +10,7 @@ import '../css/Navbar.css';
 const Navbar = (props) => {
 
   let handleLogout = () => {
+    localStorage.removeItem("token")
     props.setCurrentUser(null);
   }
 

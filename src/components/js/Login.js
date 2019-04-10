@@ -18,13 +18,26 @@ const Login = (props) => {
   let handleSubmit = (e) => {
     e.preventDefault();
     if (checkExistingUser(props.username)) {
-      props.history.push('/Profile');
-
-      let logged_user = props.users.find(u => u.username === props.username)
-
-      fetch(`http://localhost:3000/api/v1/users/${logged_user.id}`)
-      .then(r => r.json())
-      .then(user => props.setCurrentUser(user))
+      fetch("http://localhost:3000/api/v1/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accepts": "application/json",
+        },
+        body: JSON.stringify({
+          username: props.username,
+          password: props.password,
+        })
+      })
+      .then(res => res.json())
+      .then(response => {
+        if (response.errors){
+          alert(response.errors)
+        } else {
+          props.setCurrentUser(response.user)
+          props.history.push('/Profile');
+        }
+      })
     }else{
       alert("wrong username or password");
     }

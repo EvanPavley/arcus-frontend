@@ -19,8 +19,8 @@ const Signup = (props) => {
     e.preventDefault();
     if (checkExistingUser(props.username)) {
       alert("You've already signed up, Please login.")
-    }else if (props.password === "" || " ") {
-      alert("Please enter a password")
+    }else if (props.password === "" || props.username === "") {
+      alert("Please enter a username or password")
     }else{
       fetch('http://localhost:3000/api/v1/users/', {
         method: "POST",
@@ -35,22 +35,20 @@ const Signup = (props) => {
         })
       })
       .then(r => r.json())
-      .then(user => props.setCurrentUser(user))
-      // .then(() => props.setUsers(props.users(props.current_user)))
-      props.history.push('/Profile')
+      .then(response => {
+        console.log(response);
+        localStorage.setItem("token", response.jwt)
+        props.setCurrentUser(response.user)
+        props.history.push('/Profile');
+      })
     }
     props.handleInputChange({name:'username', value:''})
     props.handleInputChange({name:'email', value:''})
     props.handleInputChange({name:'password', value:''})
   }
 
-  let handleLogout = () => {
-    props.setCurrentUser(null);
-  }
-
   return (
     <div className="login-container">
-      {props.current_user === null ? (
       <div className="login-form-container">
         <div className='button-holder'>
           <p className='title'>Sign Up</p>
@@ -85,13 +83,6 @@ const Signup = (props) => {
           </div>
         </form>
       </div>
-      )
-      :
-      (
-        <div className='logout-btn' onClick={handleLogout}>
-          <p>L O G O U T</p>
-        </div>
-      )}
     </div>
   )
 }

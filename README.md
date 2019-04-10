@@ -17,14 +17,15 @@ All of the mockups are SVGs and the fill color of their parts are changed throug
 
 ## Bulit With
 
-* [React](https://reactjs.org/) - web library used for building the interface.
+* [React](https://reactjs.org/) - web library used for building the interface
 * [Redux](https://redux.js.org/) - used to declaratively pass and manipulate reusable state to all components
 * [react-router](https://reacttraining.com/react-router/) - for page navigation
+* [react-responsive](https://www.npmjs.com/package/react-responsive) - for media queries / responsive design
 * [JSS](https://cssinjs.org/?v=v10.0.0-alpha.13) - to manipulate CSS attributes based on state
 * [React Circular Color](https://www.npmjs.com/package/react-circular-color) - used this hue slider
-* [react-responsive](https://www.npmjs.com/package/react-responsive) - used for media queries / responsive design
 * [Scalable Vector Graphics (SVGs)](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics) - for mockup images created in [Adobe Illustrator](https://www.adobe.com/products/illustrator.html)
 * [Ruby on Rails](https://rubyonrails.org/) - to save palettes for reuse in different mockups, in a **has_many :through** domain model
+* [postgreSQL](https://www.postgresql.org/) - as the database
 
 ### Additional Notes
 

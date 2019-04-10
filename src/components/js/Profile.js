@@ -76,43 +76,47 @@ class Profile extends Component {
   }
 
   renderPallets = () => {
-    return this.props.current_user.pallets.map(p => {
-      let hslOne = hexToHsl(p.one)
-      let hslTwo = hexToHsl(p.two)
-      let hslThree = hexToHsl(p.three)
-      let hslFour = hexToHsl(p.four)
-      let hslFive = hexToHsl(p.five)
-      return(
-        <Pallet
-          id= {p.id}
-          OneHue={ hslOne[0] }
-          OneSat={ hslOne[1] }
-          OneLight={ hslOne[2] }
+    if (this.props.current_user.pallets === undefined) {
+      return undefined
+    }else {
+      return this.props.current_user.pallets.map(p => {
+        let hslOne = hexToHsl(p.one)
+        let hslTwo = hexToHsl(p.two)
+        let hslThree = hexToHsl(p.three)
+        let hslFour = hexToHsl(p.four)
+        let hslFive = hexToHsl(p.five)
+        return(
+          <Pallet
+            id= {p.id}
+            OneHue={ hslOne[0] }
+            OneSat={ hslOne[1] }
+            OneLight={ hslOne[2] }
 
-          TwoHue={ hslTwo[0]}
-          TwoSat={ hslTwo[1] }
-          TwoLight={ hslTwo[2] }
+            TwoHue={ hslTwo[0]}
+            TwoSat={ hslTwo[1] }
+            TwoLight={ hslTwo[2] }
 
-          ThreeHue={ hslThree[0] }
-          ThreeSat={ hslThree[1] }
-          ThreeLight={ hslThree[2] }
+            ThreeHue={ hslThree[0] }
+            ThreeSat={ hslThree[1] }
+            ThreeLight={ hslThree[2] }
 
-          FourHue={ hslFour[0] }
-          FourSat={ hslFour[1] }
-          FourLight={ hslFour[2] }
+            FourHue={ hslFour[0] }
+            FourSat={ hslFour[1] }
+            FourLight={ hslFour[2] }
 
-          FiveHue={ hslFive[0] }
-          FiveSat={ hslFive[1] }
-          FiveLight={ hslFive[2] }
+            FiveHue={ hslFive[0] }
+            FiveSat={ hslFive[1] }
+            FiveLight={ hslFive[2] }
 
-          editable={ false }
-          onProfile={ true }
-          visibility={'hidden'}
-          height={'4.2rem'}
-          width={'4.2rem'}
-        />
-      )
-    })
+            editable={ false }
+            onProfile={ true }
+            visibility={'hidden'}
+            height={'4.2rem'}
+            width={'4.2rem'}
+          />
+        )
+      })
+    }
   }
 
   renderEditablePallet = () => {
