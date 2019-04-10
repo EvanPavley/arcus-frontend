@@ -40,6 +40,7 @@ const Navbar = (props) => {
           <div className='cool-nav-container'>
             <input
               className='image'
+              id='image'
               type='image'
               alt='logo'
               src={logo}
@@ -47,7 +48,7 @@ const Navbar = (props) => {
           </div>
 
           {props.current_user === null ? (
-            <div class="styled-select-nav blue semi-square">
+            <div className="styled-select-nav blue semi-square" id="select-phone">
               <select
                 onChange={handleNavMenu}
                 value={props.navMenu}
@@ -60,7 +61,7 @@ const Navbar = (props) => {
               </select>
             </div>
           ) : (
-            <div class="styled-select-nav blue semi-square">
+            <div className="styled-select-nav blue semi-square" id="select-phone">
               <select
                 onChange={handleNavMenu}
                 value={props.navMenu}

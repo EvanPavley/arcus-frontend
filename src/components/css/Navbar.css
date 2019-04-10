@@ -1,3 +1,11 @@
+@media (max-width: 420px) {
+  #image{
+    height: 30px;
+    width: auto;
+    margin-right: 1rem;
+  }
+}
+
 @media (orientation: landscape) {
   .nav-container {
     display: flex;
@@ -40,7 +48,7 @@
      font-weight: bold;
      font-size: 1.01rem;
      height: 2rem;
-     padding: 5px; /* If you add too much padding here, the options won't show in IE */
+     padding: 0rem;
      width: 9rem;
      outline: none;
   }
