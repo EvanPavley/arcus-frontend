@@ -26,6 +26,8 @@ All of the mockups are SVGs and the fill color of their parts are changed throug
 * [Scalable Vector Graphics (SVGs)](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics) - for mockup images created in [Adobe Illustrator](https://www.adobe.com/products/illustrator.html)
 * [Ruby on Rails](https://rubyonrails.org/) - to save palettes for reuse in different mockups, in a **has_many :through** domain model
 * [postgreSQL](https://www.postgresql.org/) - as the database
+* [bcrypt](https://rubygems.org/gems/bcrypt/versions/3.1.12) - to hash user passwords for real auth
+* [JSON Web Token (JWT)](https://rubygems.org/gems/jwt/versions/1.5.4) - for secure login storage
 
 ### Additional Notes
 
