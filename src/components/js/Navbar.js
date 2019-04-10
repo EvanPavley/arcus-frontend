@@ -28,6 +28,9 @@ const Navbar = (props) => {
     if (e.target.value === 'Sign Up') {
       props.history.push('/Signup')
     }
+    if (e.target.value === 'About') {
+      props.history.push('/About')
+    }
     if (e.target.value === 'Logout') {
       handleLogout()
     }
@@ -57,6 +60,7 @@ const Navbar = (props) => {
                 <option>Select a Page</option>
                 <option>Palette Creator</option>
                 <option>Your Palettes</option>
+                <option>About</option>
                 <option>Login</option>
                 <option>Sign Up</option>
               </select>
@@ -70,6 +74,7 @@ const Navbar = (props) => {
                 <option>Select a Page</option>
                 <option>Palette Creator</option>
                 <option>Your Palettes</option>
+                <option>About</option>
                 <option>Logout</option>
               </select>
             </div>
