@@ -139,7 +139,7 @@
    font-weight: bold;
    font-size: 1.01rem;
    height: 2rem;
-   padding: 0rem; /* If you add too much padding here, the options won't show in IE */
+   padding-left: 0.5rem;
    width: 16rem;
    outline: none;
 }
