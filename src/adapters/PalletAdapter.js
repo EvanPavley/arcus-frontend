@@ -1,6 +1,7 @@
+import API_URL from '../configURL'
 export default class PalletAdapter {
   static postPallet(palletObj){
-    return fetch('http://localhost:3000/api/v1/pallets', {
+    return fetch(`${API_URL}/api/v1/pallets`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -18,7 +19,7 @@ export default class PalletAdapter {
   }
 
   static postJoin(pallet_id, user_id){
-    return fetch('http://localhost:3000/api/v1/user_pallets', {
+    return fetch(`${API_URL}/api/v1/user_pallets`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

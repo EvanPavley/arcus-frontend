@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import hsl from 'hsl-to-hex'
 
+import API_URL from '../../../configURL'
 import PalletAdapter from '../../../adapters/PalletAdapter'
 import Swatch from './Swatch'
 import { selectPallet, deletePallet, setEditablePallet, addPallet, addJoin, selectHexPallet } from '../../../redux/actions';
@@ -51,7 +52,7 @@ const Pallet = (props) => {
     props.deletePallet(filteredPallets)
 
     let targetJoin = props.current_user.user_pallets.find(j => j.pallet_id === targetPallet.id)
-    fetch(`http://localhost:3000/api/v1/user_pallets/${targetJoin.id}`, {
+    fetch(`${API_URL}/api/v1/user_pallets/${targetJoin.id}`, {
       method: "DELETE"
     })
   }

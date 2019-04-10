@@ -3,6 +3,7 @@ import '../css/Login.css'
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { handleInputChange, setCurrentUser, setUsers } from '../../redux/actions';
+import API_URL from '../../configURL'
 
 const Signup = (props) => {
   let handleChange = (e) => {
@@ -22,7 +23,7 @@ const Signup = (props) => {
     }else if (props.password === "" || props.username === "") {
       alert("Please enter a username or password")
     }else{
-      fetch('http://localhost:3000/api/v1/users/', {
+      fetch(`${API_URL}/api/v1/users/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

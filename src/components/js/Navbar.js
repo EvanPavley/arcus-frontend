@@ -17,7 +17,7 @@ const Navbar = (props) => {
   let handleNavMenu = (e) => {
     props.selectNavMenu(e.target.value)
     if (e.target.value === 'Palette Creator') {
-      props.history.push('/ColorPalletGenerator')
+      props.history.push('/PaletteCreator')
     }
     if (e.target.value === 'Your Palettes') {
       props.history.push('/Profile')
@@ -83,7 +83,7 @@ const Navbar = (props) => {
               alt='logo'
               src={logo}
             />
-            <NavLink className='nav-item' to='/ColorPalletGenerator'>
+            <NavLink className='nav-item' to='/PaletteCreator'>
               Palette Creator{' '}
             </NavLink>
             <NavLink className='nav-item' to='/Profile'>

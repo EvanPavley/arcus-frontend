@@ -11,12 +11,14 @@ import Homepage from './Homepage'
 import Login from './Login'
 import Signup from './Signup'
 import Profile from './Profile'
+import API_URL from '../../configURL'
+
 
 
 class App extends Component {
 
   componentDidMount() {
-    fetch('http://localhost:3000/api/v1/users')
+    fetch(`${API_URL}/api/v1/users`)
       .then(r => r.json())
       .then(users =>
         this.props.setUsers(users)
@@ -25,7 +27,7 @@ class App extends Component {
     const token = localStorage.getItem("token")
 
     if (token){
-      fetch("http://localhost:3000/api/v1/auto_login", {
+      fetch(`${API_URL}/api/v1/auto_login`, {
         method: "GET",
         headers: {
           "Authorization": token          }
@@ -42,7 +44,7 @@ class App extends Component {
       <div className="app">
         <Navbar/>
         <Route
-          path='/ColorPalletGenerator'
+          path='/PaletteCreator'
           render={() => (
             <ColorPalletGenerator/>
           )}

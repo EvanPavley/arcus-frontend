@@ -3,6 +3,7 @@ import '../css/Login.css'
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { handleInputChange, setCurrentUser } from '../../redux/actions';
+import API_URL from '../../configURL'
 
 const Login = (props) => {
   let handleChange = (e) => {
@@ -18,7 +19,7 @@ const Login = (props) => {
   let handleSubmit = (e) => {
     e.preventDefault();
     if (checkExistingUser(props.username)) {
-      fetch("http://localhost:3000/api/v1/login", {
+      fetch(`${API_URL}/api/v1/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
