@@ -34,6 +34,7 @@ const Login = (props) => {
         if (response.errors){
           alert(response.errors)
         } else {
+          localStorage.setItem("token", response.jwt)
           props.setCurrentUser(response.user)
           props.history.push('/Profile');
         }
