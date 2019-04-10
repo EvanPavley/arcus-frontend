@@ -19,6 +19,8 @@ const Signup = (props) => {
     e.preventDefault();
     if (checkExistingUser(props.username)) {
       alert("You've already signed up, Please login.")
+    }else if (props.password === "" || " ") {
+      alert("Please enter a password")
     }else{
       fetch('http://localhost:3000/api/v1/users/', {
         method: "POST",
@@ -54,7 +56,7 @@ const Signup = (props) => {
           <p className='title'>Sign Up</p>
         </div>
         <form className="login-form" onSubmit={handleSubmit}>
-          <label>Username:</label>
+          <label>Username</label>
           <br/>
           <input
             name='username'
@@ -62,7 +64,7 @@ const Signup = (props) => {
             value={props.username}
           />
           <br/>
-          <label>Email:</label>
+          <label>Email (optional)</label>
           <br/>
           <input
             name='email'
@@ -70,7 +72,7 @@ const Signup = (props) => {
             value={props.email}
           />
           <br/>
-          <label>Password:</label>
+          <label>Password</label>
           <br/>
           <input
             name='password'

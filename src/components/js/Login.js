@@ -45,7 +45,7 @@ const Login = (props) => {
           <div className='button-holder'>
             <p className='title'>Login</p>
           </div>
-          <label>Username:</label>
+          <label>Username</label>
           <br/>
           <input
             name='username'
@@ -53,7 +53,7 @@ const Login = (props) => {
             value={props.username}
           />
           <br/>
-          <label>Password:</label>
+          <label>Password</label>
           <br/>
           <input
             name='password'
