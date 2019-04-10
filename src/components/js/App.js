@@ -11,6 +11,7 @@ import Homepage from './Homepage'
 import Login from './Login'
 import Signup from './Signup'
 import Profile from './Profile'
+import About from './About'
 import API_URL from '../../configURL'
 
 
@@ -77,6 +78,12 @@ class App extends Component {
             path='/Signup'
             render={(props) => (
               <Signup/>
+            )}
+          />
+        <Route
+            path='/About'
+            render={(props) => (
+              <About/>
             )}
           />
       </div>

@@ -44,6 +44,7 @@ const Navbar = (props) => {
               type='image'
               alt='logo'
               src={logo}
+              onClick={() => props.history.push('/PaletteCreator')}
             />
           </div>
 
@@ -83,12 +84,16 @@ const Navbar = (props) => {
               type='image'
               alt='logo'
               src={logo}
+              onClick={() => props.history.push('/PaletteCreator')}
             />
             <NavLink className='nav-item' to='/PaletteCreator'>
               Palette Creator{' '}
             </NavLink>
             <NavLink className='nav-item' to='/Profile'>
               Your Palettes{' '}
+            </NavLink>
+            <NavLink className='nav-item' to='/About'>
+              About{' '}
             </NavLink>
           </div>
 

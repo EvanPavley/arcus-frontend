@@ -1,3 +1,23 @@
 .app {
 
 }
+
+.aboutContainer{
+  text-align: center;
+  margin-top: 7rem;
+  font-size: 3rem;
+  color: #3f3f3f;
+}
+
+.aboutContainer a:visited {
+  color: #00BBFF;
+}
+
+.aboutContainer a:link {
+  color: #00BBFF;
+}
+
+.aboutContainer a:hover {
+  color: #a8e7ff;
+  text-decoration: none;
+}
