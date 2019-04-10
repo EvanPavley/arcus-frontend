@@ -25,3 +25,8 @@ All of the mockups are SVGs and the fill color of their parts are changed throug
 * [react-responsive](https://www.npmjs.com/package/react-responsive) - used for media queries / responsive design
 * [Scalable Vector Graphics (SVGs)](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics) - for mockup images created in [Adobe Illustrator](https://www.adobe.com/products/illustrator.html)
 * [Ruby on Rails](https://rubyonrails.org/) - to save palettes for reuse in different mockups, in a **has_many :through** domain model
+
+### Additional Notes
+
+Planning on creating a native app and user uploaded mockups in the future
+Named after the Roman goddess of rainbows
