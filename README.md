@@ -4,7 +4,7 @@ A web-app that enables designers to quickly cycle through generated color palett
 
 [Hosted on Heroku](https://arcus-color-palette.herokuapp.com/PaletteCreator)
 
-[Demo Video](https://arcus-color-palette.herokuapp.com/PaletteCreator)
+[Demo Video](https://www.youtube.com/watch?v=bGZpIQvYvWg)
 
 ## Design Ideas
 
